@@ -1,8 +1,6 @@
 Web - Programación de Aplicaciones
 ==========================================
 
-##Web
-
 ####Integrantes Grupo 3 - 2014
 Andres Botta   - andresbotta@gmail.com
 
