@@ -1,0 +1,49 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 70px;
+}
+
+.none{
+  display: none;
+}
+
+.navbar-middle{
+  position: absolute;
+  width: 300px;
+  left: 0;
+  margin-left: 45%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.btn-ingreso {
+  color: #fff;
+  background-color: transparent;
+  border-color: #ccc;
+}
+
+.btn-ingreso:hover,
+.btn-ingreso:focus,
+.btn-ingreso:active {
+  color: #fff;
+  background-color: #563d7c;
+  border-color: #563d7c;
+}
+
+.btn-registro {
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-registro:hover,
+.btn-registro:focus,
+.btn-registro:active {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
