@@ -1,35 +1,35 @@
 package controlador.datatypes;
 
 
-public class DataComentario {
+public class DataComentarioWS {
     
-    private DataCliente cliente;
-    private DataEspecificacionProducto especificacionProducto;
+    private DataClienteWS cliente;
+    private DataEspecificacionProductoWS especificacionProducto;
     private String comentario;
     
-    public DataComentario() {
+    public DataComentarioWS() {
         
     }
     
-    public DataComentario(DataCliente cliente, DataEspecificacionProducto especificacionProducto, String comentario) {
+    public DataComentarioWS(DataClienteWS cliente, DataEspecificacionProductoWS especificacionProducto, String comentario) {
         this.cliente = cliente;
         this.especificacionProducto = especificacionProducto;
         this.comentario = comentario;
     }
 
-    public DataCliente getCliente() {
+    public DataClienteWS getCliente() {
         return cliente;
     }
     
-    public void setCliente(DataCliente cliente) {
+    public void setCliente(DataClienteWS cliente) {
         this.cliente = cliente;
     }
     
-    public DataEspecificacionProducto getEspecificacionProducto() {
+    public DataEspecificacionProductoWS getEspecificacionProducto() {
         return especificacionProducto;
     }
 
-    public void setEspecificacionProducto(DataEspecificacionProducto especificacionProducto) {
+    public void setEspecificacionProducto(DataEspecificacionProductoWS especificacionProducto) {
         this.especificacionProducto = especificacionProducto;
     }
     

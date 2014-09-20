@@ -5,31 +5,31 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class DataOrdenCompra {
+public class DataOrdenCompraWS {
     
     private Integer nroOrden;
     private Date fecha;
     private Float precioTotal;
-    private List<DataClienteCompraProducto> clienteCompraProducto;
+    private List<DataClienteCompraProductoWS> clienteCompraProducto;
     
-    public DataOrdenCompra() {
+    public DataOrdenCompraWS() {
 
     }
     
-    public DataOrdenCompra(Integer nroOrden) {
+    public DataOrdenCompraWS(Integer nroOrden) {
         this.nroOrden = nroOrden;
         this.fecha = new Date();
         this.precioTotal = 0.0f;
     }
     
-    public DataOrdenCompra(Integer nroOrden, Date fecha, Float precioTotal, List<DataClienteCompraProducto> clienteCompraProducto) {
+    public DataOrdenCompraWS(Integer nroOrden, Date fecha, Float precioTotal, List<DataClienteCompraProductoWS> clienteCompraProducto) {
         this.nroOrden = nroOrden;
         this.fecha = fecha;
         this.precioTotal = precioTotal;
         this.clienteCompraProducto = clienteCompraProducto;
     }
     
-    public DataOrdenCompra(Integer nroOrden, List<DataClienteCompraProducto> clienteCompraProducto) {
+    public DataOrdenCompraWS(Integer nroOrden, List<DataClienteCompraProductoWS> clienteCompraProducto) {
         this.nroOrden = nroOrden;
         this.fecha = new Date();
         this.precioTotal = 0.0f;
@@ -52,11 +52,11 @@ public class DataOrdenCompra {
         this.fecha = fecha;
     }
     
-    public List<DataClienteCompraProducto> getClienteCompraProducto() {
+    public List<DataClienteCompraProductoWS> getClienteCompraProducto() {
         return clienteCompraProducto;
     }
 
-    public void setClienteCompraProducto(List<DataClienteCompraProducto> clienteCompraProducto) {
+    public void setClienteCompraProducto(List<DataClienteCompraProductoWS> clienteCompraProducto) {
         this.clienteCompraProducto = clienteCompraProducto;
     }
     

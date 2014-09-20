@@ -2,29 +2,29 @@ package controlador.datatypes;
 
  
 
-public class DataClienteCompraProducto {
+public class DataClienteCompraProductoWS {
     
-    private DataCliente cliente;
-    private DataProducto producto;
+    private DataClienteWS cliente;
+    private DataProductoWS producto;
     private Float precio;
        
-    public DataClienteCompraProducto() {
+    public DataClienteCompraProductoWS() {
         
     }
 
-    public DataCliente getCliente() {
+    public DataClienteWS getCliente() {
         return cliente;
     }
     
-    public void setCliente(DataCliente cliente) {
+    public void setCliente(DataClienteWS cliente) {
         this.cliente = cliente;
     }
     
-    public DataProducto getProducto() {
+    public DataProductoWS getProducto() {
         return producto;
     }
 
-    public void setProducto(DataProducto producto) {
+    public void setProducto(DataProductoWS producto) {
         this.producto = producto;
     }
     

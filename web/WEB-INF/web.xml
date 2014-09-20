@@ -4,9 +4,17 @@
         <servlet-name>CrearUsuario</servlet-name>
         <servlet-class>vista.servlets.CrearUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listarCategorias</servlet-name>
+        <servlet-class>vista.servlets.listarCategorias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/newuser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listarCategorias</servlet-name>
+        <url-pattern>/listarCategorias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,23 +6,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DataEspecificacionProducto {
+public class DataEspecificacionProductoWS {
     
     private String nroReferencia;
     private String nombre;
     private String descripcion;
     private Map<String,String> especificacion;
     private Float precio;
-    private DataProveedor proveedor;
+    private DataProveedorWS proveedor;
     private List<String> imagenes;
-    private List<DataCategoria> categorias;
-    private List<DataProducto> productos;
+    private List<DataCategoriaWS> categorias;
+    private List<DataProductoWS> productos;
     
-    public DataEspecificacionProducto() {
+    public DataEspecificacionProductoWS() {
 
     }
     
-    public DataEspecificacionProducto(String nroReferencia, String nombre, String descripcion, Map<String,String> especificacion, Float precio, DataProveedor proveedor, ArrayList<String> imagenes, ArrayList<DataCategoria> categorias,List<DataProducto> productos) {
+    public DataEspecificacionProductoWS(String nroReferencia, String nombre, String descripcion, Map<String,String> especificacion, Float precio, DataProveedorWS proveedor, ArrayList<String> imagenes, ArrayList<DataCategoriaWS> categorias,List<DataProductoWS> productos) {
         this.nroReferencia = nroReferencia;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -74,11 +74,11 @@ public class DataEspecificacionProducto {
         this.precio = precio;
     }
     
-    public DataProveedor getProveedor() {
+    public DataProveedorWS getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(DataProveedor proveedor) {
+    public void setProveedor(DataProveedorWS proveedor) {
         this.proveedor = proveedor;
     }
 
@@ -90,19 +90,19 @@ public class DataEspecificacionProducto {
         this.imagenes = imagenes;
     }
     
-    public List<DataCategoria> getCategorias() {
+    public List<DataCategoriaWS> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(List<DataCategoria> categorias) {
+    public void setCategorias(List<DataCategoriaWS> categorias) {
         this.categorias = categorias;
     }
     
-    public List<DataProducto> getProductos() {
+    public List<DataProductoWS> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<DataProducto> productos) {
+    public void setProductos(List<DataProductoWS> productos) {
         this.productos = productos;
     }
     public int getStock(){

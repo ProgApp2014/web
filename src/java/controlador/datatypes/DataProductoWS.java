@@ -1,23 +1,23 @@
 package controlador.datatypes;
 
 
-public class DataProducto {
+public class DataProductoWS {
     
     private Integer id;
     private String idEspecifico;
-    private DataEspecificacionProducto especificacionProducto;
+    private DataEspecificacionProductoWS especificacionProducto;
     
-    public DataProducto() {
+    public DataProductoWS() {
       
     }
     
-    public DataProducto(Integer id, DataEspecificacionProducto especificacionProducto) {
+    public DataProductoWS(Integer id, DataEspecificacionProductoWS especificacionProducto) {
         this.id = id;
         this.idEspecifico = null;
         this.especificacionProducto = especificacionProducto;
     }
     
-    public DataProducto(Integer id, String idEspecifico, DataEspecificacionProducto especificacionProducto) {
+    public DataProductoWS(Integer id, String idEspecifico, DataEspecificacionProductoWS especificacionProducto) {
         this.id = id;
         this.idEspecifico = idEspecifico;
         this.especificacionProducto = especificacionProducto;
@@ -39,11 +39,11 @@ public class DataProducto {
         this.idEspecifico = id;
     }
     
-    public DataEspecificacionProducto getEspecificacionProducto() {
+    public DataEspecificacionProductoWS getEspecificacionProducto() {
         return especificacionProducto;
     }
        
-    public void setEspecificacionProducto(DataEspecificacionProducto especificacionProducto) {
+    public void setEspecificacionProducto(DataEspecificacionProductoWS especificacionProducto) {
         this.especificacionProducto = especificacionProducto;
     }
     

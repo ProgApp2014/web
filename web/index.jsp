@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="controlador.clases.ProxyOrden" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Direct Market</title>
+<%
+    String a = ProxyOrden.getInstance().retNombre();
+%>
+    <title>Direct Market ( -<%=a%>- )</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
@@ -139,6 +142,7 @@
                     console.info(xhr.responseText)
             }
         </script>
+        
   </body>
 </html>
 

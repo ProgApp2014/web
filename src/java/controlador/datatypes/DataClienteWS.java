@@ -3,9 +3,9 @@ package controlador.datatypes;
  
 import java.util.Calendar;
 
-public class DataCliente extends DataUsuario{
+public class DataClienteWS extends DataUsuarioWS{
 
-    public DataCliente() {
+    public DataClienteWS() {
         super();
     }
 

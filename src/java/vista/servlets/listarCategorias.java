@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 package vista.servlets;
 
@@ -12,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rodro
  */
-public class CrearUsuario extends HttpServlet {
+public class listarCategorias extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,9 +32,16 @@ public class CrearUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            response.setHeader("redirect", "http://www.google.com");
-             out.println("Enviado por : "+request.getMethod());
+           
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet listarCategorias</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet listarCategorias at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

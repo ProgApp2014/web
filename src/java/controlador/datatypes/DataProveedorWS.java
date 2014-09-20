@@ -3,18 +3,18 @@ package controlador.datatypes;
 
 import java.util.Calendar;
 
-public class DataProveedor extends DataUsuario{
+public class DataProveedorWS extends DataUsuarioWS{
     
     private String nombreCompania;
     private String linkSitio;
     
-    public DataProveedor(String nickname, String nombre, String apellido, String email, Calendar fechaNacimiento, String nombreCompania, String linkSitio) {
+    public DataProveedorWS(String nickname, String nombre, String apellido, String email, Calendar fechaNacimiento, String nombreCompania, String linkSitio) {
         super(nickname, nombre, apellido, email, fechaNacimiento);
         this.nombreCompania = nombreCompania;
         this.linkSitio = linkSitio;
     }
     
-    public DataProveedor() {
+    public DataProveedorWS() {
         super();
 
     }

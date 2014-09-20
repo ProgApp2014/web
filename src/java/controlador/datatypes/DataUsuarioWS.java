@@ -3,7 +3,7 @@ package controlador.datatypes;
 
 import java.util.Calendar;
 
-public class DataUsuario {
+public class DataUsuarioWS {
     
     private String nickname;
     private String nombre;
@@ -13,11 +13,11 @@ public class DataUsuario {
     private String imagen;
     
     
-    public DataUsuario(){
+    public DataUsuarioWS(){
         
     }
     
-    public DataUsuario(String nickname, String nombre, String apellido, String email, Calendar fechaNacimiento) {
+    public DataUsuarioWS(String nickname, String nombre, String apellido, String email, Calendar fechaNacimiento) {
         this.nickname = nickname;
         this.nombre = nombre;
         this.apellido = apellido;

@@ -5,17 +5,17 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataCategoria {
+public class DataCategoriaWS {
     
     private String nombre;
-    private DataCategoria padre;
-    private Map<String,DataEspecificacionProducto> listaProductos;
+    private DataCategoriaWS padre;
+    private Map<String,DataEspecificacionProductoWS> listaProductos;
     
-    public DataCategoria() {
+    public DataCategoriaWS() {
         
     }
        
-    public DataCategoria(String nombre, DataCategoria padre) {
+    public DataCategoriaWS(String nombre, DataCategoriaWS padre) {
         this.nombre = nombre;
         this.padre = padre;
     }
@@ -28,19 +28,19 @@ public class DataCategoria {
         this.nombre = nombre;
     }
     
-    public DataCategoria getPadre() {
+    public DataCategoriaWS getPadre() {
         return padre;
     }
     
-    public void setPadre(DataCategoria padre) {
+    public void setPadre(DataCategoriaWS padre) {
         this.padre = padre;
     }
     
-    public Map<String,DataEspecificacionProducto> getListaProductos() {
+    public Map<String,DataEspecificacionProductoWS> getListaProductos() {
         return this.listaProductos;
     }
     
-    public void setListaProductos(Map<String,DataEspecificacionProducto> productos) {
+    public void setListaProductos(Map<String,DataEspecificacionProductoWS> productos) {
         this.listaProductos = productos;
     }
     
