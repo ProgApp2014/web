@@ -129,7 +129,16 @@
           $(this).parent().children('ul.tree').toggle(300);
         });
       });
-    </script>
+ 
+           var xhr = new XMLHttpRequest();
+           xhr.open("POST","newuser",true);
+           xhr.send();
+           
+           xhr.onreadystatechange = function(e){
+                if(xhr.readyState == 4 && xhr.status == 200)
+                    console.info(xhr.responseText)
+            }
+        </script>
   </body>
 </html>
 
