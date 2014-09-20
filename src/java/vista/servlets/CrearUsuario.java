@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Serlets;
+package vista.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

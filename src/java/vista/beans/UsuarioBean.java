@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Beans;
+package vista.beans;
 
 import java.beans.*;
 import java.io.Serializable;
