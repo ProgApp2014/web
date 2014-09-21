@@ -44,6 +44,7 @@ public class ProxyOrden {
     }
     public List<DataClienteWS> listarClientes() {
         List<DataCliente>  l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarClientes();
+        
         return null;
         
     }
