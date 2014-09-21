@@ -1,6 +1,6 @@
-
 package vista.servlets;
 
+import controlador.clases.ProxyUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,9 +27,11 @@ public class CrearUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            response.setHeader("redirect", "http://www.google.com");
-             out.println("Enviado por : "+request.getMethod());
+            try {
+                 out.println("Enviado por : " + request.getMethod());
+            } catch (Exception e) {
+                out.println("Error : " + e.getMessage());
+            }
         }
     }
 
