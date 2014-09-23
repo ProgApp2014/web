@@ -6,7 +6,9 @@ public class DataProductoWS {
     private Integer id;
     private String idEspecifico;
     private DataEspecificacionProductoWS especificacionProducto;
-    
+    private Boolean enOrden;
+
+
     public DataProductoWS() {
       
     }
@@ -30,7 +32,13 @@ public class DataProductoWS {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+        public Boolean isEnOrden() {
+        return enOrden;
+    }
+
+    public void setEnOrden(Boolean enOrden) {
+        this.enOrden = enOrden;
+    }
     public String getIdEspecifico() {
         return idEspecifico;
     }

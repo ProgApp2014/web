@@ -67,7 +67,8 @@ public class ConvertidorBackend {
     }
 
     public static DataProducto toProducto(DataProductoWS o) {
-        return new DataProducto(o.getId(), o.getIdEspecifico(), toEspecificacionProducto(o.getEspecificacionProducto()));
+        DataProducto ret =  new DataProducto(o.getId(), o.getIdEspecifico(), o.isEnOrden(), toEspecificacionProducto(o.getEspecificacionProducto()));
+        return ret;
     }
 
     public static DataProveedor toProveedor(DataProveedorWS o) {
