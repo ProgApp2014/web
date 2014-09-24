@@ -1,5 +1,7 @@
+<%@page import="controlador.datatypes.DataCategoriaWS"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="controlador.clases.ProxyOrden" %>
+<%@ page import="controlador.clases.ProxyProducto" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,10 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-<%
-    String a = ProxyOrden.getInstance().retNombre();
-%>
-    <title>Direct Market ( -<%=a%>- )</title>
+    
+    <title>Direct Market</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
@@ -31,7 +31,11 @@
       <div class="row">
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
-            <li><label class="tree-toggler nav-header">Categoria 1</label>
+            <%
+                List<DataCategoriaWS> listarCategorias = ProxyProducto.getInstance().listarCategorias();
+                for(int i = 0; i < listarCategorias.size(); i++){
+            %>
+            <li><label class="tree-toggler nav-header"><% out.print(listarCategorias.get(i)); %></label>
               <ul class="nav-list tree none">
                 <li><a href="#">categoria 1.1</a></li>
                 <li><label class="tree-toggler nav-header">Categoria 1.2</label>
@@ -50,44 +54,7 @@
                 </li>
               </ul>
             </li>
-            <li><label class="tree-toggler nav-header">Categoria 1</label>
-              <ul class="nav-list tree none">
-                <li><a href="#">categoria 1.1</a></li>
-                <li><label class="tree-toggler nav-header">Categoria 1.2</label>
-                  <ul class="nav-list tree none">
-                    <li><a href="#">categoria 1.2.1</a></li>
-                    <li><a href="#">categoria 1.2.2</a></li>
-                    <li><label class="tree-toggler nav-header">Categoria 1.2.3</label>
-                    <ul class="nav-list tree none">
-                      <li><a href="#">categoria 1.2.3.1</a></li>
-                      <li><a href="#">categoria 1.2.3.2</a></li>
-                      <li><a href="#">categoria 1.2.3.3</a></li>
-                      <li><a href="#">categoria 1.2.3.4</a></li>
-                    </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><label class="tree-toggler nav-header">Categoria 1</label>
-              <ul class="nav-list tree none">
-                <li><a href="#">categoria 1.1</a></li>
-                <li><label class="tree-toggler nav-header">Categoria 1.2</label>
-                  <ul class="nav-list tree none">
-                    <li><a href="#">categoria 1.2.1</a></li>
-                    <li><a href="#">categoria 1.2.2</a></li>
-                    <li><label class="tree-toggler nav-header">Categoria 1.2.3</label>
-                    <ul class="nav-list tree none">
-                      <li><a href="#">categoria 1.2.3.1</a></li>
-                      <li><a href="#">categoria 1.2.3.2</a></li>
-                      <li><a href="#">categoria 1.2.3.3</a></li>
-                      <li><a href="#">categoria 1.2.3.4</a></li>
-                    </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+            <% } %>
           </ul>
         </div>
           
