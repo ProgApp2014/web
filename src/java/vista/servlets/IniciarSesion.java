@@ -2,17 +2,13 @@ package vista.servlets;
 
 import controlador.clases.ProxyUsuario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author rodro
- */
-public class CrearUsuario extends HttpServlet {
+public class IniciarSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,14 +21,7 @@ public class CrearUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                 out.println("Enviado por : " + request.getMethod());
-            } catch (Exception e) {
-                out.println("Error : " + e.getMessage());
-            }
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +36,7 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     /**
@@ -61,7 +50,26 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String usuario = request.getParameter("usuario");
+        String clave = request.getParameter("clave");
+
+        try {
+//            DataUsuarioWS usr = Proxyusuario.getInstance().buscarUsuario(usuario);
+//            if(!usr.getPassword().equals(clave))
+//                nuevoEstado = "Login incorrecto";
+//            else {
+//                nuevoEstado = "Login correcto";
+//                request.getSession().setAttribute("usuario_logueado", usr.getEmail());
+//            }
+            request.getSession().setAttribute("usuario_logueado", "andresbotta@gmail.com");
+        } catch(Exception ex){
+            response.sendError(404);
+            request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
+            return;
+        }
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/home");
+        dispatcher.forward(request, response);
     }
 
     /**

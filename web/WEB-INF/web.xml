@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>CrearUsuario</servlet-name>
-        <servlet-class>vista.servlets.CrearUsuario</servlet-class>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>vista.servlets.Home</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>listarCategorias</servlet-name>
-        <servlet-class>vista.servlets.listarCategorias</servlet-class>
+        <servlet-name>IniciarSesion</servlet-name>
+        <servlet-class>vista.servlets.IniciarSesion</servlet-class>
     </servlet>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/500.jsp</location>
+    </error-page>
     <servlet-mapping>
-        <servlet-name>CrearUsuario</servlet-name>
-        <url-pattern>/newuser</url-pattern>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>listarCategorias</servlet-name>
-        <url-pattern>/listarCategorias</url-pattern>
+        <servlet-name>IniciarSesion</servlet-name>
+        <url-pattern>/iniciar-sesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

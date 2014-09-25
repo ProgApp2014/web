@@ -20,7 +20,7 @@
 
   <body>
 
-    <jsp:include page="includes/header.jsp"/>
+    <jsp:include page="/WEB-INF/includes/header.jsp"/>
 
     <div class="container">
         
