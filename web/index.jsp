@@ -1,7 +1,7 @@
-<%@page import="controlador.datatypes.DataCategoriaWS"%>
+<%@page import="controlador.clases.indexControladora"%>
+<%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="controlador.clases.ProxyProducto" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,9 +32,11 @@
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
             <%
-                List<DataCategoriaWS> listarCategorias = ProxyProducto.getInstance().listarCategorias();
+                indexControladora ic = new indexControladora(); 
+                List<DataCategoria> listarCategorias =  ic.getL();
                 for(int i = 0; i < listarCategorias.size(); i++){
             %>
+            <%=ic.getError()%>
             <li><label class="tree-toggler nav-header"><% out.print(listarCategorias.get(i)); %></label>
               <ul class="nav-list tree none">
                 <li><a href="#">categoria 1.1</a></li>
