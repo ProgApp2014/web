@@ -20,7 +20,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class TreeParser {
 
     private ArrayList<NodoCategoria> categoriasAgregadas;
-    
+
     private Comparator<NodoCategoria> comp = new Comparator<NodoCategoria>() {
 
         @Override
@@ -30,10 +30,12 @@ public class TreeParser {
 
         }
     };
-    public TreeParser(){
-            
-            categoriasAgregadas =  new ArrayList();
+
+    public TreeParser() {
+
+        categoriasAgregadas = new ArrayList();
     }
+
     public ArrayList<NodoCategoria> buildTree(List<DataCategoria> l) {
         l.forEach((categoria) -> {
 
@@ -86,9 +88,11 @@ public class TreeParser {
         });
 
         categoriasAgregadas.sort(comp);
-        
+
         return categoriasAgregadas;
     }
+
+  
 
     public NodoCategoria getPadre(String padre) {
         Boolean found = false;
@@ -155,8 +159,9 @@ public class TreeParser {
             }
             return encontrado;
         }
-        public String toString(){
-            return this.nombre; 
+
+        public String toString() {
+            return this.nombre;
         }
     }
 }

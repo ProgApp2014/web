@@ -1,152 +1,152 @@
-[EL Config]: metadata: 2014-09-25 11:26:30.457--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Usuario] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.485--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Cliente] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.485--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Proveedor] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.486--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.OrdenCompra] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.495--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field clienteCompraProducto] is being defaulted to: class Controlador.Clases.ClienteCompraProducto.
-[EL Config]: metadata: 2014-09-25 11:26:30.496--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Producto] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.499--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field especificacionProducto] is being defaulted to: class Controlador.Clases.EspecificacionProducto.
-[EL Config]: metadata: 2014-09-25 11:26:30.499--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.ClienteCompraProducto] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.5--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field cliente] is being defaulted to a one to one mapping.
-[EL Config]: metadata: 2014-09-25 11:26:30.5--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class Controlador.Clases.Cliente.
-[EL Config]: metadata: 2014-09-25 11:26:30.5--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field Orden] is being defaulted to a one to one mapping.
-[EL Config]: metadata: 2014-09-25 11:26:30.5--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field Orden] is being defaulted to: class Controlador.Clases.OrdenCompra.
-[EL Config]: metadata: 2014-09-25 11:26:30.501--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field producto] is being defaulted to a one to one mapping.
-[EL Config]: metadata: 2014-09-25 11:26:30.501--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field producto] is being defaulted to: class Controlador.Clases.Producto.
-[EL Config]: metadata: 2014-09-25 11:26:30.501--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.EspecificacionProducto] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.501--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field listaProductos] is being defaulted to: class Controlador.Clases.Producto.
-[EL Config]: metadata: 2014-09-25 11:26:30.505--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field imagenes] is being defaulted to: class java.lang.String.
-[EL Config]: metadata: 2014-09-25 11:26:30.505--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field categorias] is being defaulted to: class Controlador.Clases.Categoria.
-[EL Config]: metadata: 2014-09-25 11:26:30.506--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field proveedor] is being defaulted to: class Controlador.Clases.Proveedor.
-[EL Config]: metadata: 2014-09-25 11:26:30.506--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field especificacion] is being defaulted to: class java.lang.String.
-[EL Config]: metadata: 2014-09-25 11:26:30.507--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Categoria] is set to [FIELD].
-[EL Config]: metadata: 2014-09-25 11:26:30.507--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field padre] is being defaulted to: class Controlador.Clases.Categoria.
-[EL Config]: metadata: 2014-09-25 11:26:30.507--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field listaProductos] is being defaulted to: class Controlador.Clases.EspecificacionProducto.
-[EL Config]: metadata: 2014-09-25 11:26:30.508--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Cliente] is being defaulted to: Cliente.
-[EL Config]: metadata: 2014-09-25 11:26:30.508--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Usuario] is being defaulted to: Usuario.
-[EL Config]: metadata: 2014-09-25 11:26:30.509--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Usuario] is being defaulted to: USUARIO.
-[EL Config]: metadata: 2014-09-25 11:26:30.522--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [fechaNacimiento] is being defaulted to: FECHANACIMIENTO.
-[EL Config]: metadata: 2014-09-25 11:26:30.524--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [apellido] is being defaulted to: APELLIDO.
-[EL Config]: metadata: 2014-09-25 11:26:30.525--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nickname] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.525--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [imagen] is being defaulted to: IMAGEN.
-[EL Config]: metadata: 2014-09-25 11:26:30.525--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
-[EL Config]: metadata: 2014-09-25 11:26:30.526--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
-[EL Config]: metadata: 2014-09-25 11:26:30.526--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Cliente] is being defaulted to: CLIENTE.
-[EL Config]: metadata: 2014-09-25 11:26:30.527--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the inheritance class [class Controlador.Clases.Cliente] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.527--ServerSession(2009787198)--Thread(Thread[main,5,main])--The foreign key column name for the inheritance class [Controlador.Clases.Cliente] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.528--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Proveedor] is being defaulted to: Proveedor.
-[EL Config]: metadata: 2014-09-25 11:26:30.528--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Proveedor] is being defaulted to: PROVEEDOR.
-[EL Config]: metadata: 2014-09-25 11:26:30.528--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the inheritance class [class Controlador.Clases.Proveedor] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.528--ServerSession(2009787198)--Thread(Thread[main,5,main])--The foreign key column name for the inheritance class [Controlador.Clases.Proveedor] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.528--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombreCompania] is being defaulted to: NOMBRECOMPANIA.
-[EL Config]: metadata: 2014-09-25 11:26:30.529--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [linkSitio] is being defaulted to: LINKSITIO.
-[EL Config]: metadata: 2014-09-25 11:26:30.529--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.OrdenCompra] is being defaulted to: OrdenCompra.
-[EL Config]: metadata: 2014-09-25 11:26:30.529--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.OrdenCompra] is being defaulted to: ORDENCOMPRA.
-[EL Config]: metadata: 2014-09-25 11:26:30.529--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [fecha] is being defaulted to: FECHA.
-[EL Config]: metadata: 2014-09-25 11:26:30.53--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Producto] is being defaulted to: Producto.
-[EL Config]: metadata: 2014-09-25 11:26:30.53--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Producto] is being defaulted to: PRODUCTO.
-[EL Config]: metadata: 2014-09-25 11:26:30.53--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [enOrden] is being defaulted to: ENORDEN.
-[EL Config]: metadata: 2014-09-25 11:26:30.531--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2014-09-25 11:26:30.531--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.ClienteCompraProducto] is being defaulted to: ClienteCompraProducto.
-[EL Config]: metadata: 2014-09-25 11:26:30.531--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.ClienteCompraProducto] is being defaulted to: CLIENTECOMPRAPRODUCTO.
-[EL Config]: metadata: 2014-09-25 11:26:30.531--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [precio] is being defaulted to: PRECIO.
-[EL Config]: metadata: 2014-09-25 11:26:30.532--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.EspecificacionProducto] is being defaulted to: EspecificacionProducto.
-[EL Config]: metadata: 2014-09-25 11:26:30.532--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.EspecificacionProducto] is being defaulted to: ESPECIFICACIONPRODUCTO.
-[EL Config]: metadata: 2014-09-25 11:26:30.532--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [descripcion] is being defaulted to: DESCRIPCION.
-[EL Config]: metadata: 2014-09-25 11:26:30.532--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [precio] is being defaulted to: PRECIO.
-[EL Config]: metadata: 2014-09-25 11:26:30.533--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
-[EL Config]: metadata: 2014-09-25 11:26:30.533--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Categoria] is being defaulted to: Categoria.
-[EL Config]: metadata: 2014-09-25 11:26:30.533--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Categoria] is being defaulted to: CATEGORIA.
-[EL Config]: metadata: 2014-09-25 11:26:30.533--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
-[EL Config]: metadata: 2014-09-25 11:26:30.542--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field cliente] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.543--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field Orden] is being defaulted to: NRO_ORDEN.
-[EL Config]: metadata: 2014-09-25 11:26:30.544--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field producto] is being defaulted to: ID.
-[EL Warning]: metadata: 2014-09-25 11:26:30.544--ServerSession(2009787198)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [Controlador.Clases.ClienteCompraProducto] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
-[EL Config]: metadata: 2014-09-25 11:26:30.557--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field imagenes] is being defaulted to: NROREFERENCIA.
-[EL Config]: metadata: 2014-09-25 11:26:30.562--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field especificacion] is being defaulted to: NROREFERENCIA.
-[EL Config]: metadata: 2014-09-25 11:26:30.564--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field especificacionProducto] is being defaulted to: NROREFERENCIA.
-[EL Config]: metadata: 2014-09-25 11:26:30.567--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field proveedor] is being defaulted to: NICKNAME.
-[EL Config]: metadata: 2014-09-25 11:26:30.567--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field padre] is being defaulted to: NOMBRE.
-[EL Info]: 2014-09-25 11:26:30.973--ServerSession(2009787198)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.1.v20130918-f2b9fc5
-[EL Fine]: connection: 2014-09-25 11:26:31.015--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.H2Platform
-[EL Config]: connection: 2014-09-25 11:26:31.026--ServerSession(2009787198)--Connection(773300030)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+[EL Config]: metadata: 2014-09-25 11:55:09.507--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Usuario] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.546--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.546--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Proveedor] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.546--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.OrdenCompra] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.557--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field clienteCompraProducto] is being defaulted to: class Controlador.Clases.ClienteCompraProducto.
+[EL Config]: metadata: 2014-09-25 11:55:09.56--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Producto] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.565--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field especificacionProducto] is being defaulted to: class Controlador.Clases.EspecificacionProducto.
+[EL Config]: metadata: 2014-09-25 11:55:09.565--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.ClienteCompraProducto] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.566--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field cliente] is being defaulted to a one to one mapping.
+[EL Config]: metadata: 2014-09-25 11:55:09.567--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class Controlador.Clases.Cliente.
+[EL Config]: metadata: 2014-09-25 11:55:09.568--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field Orden] is being defaulted to a one to one mapping.
+[EL Config]: metadata: 2014-09-25 11:55:09.569--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field Orden] is being defaulted to: class Controlador.Clases.OrdenCompra.
+[EL Config]: metadata: 2014-09-25 11:55:09.569--ServerSession(2009787198)--Thread(Thread[main,5,main])--The element [field producto] is being defaulted to a one to one mapping.
+[EL Config]: metadata: 2014-09-25 11:55:09.57--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field producto] is being defaulted to: class Controlador.Clases.Producto.
+[EL Config]: metadata: 2014-09-25 11:55:09.57--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.EspecificacionProducto] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.571--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field listaProductos] is being defaulted to: class Controlador.Clases.Producto.
+[EL Config]: metadata: 2014-09-25 11:55:09.58--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field imagenes] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2014-09-25 11:55:09.581--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field categorias] is being defaulted to: class Controlador.Clases.Categoria.
+[EL Config]: metadata: 2014-09-25 11:55:09.581--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field proveedor] is being defaulted to: class Controlador.Clases.Proveedor.
+[EL Config]: metadata: 2014-09-25 11:55:09.582--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field especificacion] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2014-09-25 11:55:09.582--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Categoria] is set to [FIELD].
+[EL Config]: metadata: 2014-09-25 11:55:09.583--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field padre] is being defaulted to: class Controlador.Clases.Categoria.
+[EL Config]: metadata: 2014-09-25 11:55:09.583--ServerSession(2009787198)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field listaProductos] is being defaulted to: class Controlador.Clases.EspecificacionProducto.
+[EL Config]: metadata: 2014-09-25 11:55:09.583--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2014-09-25 11:55:09.583--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Usuario] is being defaulted to: Usuario.
+[EL Config]: metadata: 2014-09-25 11:55:09.584--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Usuario] is being defaulted to: USUARIO.
+[EL Config]: metadata: 2014-09-25 11:55:09.604--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [fechaNacimiento] is being defaulted to: FECHANACIMIENTO.
+[EL Config]: metadata: 2014-09-25 11:55:09.608--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [apellido] is being defaulted to: APELLIDO.
+[EL Config]: metadata: 2014-09-25 11:55:09.608--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nickname] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.608--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [imagen] is being defaulted to: IMAGEN.
+[EL Config]: metadata: 2014-09-25 11:55:09.609--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
+[EL Config]: metadata: 2014-09-25 11:55:09.609--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2014-09-25 11:55:09.61--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Cliente] is being defaulted to: CLIENTE.
+[EL Config]: metadata: 2014-09-25 11:55:09.612--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the inheritance class [class Controlador.Clases.Cliente] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.612--ServerSession(2009787198)--Thread(Thread[main,5,main])--The foreign key column name for the inheritance class [Controlador.Clases.Cliente] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.613--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Proveedor] is being defaulted to: Proveedor.
+[EL Config]: metadata: 2014-09-25 11:55:09.614--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Proveedor] is being defaulted to: PROVEEDOR.
+[EL Config]: metadata: 2014-09-25 11:55:09.615--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the inheritance class [class Controlador.Clases.Proveedor] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.616--ServerSession(2009787198)--Thread(Thread[main,5,main])--The foreign key column name for the inheritance class [Controlador.Clases.Proveedor] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.616--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombreCompania] is being defaulted to: NOMBRECOMPANIA.
+[EL Config]: metadata: 2014-09-25 11:55:09.616--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [linkSitio] is being defaulted to: LINKSITIO.
+[EL Config]: metadata: 2014-09-25 11:55:09.617--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.OrdenCompra] is being defaulted to: OrdenCompra.
+[EL Config]: metadata: 2014-09-25 11:55:09.619--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.OrdenCompra] is being defaulted to: ORDENCOMPRA.
+[EL Config]: metadata: 2014-09-25 11:55:09.62--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [fecha] is being defaulted to: FECHA.
+[EL Config]: metadata: 2014-09-25 11:55:09.621--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Producto] is being defaulted to: Producto.
+[EL Config]: metadata: 2014-09-25 11:55:09.621--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Producto] is being defaulted to: PRODUCTO.
+[EL Config]: metadata: 2014-09-25 11:55:09.622--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [enOrden] is being defaulted to: ENORDEN.
+[EL Config]: metadata: 2014-09-25 11:55:09.622--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2014-09-25 11:55:09.622--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.ClienteCompraProducto] is being defaulted to: ClienteCompraProducto.
+[EL Config]: metadata: 2014-09-25 11:55:09.622--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.ClienteCompraProducto] is being defaulted to: CLIENTECOMPRAPRODUCTO.
+[EL Config]: metadata: 2014-09-25 11:55:09.623--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [precio] is being defaulted to: PRECIO.
+[EL Config]: metadata: 2014-09-25 11:55:09.623--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.EspecificacionProducto] is being defaulted to: EspecificacionProducto.
+[EL Config]: metadata: 2014-09-25 11:55:09.623--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.EspecificacionProducto] is being defaulted to: ESPECIFICACIONPRODUCTO.
+[EL Config]: metadata: 2014-09-25 11:55:09.623--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [descripcion] is being defaulted to: DESCRIPCION.
+[EL Config]: metadata: 2014-09-25 11:55:09.626--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [precio] is being defaulted to: PRECIO.
+[EL Config]: metadata: 2014-09-25 11:55:09.626--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
+[EL Config]: metadata: 2014-09-25 11:55:09.626--ServerSession(2009787198)--Thread(Thread[main,5,main])--The alias name for the entity class [class Controlador.Clases.Categoria] is being defaulted to: Categoria.
+[EL Config]: metadata: 2014-09-25 11:55:09.627--ServerSession(2009787198)--Thread(Thread[main,5,main])--The table name for entity [class Controlador.Clases.Categoria] is being defaulted to: CATEGORIA.
+[EL Config]: metadata: 2014-09-25 11:55:09.627--ServerSession(2009787198)--Thread(Thread[main,5,main])--The column name for element [nombre] is being defaulted to: NOMBRE.
+[EL Config]: metadata: 2014-09-25 11:55:09.639--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field cliente] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.641--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field Orden] is being defaulted to: NRO_ORDEN.
+[EL Config]: metadata: 2014-09-25 11:55:09.642--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field producto] is being defaulted to: ID.
+[EL Warning]: metadata: 2014-09-25 11:55:09.642--ServerSession(2009787198)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [Controlador.Clases.ClienteCompraProducto] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use entity manager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
+[EL Config]: metadata: 2014-09-25 11:55:09.661--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field imagenes] is being defaulted to: NROREFERENCIA.
+[EL Config]: metadata: 2014-09-25 11:55:09.668--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field especificacion] is being defaulted to: NROREFERENCIA.
+[EL Config]: metadata: 2014-09-25 11:55:09.671--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field especificacionProducto] is being defaulted to: NROREFERENCIA.
+[EL Config]: metadata: 2014-09-25 11:55:09.675--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field proveedor] is being defaulted to: NICKNAME.
+[EL Config]: metadata: 2014-09-25 11:55:09.676--ServerSession(2009787198)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field padre] is being defaulted to: NOMBRE.
+[EL Info]: 2014-09-25 11:55:10.264--ServerSession(2009787198)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.1.v20130918-f2b9fc5
+[EL Fine]: connection: 2014-09-25 11:55:10.346--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.H2Platform
+[EL Config]: connection: 2014-09-25 11:55:10.357--ServerSession(2009787198)--Connection(773300030)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=>H2Platform
 	user name=> "admin"
 	datasource URL=> "jdbc:h2:tcp://localhost/~/prog1"
 ))
-[EL Config]: connection: 2014-09-25 11:26:31.028--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--Connected: jdbc:h2:tcp://localhost/~/prog1
+[EL Config]: connection: 2014-09-25 11:55:10.359--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--Connected: jdbc:h2:tcp://localhost/~/prog1
 	User: ADMIN
 	Database: H2  Version: 1.4.181 (2014-08-06)
 	Driver: H2 JDBC Driver  Version: 1.4.181 (2014-08-06)
-[EL Info]: connection: 2014-09-25 11:26:31.072--ServerSession(2009787198)--Thread(Thread[main,5,main])--file:/home/rodro/workspace/tecnologo/ProgramacionAplicaciones/web/web/src/java/model/lib/ProgServer.jar_ProgramacionAppPU login successful
-[EL Fine]: sql: 2014-09-25 11:26:31.212--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t0.NICKNAME, t0.DTYPE, t0.APELLIDO, t0.EMAIL, t0.FECHANACIMIENTO, t0.IMAGEN, t0.NOMBRE, t1.NICKNAME FROM USUARIO t0, CLIENTE t1 WHERE ((t1.NICKNAME = t0.NICKNAME) AND (t0.DTYPE = ?))
+[EL Info]: connection: 2014-09-25 11:55:10.434--ServerSession(2009787198)--Thread(Thread[main,5,main])--file:/home/rodro/workspace/tecnologo/ProgramacionAplicaciones/web/web/src/java/model/lib/ProgServer.jar_ProgramacionAppPU login successful
+[EL Fine]: sql: 2014-09-25 11:55:10.659--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t0.NICKNAME, t0.DTYPE, t0.APELLIDO, t0.EMAIL, t0.FECHANACIMIENTO, t0.IMAGEN, t0.NOMBRE, t1.NICKNAME FROM USUARIO t0, CLIENTE t1 WHERE ((t1.NICKNAME = t0.NICKNAME) AND (t0.DTYPE = ?))
 	bind => [Cliente]
-[EL Fine]: sql: 2014-09-25 11:26:31.281--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
-[EL Fine]: sql: 2014-09-25 11:26:31.283--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.764--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
+[EL Fine]: sql: 2014-09-25 11:55:10.766--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [asdf]
-[EL Fine]: sql: 2014-09-25 11:26:31.287--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.771--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [df]
-[EL Fine]: sql: 2014-09-25 11:26:31.29--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.772--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [a]
-[EL Fine]: sql: 2014-09-25 11:26:31.293--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t0.NICKNAME, t0.DTYPE, t0.APELLIDO, t0.EMAIL, t0.FECHANACIMIENTO, t0.IMAGEN, t0.NOMBRE, t1.NICKNAME, t1.LINKSITIO, t1.NOMBRECOMPANIA FROM USUARIO t0, PROVEEDOR t1 WHERE ((t0.NICKNAME = ?) AND ((t1.NICKNAME = t0.NICKNAME) AND (t0.DTYPE = ?)))
+[EL Fine]: sql: 2014-09-25 11:55:10.774--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t0.NICKNAME, t0.DTYPE, t0.APELLIDO, t0.EMAIL, t0.FECHANACIMIENTO, t0.IMAGEN, t0.NOMBRE, t1.NICKNAME, t1.LINKSITIO, t1.NOMBRECOMPANIA FROM USUARIO t0, PROVEEDOR t1 WHERE ((t0.NICKNAME = ?) AND ((t1.NICKNAME = t0.NICKNAME) AND (t0.DTYPE = ?)))
 	bind => [fdsa, Proveedor]
-[EL Fine]: sql: 2014-09-25 11:26:31.298--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.777--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.3--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.779--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.336--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.816--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [ab]
-[EL Fine]: sql: 2014-09-25 11:26:31.338--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.819--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.338--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.819--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.362--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.846--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [asdf]
-[EL Fine]: sql: 2014-09-25 11:26:31.364--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.847--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [asdf]
-[EL Fine]: sql: 2014-09-25 11:26:31.367--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.85--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [df]
-[EL Fine]: sql: 2014-09-25 11:26:31.368--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.852--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [df]
-[EL Fine]: sql: 2014-09-25 11:26:31.369--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.853--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [a]
-[EL Fine]: sql: 2014-09-25 11:26:31.37--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.854--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [a]
-[EL Fine]: sql: 2014-09-25 11:26:31.371--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.855--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.372--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.855--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.39--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.876--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [ab]
-[EL Fine]: sql: 2014-09-25 11:26:31.391--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.877--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [ab]
-[EL Fine]: sql: 2014-09-25 11:26:31.392--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.878--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.393--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.878--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.407--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
-[EL Fine]: sql: 2014-09-25 11:26:31.412--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
-[EL Fine]: sql: 2014-09-25 11:26:31.414--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.91--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
+[EL Fine]: sql: 2014-09-25 11:55:10.919--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
+[EL Fine]: sql: 2014-09-25 11:55:10.92--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [asdf]
-[EL Fine]: sql: 2014-09-25 11:26:31.414--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.921--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [asdf]
-[EL Fine]: sql: 2014-09-25 11:26:31.415--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.924--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [df]
-[EL Fine]: sql: 2014-09-25 11:26:31.416--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.925--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [df]
-[EL Fine]: sql: 2014-09-25 11:26:31.417--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.931--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [a]
-[EL Fine]: sql: 2014-09-25 11:26:31.418--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.936--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [a]
-[EL Fine]: sql: 2014-09-25 11:26:31.419--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.937--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.42--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.938--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [2]
-[EL Fine]: sql: 2014-09-25 11:26:31.435--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.976--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA WHERE (NOMBRE = ?)
 	bind => [ab]
-[EL Fine]: sql: 2014-09-25 11:26:31.436--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
+[EL Fine]: sql: 2014-09-25 11:55:10.977--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NROREFERENCIA, t1.DESCRIPCION, t1.NOMBRE, t1.PRECIO, t1.PROVEEDOR_ID, t0.ESP_NROREF FROM CATEGORIAESPECIFICACIONPROD t0, ESPECIFICACIONPRODUCTO t1 WHERE ((t0.CAT_NAME = ?) AND (t1.NROREFERENCIA = t0.ESP_NROREF))
 	bind => [ab]
-[EL Fine]: sql: 2014-09-25 11:26:31.44--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
+[EL Fine]: sql: 2014-09-25 11:55:10.977--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT t1.NOMBRE, t1.PADRE FROM CATEGORIAESPECIFICACIONPROD t0, CATEGORIA t1 WHERE ((t0.ESP_NROREF = ?) AND (t1.NOMBRE = t0.CAT_NAME))
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.441--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
+[EL Fine]: sql: 2014-09-25 11:55:10.998--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT ID, ENORDEN, ID_ESPECIFICO, ESPECIFICACION FROM PRODUCTO WHERE (ESPECIFICACION = ?)
 	bind => [13]
-[EL Fine]: sql: 2014-09-25 11:26:31.457--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA
+[EL Fine]: sql: 2014-09-25 11:55:11.01--ServerSession(2009787198)--Connection(698437724)--Thread(Thread[main,5,main])--SELECT NOMBRE, PADRE FROM CATEGORIA

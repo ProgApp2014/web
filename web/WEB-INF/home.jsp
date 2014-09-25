@@ -27,7 +27,21 @@
   <body>
         
     <jsp:include page="/WEB-INF/includes/header.jsp"/>
-    
+       <%!
+    void recorrer(List<TreeParser.NodoCategoria> l) {
+        Iterator it = l.iterator();
+        while (it.hasNext()) {
+            TreeParser.NodoCategoria current = (TreeParser.NodoCategoria) it.next();
+            %>
+    <%=current.nombre%>
+      <%
+            
+            if (current.hijos != null && !current.hijos.isEmpty()) {
+                recorrer(current.hijos);
+            }
+        }
+    }
+    %>
     <div class="container marketing">
 
       <div class="row">
@@ -35,12 +49,9 @@
           <ul class="nav-list">
             <% 
                 List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
-                System.out.println("Categorias " + categorias);
-               Iterator it = categorias.iterator();
-               while(it.hasNext()){
-                  TreeParser.NodoCategoria nodo = (TreeParser.NodoCategoria) it.next();
+                recorrer(categorias);
             %>  
-            <%=nodo.nombre%>
+             
             <li><label class="tree-toggler nav-header"></label>
               <ul class="nav-list tree none">
                 <li><a href="#">categoria 1.1</a></li>
@@ -59,8 +70,7 @@
                   </ul>
                 </li>
               </ul>
-            </li>
-            <% }%> 
+            </li> 
           </ul>
         </div>
           

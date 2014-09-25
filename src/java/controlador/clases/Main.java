@@ -6,6 +6,9 @@
 
 package controlador.clases;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author rodro
@@ -19,6 +22,18 @@ public class Main {
  
           System.out.println(ProxyProducto.getInstance().listarCategorias());
           TreeParser c = new TreeParser();
-          System.out.println(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
+          recorrer(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
+      }
+      
+      public static void recorrer(List<TreeParser.NodoCategoria> l){
+          Iterator it = l.iterator();
+          while(it.hasNext()){
+              TreeParser.NodoCategoria current = (TreeParser.NodoCategoria)it.next();
+              System.out.println(current.nombre);
+              if(current.hijos!=null && !current.hijos.isEmpty()){
+                  recorrer(current.hijos);
+              }
+          }
+    
       }
 }

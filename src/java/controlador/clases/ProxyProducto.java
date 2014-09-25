@@ -11,11 +11,7 @@ import Controlador.DataTypes.DataEspecificacionProducto;
 import Controlador.DataTypes.DataOrdenCompra;
 import Controlador.DataTypes.DataProducto;
 import Controlador.DataTypes.DataProveedor;
-import controlador.datatypes.DataCategoriaWS;
-import controlador.datatypes.DataEspecificacionProductoWS;
-import controlador.datatypes.DataOrdenCompraWS;
-import controlador.datatypes.DataProductoWS;
-import controlador.datatypes.DataProveedorWS;
+ 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -61,7 +57,8 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirProveedor(nickname);
     }
 
-    public void ingresarDatosProductos(DataEspecificacionProductoWS espProducto) {
+    public void ingresarDatosProductos(DataEspecificacionProducto espProducto) {
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosProductos(espProducto);
     }
 
     public Boolean elegirTipoProducto() {
@@ -74,9 +71,9 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarMultiplesProductosAutogenerados(cantidad);
     }
 
-    public void ingresarDatosUnidad(DataProductoWS producto) {
+    public void ingresarDatosUnidad(DataProducto producto) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosUnidad(ConvertidorBackend.toProducto(producto));
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosUnidad(producto);
     }
 
     public List<DataCategoria> listarCategorias() {
@@ -145,8 +142,8 @@ public class ProxyProducto {
         return l;
     }
 
-    public void modificarDatosEspecificacionProducto(DataEspecificacionProductoWS espProducto) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).modificarDatosEspecificacionProducto(ConvertidorBackend.toEspecificacionProducto(espProducto));
+    public void modificarDatosEspecificacionProducto(DataEspecificacionProducto espProducto) {
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).modificarDatosEspecificacionProducto(espProducto);
     }
 
     public void agregarImagen(String rutaImagen) {
