@@ -17,13 +17,16 @@ public class indexControladora {
 
     private List<DataCategoria> l;
     private String error;
-    
+    private List<TreeParser.NodoCategoria> arbol;
+
+   
+
     public indexControladora() {
 
-        
         try {
-
-          l =  ProxyProducto.getInstance().listarCategorias();
+            TreeParser tp = new TreeParser();
+            l = ProxyProducto.getInstance().listarCategorias();
+            tp.buildTree(l);
         } catch (Exception e) {
             error = e.getMessage();
         }
@@ -37,11 +40,12 @@ public class indexControladora {
         this.error = error;
     }
 
-    public List<DataCategoria> getL() {
-        return l;
+ 
+     public List<TreeParser.NodoCategoria> getArbol() {
+        return arbol;
     }
 
-    public void setL(List<DataCategoria> l) {
-        this.l = l;
+    public void setArbol(List<TreeParser.NodoCategoria> arbol) {
+        this.arbol = arbol;
     }
 }
