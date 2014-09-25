@@ -46,15 +46,15 @@ public class ProxyProducto {
 
     }
 
-    public List<DataProveedorWS> listarProveedores() {
+    public List<DataProveedor> listarProveedores() {
 
         List<DataProveedor> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarProveedores();
-        List<DataProveedorWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toProveedor((DataProveedor) it.next()));
-        }
-        return ret;
+//        List<DataProveedorWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toProveedor((DataProveedor) it.next()));
+//        }
+        return l;
     }
 
     public void elegirProveedor(String nickname) {
@@ -79,33 +79,33 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosUnidad(ConvertidorBackend.toProducto(producto));
     }
 
-    public List<DataCategoriaWS> listarCategorias() {
+    public List<DataCategoria> listarCategorias() {
         List<DataCategoria> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarCategorias();
-        List<DataCategoriaWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
-        }
-        return ret;
+//        List<DataCategoriaWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
+//        }
+        return l;
     }
 
     public void elegirCategoria(String categoria) {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirCategoria(categoria);
     }
 
-    public List<DataEspecificacionProductoWS> listarProductosCategoria() {
+    public List<DataEspecificacionProducto> listarProductosCategoria() {
         List<DataEspecificacionProducto> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarProductosCategoria();
-        List<DataEspecificacionProductoWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
-        }
-        return ret;
+//        List<DataEspecificacionProductoWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
+//        }
+        return l;
     }
 
-    public DataEspecificacionProductoWS mostrarDatosProducto(String numRef) {
+    public DataEspecificacionProducto mostrarDatosProducto(String numRef) {
         DataEspecificacionProducto l = Fabrica.getInstance().getControladorProductos(idProductosControlador).mostrarDatosProducto(numRef);
-        return ConvertidorFrontEnd.toEspecificacionProducto(l);
+        return l;
     }
 
     public Boolean controlarErrores() {
@@ -117,19 +117,19 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).guardarProducto();
     }
 
-    public DataCategoriaWS elegirCategoriaPadre(String categoria) {
+    public DataCategoria elegirCategoriaPadre(String categoria) {
         DataCategoria l = Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirCategoriaPadre(categoria);
-        return null;
+        return l;
     }
 
-    public void ingresarDatosCategoria(DataCategoriaWS categoria) {
+    public void ingresarDatosCategoria(DataCategoria categoria) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosCategoria(ConvertidorBackend.toCategoria(categoria));
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosCategoria(categoria);
     }
 
-    public void asociarCategoriaPadre(DataCategoriaWS padre) {
+    public void asociarCategoriaPadre(DataCategoria padre) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).asociarCategoriaPadre(ConvertidorBackend.toCategoria(padre));
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).asociarCategoriaPadre(padre);
     }
 
     public void guardarCategoria() {
@@ -140,9 +140,9 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirEspProducto(numRef);
     }
 
-    public DataProductoWS mostrarInformacionProducto() {
+    public DataProducto mostrarInformacionProducto() {
         DataProducto l = Fabrica.getInstance().getControladorProductos(idProductosControlador).mostrarInformacionProducto();
-        return ConvertidorFrontEnd.toProducto(l);
+        return l;
     }
 
     public void modificarDatosEspecificacionProducto(DataEspecificacionProductoWS espProducto) {
@@ -153,8 +153,8 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarImagen(rutaImagen);
     }
 
-    public void agregarCategoria(DataCategoriaWS categoria) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarCategoria(ConvertidorBackend.toCategoria(categoria));
+    public void agregarCategoria(DataCategoria categoria) {
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarCategoria(categoria);
     }
 
     public Boolean validarInfo() {
@@ -179,14 +179,14 @@ public class ProxyProducto {
         Fabrica.getInstance().getControladorProductos(idProductosControlador).borrarImagen(rutaImagen);
     }
 
-    public List<DataCategoriaWS> listarCategoriasAModificar() {
+    public List<DataCategoria> listarCategoriasAModificar() {
         List<DataCategoria> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarCategoriasAModificar();
-        List<DataCategoriaWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
-        }
-        return ret;
+//        List<DataCategoriaWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
+//        }
+        return l;
     }
 
     public void borrarCategoriaAEspecificacion(String categoria) {

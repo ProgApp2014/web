@@ -10,10 +10,7 @@ import Controlador.DataTypes.DataCategoria;
 import Controlador.DataTypes.DataCliente;
 import Controlador.DataTypes.DataEspecificacionProducto;
 import Controlador.DataTypes.DataOrdenCompra;
-import controlador.datatypes.DataCategoriaWS;
-import controlador.datatypes.DataClienteWS;
-import controlador.datatypes.DataEspecificacionProductoWS;
-import controlador.datatypes.DataOrdenCompraWS;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -46,14 +43,14 @@ public class ProxyOrden {
         return "sapeeee rodro";
     }
 
-    public List<DataClienteWS> listarClientes() {
+    public List<DataCliente> listarClientes() {
         List<DataCliente> l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarClientes();
-        List<DataClienteWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toCliente((DataCliente) it.next()));
-        }
-        return ret;
+//        List<DataClienteWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toCliente((DataCliente) it.next()));
+//        }
+        return l;
 
     }
 
@@ -61,14 +58,14 @@ public class ProxyOrden {
         Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).elegirCategoria(nickname);
     }
 
-    public List<DataCategoriaWS> listarCategorias() {
+    public List<DataCategoria> listarCategorias() {
         List<DataCategoria> l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarCategorias();
-        List<DataCategoriaWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
-        }
-        return ret;
+//        List<DataCategoriaWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
+//        }
+        return l;
 
     }
 
@@ -77,15 +74,15 @@ public class ProxyOrden {
 
     }
 
-    public List<DataEspecificacionProductoWS> listarEspecificacionProductos() {
+    public List<DataEspecificacionProducto> listarEspecificacionProductos() {
         List<DataEspecificacionProducto> l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarEspecificacionProductos();
 
-        List<DataEspecificacionProductoWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
-        }
-        return ret;
+//        List<DataEspecificacionProductoWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
+//        }
+        return l;
 
     }
 
@@ -93,16 +90,16 @@ public class ProxyOrden {
         Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).elegirEspecificacionProducto(nroRef);
     }
 
-    public List<DataEspecificacionProductoWS> listarProductosEnOrden() {
+    public List<DataEspecificacionProducto> listarProductosEnOrden() {
 
         List<DataEspecificacionProducto> l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarProductosEnOrden();
        
-        List<DataEspecificacionProductoWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
-        }
-        return ret;
+//        List<DataEspecificacionProductoWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
+//        }
+        return l;
 
     }
 
@@ -118,21 +115,21 @@ public class ProxyOrden {
         Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).generarItemOrden();
     }
 
-    public void guardarOrden(DataOrdenCompraWS dataOrden) {
+    public void guardarOrden(DataOrdenCompra dataOrden) {
 
-        Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).guardarOrden(ConvertidorBackend.toOrden(dataOrden));
+        Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).guardarOrden(dataOrden);
     }
 
-    public List<DataOrdenCompraWS> listarOrdenes() {
+    public List<DataOrdenCompra> listarOrdenes() {
 
         List<DataOrdenCompra> l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).listarOrdenes();
         
-        List<DataOrdenCompraWS> ret = new ArrayList();
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            ret.add(ConvertidorFrontEnd.toOrden((DataOrdenCompra) it.next()));
-        }
-        return ret;
+//        List<DataOrdenCompraWS> ret = new ArrayList();
+//        Iterator it = l.iterator();
+//        while (it.hasNext()) {
+//            ret.add(ConvertidorFrontEnd.toOrden((DataOrdenCompra) it.next()));
+//        }
+        return l;
 
     }
 
@@ -145,9 +142,9 @@ public class ProxyOrden {
         Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).borrarOrdenCompra();
     }
 
-    public DataOrdenCompraWS mostrarDatosOrden() {
+    public DataOrdenCompra mostrarDatosOrden() {
         DataOrdenCompra l = Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).mostrarDatosOrden();
-        return ConvertidorFrontEnd.toOrden(l);
+        return l;
 
     }
 
