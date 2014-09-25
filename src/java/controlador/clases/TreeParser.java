@@ -30,7 +30,10 @@ public class TreeParser {
 
         }
     };
-
+    public TreeParser(){
+            
+            categoriasAgregadas =  new ArrayList();
+    }
     public ArrayList<NodoCategoria> buildTree(List<DataCategoria> l) {
         l.forEach((categoria) -> {
 
@@ -152,6 +155,8 @@ public class TreeParser {
             }
             return encontrado;
         }
-
+        public String toString(){
+            return this.nombre; 
+        }
     }
 }

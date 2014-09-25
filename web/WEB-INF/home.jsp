@@ -1,4 +1,7 @@
-<%@page import="controlador.datatypes.DataCategoriaWS"%>
+ 
+<%@page import="java.util.Iterator"%>
+<%@page import="controlador.clases.TreeParser"%>
+<%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,10 +34,13 @@
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
             <% 
-                List<DataCategoriaWS> categorias = (List<DataCategoriaWS>) request.getAttribute("categorias");
+                List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
                 System.out.println("Categorias " + categorias);
-//                for(DataCategoriaWS cat : categorias){
+               Iterator it = categorias.iterator();
+               while(it.hasNext()){
+                  TreeParser.NodoCategoria nodo = (TreeParser.NodoCategoria) it.next();
             %>  
+            <%=nodo.nombre%>
             <li><label class="tree-toggler nav-header"></label>
               <ul class="nav-list tree none">
                 <li><a href="#">categoria 1.1</a></li>
@@ -54,7 +60,7 @@
                 </li>
               </ul>
             </li>
-            <% // } %> 
+            <% }%> 
           </ul>
         </div>
           

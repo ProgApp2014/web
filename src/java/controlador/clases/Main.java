@@ -18,5 +18,7 @@ public class Main {
  
  
           System.out.println(ProxyProducto.getInstance().listarCategorias());
+          TreeParser c = new TreeParser();
+          System.out.println(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
       }
 }

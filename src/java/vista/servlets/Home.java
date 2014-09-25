@@ -3,7 +3,7 @@ package vista.servlets;
 import Controlador.DataTypes.DataCategoria;
 import Controlador.DataTypes.DataEspecificacionProducto;  
 import controlador.clases.ProxyProducto; 
-import controlador.clases.ProxyProducto; 
+import controlador.clases.TreeParser; 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +40,9 @@ public class Home extends HttpServlet {
         }
         
         try {
+            TreeParser tp = new TreeParser();
              List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
-            request.setAttribute("categorias", categorias);
+            request.setAttribute("categorias",  tp.buildTree(categorias));
         } catch(Exception ex){
             response.sendError(404);
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
