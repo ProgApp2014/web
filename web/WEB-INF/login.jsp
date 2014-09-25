@@ -21,23 +21,23 @@
 
   <body>
 
-    <jsp:include page="includes/header.jsp"/>
+    <jsp:include page="/WEB-INF/includes/header.jsp"/>
 
     <div class="container">
 
       <div class="col-sm-5 col-sm-offset-4 well">
         <h1 class="text-center title">Iniciar Sesion</h1>
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" action="iniciar-sesion" method="POST">
           <div class="form-group has-success">
             <label for="usuario" class="col-sm-2 control-label">Usuario</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="usuario" placeholder="Usuario">
+              <input type="usuario" name="usuario" class="form-control" id="usuario" placeholder="Usuario">
             </div>
           </div>
           <div class="form-group has-error">
             <label for="clave" class="col-sm-2 control-label">Clave</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="clave" placeholder="Clave">
+              <input type="password" name="clave" class="form-control" id="clave" placeholder="Clave">
             </div>
           </div>
           <div class="form-group">

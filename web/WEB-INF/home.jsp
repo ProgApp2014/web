@@ -23,7 +23,7 @@
 
   <body>
         
-    <jsp:include page="includes/header.jsp"/>
+    <jsp:include page="/WEB-INF/includes/header.jsp"/>
     
     <div class="container marketing">
 
@@ -87,7 +87,7 @@
 
     </div><!-- /.container -->
 
-    <jsp:include page="includes/footer.jsp" />
+    <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

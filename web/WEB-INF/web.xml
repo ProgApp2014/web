@@ -4,9 +4,28 @@
         <servlet-name>Home</servlet-name>
         <servlet-class>vista.servlets.Home</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IniciarSesion</servlet-name>
+        <servlet-class>vista.servlets.IniciarSesion</servlet-class>
+    </servlet>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/500.jsp</location>
+    </error-page>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IniciarSesion</servlet-name>
+        <url-pattern>/iniciar-sesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
