@@ -1,7 +1,6 @@
 <%@page import="controlador.datatypes.DataCategoriaWS"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="controlador.clases.ProxyProducto" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,11 +30,12 @@
       <div class="row">
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
-            <%
-                List<DataCategoriaWS> listarCategorias = ProxyProducto.getInstance().listarCategorias();
-                for(int i = 0; i < listarCategorias.size(); i++){
-            %>
-            <li><label class="tree-toggler nav-header"><% out.print(listarCategorias.get(i)); %></label>
+            <% 
+                List<DataCategoriaWS> categorias = (List<DataCategoriaWS>) request.getAttribute("categorias");
+                System.out.println("Categorias " + categorias);
+//                for(DataCategoriaWS cat : categorias){
+            %>  
+            <li><label class="tree-toggler nav-header"></label>
               <ul class="nav-list tree none">
                 <li><a href="#">categoria 1.1</a></li>
                 <li><label class="tree-toggler nav-header">Categoria 1.2</label>
@@ -54,7 +54,7 @@
                 </li>
               </ul>
             </li>
-            <% } %>
+            <% // } %> 
           </ul>
         </div>
           
@@ -99,16 +99,7 @@
           $(this).parent().children('ul.tree').toggle(300);
         });
       });
- 
-           var xhr = new XMLHttpRequest();
-           xhr.open("POST","newuser",true);
-           xhr.send();
-           
-           xhr.onreadystatechange = function(e){
-                if(xhr.readyState == 4 && xhr.status == 200)
-                    console.info(xhr.responseText)
-            }
-        </script>
+    </script>
         
   </body>
 </html>

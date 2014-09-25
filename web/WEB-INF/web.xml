@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>CrearUsuario</servlet-name>
-        <servlet-class>vista.servlets.CrearUsuario</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>listarCategorias</servlet-name>
-        <servlet-class>vista.servlets.listarCategorias</servlet-class>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>vista.servlets.Home</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CrearUsuario</servlet-name>
-        <url-pattern>/newuser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>listarCategorias</servlet-name>
-        <url-pattern>/listarCategorias</url-pattern>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

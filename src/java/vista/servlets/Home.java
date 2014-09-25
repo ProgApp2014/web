@@ -1,8 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista.servlets;
 
-import controlador.clases.ProxyUsuario;
+import controlador.clases.ProxyProducto;
+import controlador.datatypes.DataCategoriaWS;
+import controlador.datatypes.DataEspecificacionProductoWS;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author rodro
+ * @author andres
  */
-public class CrearUsuario extends HttpServlet {
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,14 +33,31 @@ public class CrearUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                 out.println("Enviado por : " + request.getMethod());
-            } catch (Exception e) {
-                out.println("Error : " + e.getMessage());
-            }
+        
+        String cat = request.getParameter("cat");
+        List<DataEspecificacionProductoWS> productos = new ArrayList();
+        
+        if(cat != null) {
+            ProxyProducto.getInstance().elegirCategoria(cat);
+            productos = ProxyProducto.getInstance().listarProductosCategoria();
+            request.setAttribute("productos", productos);
+            request.setAttribute("cat", cat);
+        } else {
+            request.setAttribute("productos", productos);
+            request.setAttribute("cat", null);
         }
+        
+        try {
+            List<DataCategoriaWS> categorias = ProxyProducto.getInstance().listarCategorias();
+            request.setAttribute("categorias", categorias);
+        } catch(Exception ex){
+            response.sendError(404);
+            request.getRequestDispatcher("404.jsp").include(request, response);
+            return;
+        }
+        
+        System.out.println("REQUEST " + request);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
