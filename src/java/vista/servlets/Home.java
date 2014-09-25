@@ -1,10 +1,8 @@
 package vista.servlets;
-
+ 
 import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataEspecificacionProducto;
-import controlador.clases.ProxyProducto;
-import controlador.datatypes.DataCategoriaWS;
-import controlador.datatypes.DataEspecificacionProductoWS;
+import Controlador.DataTypes.DataEspecificacionProducto;  
+import controlador.clases.ProxyProducto; 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +25,8 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String cat = request.getParameter("cat");
-        List<DataEspecificacionProducto> productos = new ArrayList();
+        String cat = request.getParameter("cat"); 
+        List<DataEspecificacionProducto> productos = new ArrayList(); 
         
         if(cat != null) {
             ProxyProducto.getInstance().elegirCategoria(cat);
@@ -42,6 +40,7 @@ public class Home extends HttpServlet {
         
         try {
             List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
+
             request.setAttribute("categorias", categorias);
         } catch(Exception ex){
             response.sendError(404);
