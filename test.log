@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [EL Config]: metadata: 2014-09-25 01:00:17.197--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Usuario] is set to [FIELD].
 [EL Config]: metadata: 2014-09-25 01:00:17.223--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Cliente] is set to [FIELD].
 [EL Config]: metadata: 2014-09-25 01:00:17.224--ServerSession(2009787198)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Proveedor] is set to [FIELD].
@@ -129,6 +130,8 @@
 =======
 =======
 >>>>>>> 50e3d47060c43a5585da2e01fc818605907b48bb
+=======
+>>>>>>> 50e3d47060c43a5585da2e01fc818605907b48bb
 [EL Config]: metadata: 2014-09-25 00:31:35.533--ServerSession(60559178)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Usuario] is set to [FIELD].
 [EL Config]: metadata: 2014-09-25 00:31:35.564--ServerSession(60559178)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Cliente] is set to [FIELD].
 [EL Config]: metadata: 2014-09-25 00:31:35.565--ServerSession(60559178)--Thread(Thread[main,5,main])--The access type for the persistent class [class Controlador.Clases.Proveedor] is set to [FIELD].
@@ -203,6 +206,9 @@ Internal Exception: org.h2.jdbc.JdbcSQLException: Conexión rota: "java.net.Conn
 Connection is broken: "java.net.ConnectException: Connection refused: localhost" [90067-181]
 Error Code: 90067
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> 50e3d47060c43a5585da2e01fc818605907b48bb
 =======
 >>>>>>> 50e3d47060c43a5585da2e01fc818605907b48bb
