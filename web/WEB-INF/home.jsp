@@ -1,7 +1,6 @@
  
 <%@page import="java.util.Iterator"%>
 <%@page import="controlador.clases.TreeParser"%>
-<%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,19 +26,21 @@
   <body>
         
     <jsp:include page="/WEB-INF/includes/header.jsp"/>
-       <%!
-    void recorrer(List<TreeParser.NodoCategoria> l) {
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            TreeParser.NodoCategoria current = (TreeParser.NodoCategoria) it.next();
-            %>
-    <%=current.nombre%>
-      <%
-            
-            if (current.hijos != null && !current.hijos.isEmpty()) {
-                recorrer(current.hijos);
+    <%!
+    public String recorrer(List<TreeParser.NodoCategoria> l){
+        String arbol = "";
+        for (TreeParser.NodoCategoria current : l) {
+            if(current.hijos!=null && !current.hijos.isEmpty()){
+                arbol += "<li><label class=\"tree-toggler nav-header\">" + current.nombre + "</label>";
+                arbol += "<ul class=\"nav-list tree none\">";
+                arbol += recorrer(current.hijos);
+                arbol += "</ul>";
+            }else{
+                arbol += "<li><a href=\"#\">" + current.nombre + "</a></li>";
             }
         }
+        System.out.println(arbol);
+        return arbol;
     }
     %>
     <div class="container marketing">
@@ -47,30 +48,8 @@
       <div class="row">
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
-            <% 
-                List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
-                recorrer(categorias);
-            %>  
-             
-            <li><label class="tree-toggler nav-header"></label>
-              <ul class="nav-list tree none">
-                <li><a href="#">categoria 1.1</a></li>
-                <li><label class="tree-toggler nav-header">Categoria 1.2</label>
-                  <ul class="nav-list tree none">
-                    <li><a href="#">categoria 1.2.1</a></li>
-                    <li><label class="tree-toggler nav-header">Categoria 1.2.3</label>
-                    <ul class="nav-list tree none">
-                      <li><a href="#">categoria 1.2.3.1</a></li>
-                      <li><a href="#">categoria 1.2.3.2</a></li>
-                      <li><a href="#">categoria 1.2.3.3</a></li>
-                      <li><a href="#">categoria 1.2.3.4</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#">categoria 1.2.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li> 
+            <% List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");%>
+            <%= recorrer(categorias) %>
           </ul>
         </div>
           

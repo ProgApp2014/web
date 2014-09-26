@@ -26,7 +26,7 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         String cat = request.getParameter("cat"); 
+        String cat = request.getParameter("cat"); 
         List<DataEspecificacionProducto> productos = new ArrayList(); 
     
         if(cat != null) {
@@ -41,7 +41,7 @@ public class Home extends HttpServlet {
         
         try {
             TreeParser tp = new TreeParser();
-             List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
+            List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
             request.setAttribute("categorias",  tp.buildTree(categorias));
         } catch(Exception ex){
             response.sendError(404);
