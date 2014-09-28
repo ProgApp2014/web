@@ -1,18 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista.servlets;
- 
-import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataEspecificacionProducto;  
-import controlador.clases.ProxyProducto; 
-import controlador.clases.TreeParser; 
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Home extends HttpServlet {
+/**
+ *
+ * @author andres
+ */
+public class Producto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,30 +29,19 @@ public class Home extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String cat = request.getParameter("cat"); 
-        List<DataEspecificacionProducto> productos = new ArrayList(); 
-        
-        if(cat != null) {
-            ProxyProducto.getInstance().elegirCategoria(cat);
-            productos = ProxyProducto.getInstance().listarProductosCategoria();
-            request.setAttribute("productos", productos);
-            request.setAttribute("cat", cat);
-        } else {
-            request.setAttribute("productos", productos);
-            request.setAttribute("cat", null);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Producto</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Producto at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        
-        try {
-            TreeParser tp = new TreeParser();
-            List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
-            request.setAttribute("categorias",  tp.buildTree(categorias));
-        } catch(Exception ex){
-            response.sendError(404);
-            request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
-            return;
-        }
-        
-        request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

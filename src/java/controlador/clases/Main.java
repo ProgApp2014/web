@@ -6,6 +6,8 @@
 
 package controlador.clases;
 
+import Controlador.DataTypes.DataEspecificacionProducto;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,8 +18,21 @@ import java.util.List;
 public class Main {
     
     public static void main(String args[]) {
-        TreeParser c = new TreeParser();
-        recorrer(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
+//        TreeParser c = new TreeParser();
+//        recorrer(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
+        
+        ProxyProducto.getInstance().elegirCategoria("Apple");
+        List<DataEspecificacionProducto> productos = ProxyProducto.getInstance().listarProductosCategoria();
+        
+        String prods = "";
+        for (DataEspecificacionProducto p : productos) {
+            prods += "<div class=\"col-lg-4\"><img src=\\\"http://lorempixel.com/140/140/technics/\\\">";
+            prods += "<h2>" + p.getNombre() + "</h2>";
+            prods += "<p>" + p.getNombre() + "</p>";
+            prods += "<p><a class=\"btn btn-default\" href=\"#\" role=\"button\">View details &raquo;</a></p></div>";
+        }
+            
+        System.out.println(prods);
     }
       
     public static String recorrer(List<TreeParser.NodoCategoria> l){

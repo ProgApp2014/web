@@ -1,4 +1,5 @@
  
+<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="controlador.clases.TreeParser"%>
 <%@page import="java.util.List"%>
@@ -27,19 +28,22 @@
         
     <jsp:include page="/WEB-INF/includes/header.jsp"/>
     <%!
-    public String recorrer(List<TreeParser.NodoCategoria> l){
+    public String recorrer(List<TreeParser.NodoCategoria> l, String cat){
         String arbol = "";
         for (TreeParser.NodoCategoria current : l) {
-            if(current.hijos!=null && !current.hijos.isEmpty()){
+            String activo = "";
+            if(current.nombre.equals(cat)){
+                activo = "active";
+            }
+            if(current.hijos != null && !current.hijos.isEmpty()){
                 arbol += "<li><label class=\"tree-toggler nav-header\">" + current.nombre + "</label>";
                 arbol += "<ul class=\"nav-list tree none\">";
-                arbol += recorrer(current.hijos);
+                arbol += recorrer(current.hijos, cat);
                 arbol += "</ul>";
             }else{
-                arbol += "<li><a href=\"#\">" + current.nombre + "</a></li>";
+                arbol += "<li class=\"" + activo + "\"><a href=\"home?cat="+ current.nombre +"\">" + current.nombre + "</a></li>";
             }
         }
-        System.out.println(arbol);
         return arbol;
     }
     %>
@@ -48,33 +52,27 @@
       <div class="row">
         <div class="col-sm-3 sidebar">
           <ul class="nav-list">
-            <% List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");%>
-            <%= recorrer(categorias) %>
+            <% 
+                List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
+                String cat = (String) request.getAttribute("cat");
+            %>
+            <%= recorrer(categorias, cat) %>
           </ul>
         </div>
           
         <div class="col-sm-9">
             
+          <%
+          List<DataEspecificacionProducto> productos = (List<DataEspecificacionProducto>) request.getAttribute("productos");
+          for (DataEspecificacionProducto p : productos) {
+          %>
           <div class="col-lg-4">
             <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <h2><%= p.getNombre() %></h2>
+            <p><%= p.getDescripcion() %></p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
-
-          <div class="col-lg-4">
-            <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-
-          <div class="col-lg-4">
-            <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
+          <% } %>
           
         </div>
           
