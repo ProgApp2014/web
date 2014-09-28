@@ -23,12 +23,12 @@
                         activo = "active";
                     }
                     if (current.hijos != null && !current.hijos.isEmpty()) {
-                        arbol += "<li><a class=\"dropdown-collapse\" href=\"#\"><span>" + current.nombre + "</span><i class=\"icon-angle-down angle-down\"></i></a>";
-                        arbol += "<ul class=\"nav nav-stacked\">";
+                        arbol += "<li class=\"" + activo + "\"><a href=\"home?cat=" + current.nombre + "\"><i class=\"icon-folder-open-alt\"></i><span>" + current.nombre + "</span><i class=\"icon-angle-down angle-down\"></i></a>";
+                        arbol += "<ul class=\"nav nav-stacked in\">";
                         arbol += recorrer(current.hijos, cat);
                         arbol += "</ul>";
                     } else {
-                        arbol += "<li class=\"" + activo + "\"><a href=\"home?cat=" + current.nombre + "\"><span>" + current.nombre + "</span></a></li>";
+                        arbol += "<li class=\"" + activo + "\"><a href=\"home?cat=" + current.nombre + "\"><i class=\"icon-caret-right\"></i><span>" + current.nombre + "</span></a></li>";
                     }
                 }
                 return arbol;
@@ -40,14 +40,6 @@
             <div id="main-nav-bg"></div>
             <nav id="main-nav">
                 <div class="navigation">
-                    <div class="search">
-                        <form action="search" method="get">
-                            <div class="search-wrapper">
-                                <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text" />
-                                <button class="btn btn-link icon-search" name="button" type="submit"></button>
-                            </div>
-                        </form>
-                    </div>
                     <ul class="nav nav-stacked">
                         <%
                             List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
@@ -67,11 +59,28 @@
                                     <i class="icon-home"></i>
                                     <span>Inicio</span>
                                 </h1>
+                                <div class="pull-right">
+                                    <ul class="breadcrumb">
+                                        <li>
+                                            <a href="home">
+                                                <i class="icon-home"></i>
+                                                Inicio
+                                            </a>
+                                        </li>
+                                        <% if (cat != null) {%>
+                                        <li class="separator">
+                                            <i class="icon-angle-right"></i>
+                                        </li>
+                                        <li class="active"><%= cat%></li>
+                                            <% } %>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="row pricing-tables">
+                            <div class="row pricing-tables" style="min-height: 550px;">
                                 <%
                                     List<DataEspecificacionProducto> productos = (List<DataEspecificacionProducto>) request.getAttribute("productos");
-                                    for (DataEspecificacionProducto p : productos) {
+                                    if (productos.size() > 0) {
+                                        for (DataEspecificacionProducto p : productos) {
                                 %>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="pricing-table">
@@ -85,7 +94,28 @@
                                         <p class="text-center"><%= p.getDescripcion()%></p>
                                     </div>
                                 </div>
-                                <% }%>
+                                <%
+                                        }
+                                    } else {
+                                        if (cat == null) {
+                                %>
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <div class="text-center">
+                                        <h1>Bienvenido a Direct Market</h1>
+                                        <h2>El mejor precio, siempre</h2>
+                                        <small class="text-muted">Seleccione una categoria para ver los productos.</small>
+                                    </div>
+                                </div>   
+                                <% } else {%>
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <div class="text-center">
+                                        <h1>En la categoria <b class="text-success"><%= cat%></b> no hay productos.</h1>
+                                    </div>
+                                </div>
+                                <%
+                                        }
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>

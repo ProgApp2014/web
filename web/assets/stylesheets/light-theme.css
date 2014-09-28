@@ -2078,7 +2078,7 @@ header .navbar {
             #main-nav .navigation > .nav > li .nav > li > a:hover [class^="icon-"], #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], #main-nav .navigation > .nav > li .nav > li > a:focus [class^="icon-"], #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
               color: #f34541; }
         #main-nav .navigation > .nav > li .nav > li.active > a {
-          background-color: #ececec; }
+          background-color: #fefefe; }
           #main-nav .navigation > .nav > li .nav > li.active > a [class^="icon-"], #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
             color: #f34541; }
       #main-nav .navigation > .nav > li > .nav {
