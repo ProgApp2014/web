@@ -1,10 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="container">
-
-  <!-- FOOTER -->
-  <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-
-</div><!-- /.container -->
+<footer id="footer">
+  <div class="footer-wrapper">
+    <div class="row">
+      <div class="col-sm-6 text">
+        Copyright © 2014 Direct Market
+      </div>
+      <div class="col-sm-6 buttons">
+        <a class="btn btn-link" href="http://www.bublinastudio.com/flatty">Preview</a>
+        <a class="btn btn-link" href="https://wrapbootstrap.com/theme/flatty-flat-administration-template-WB0P6NR1N">Purchase</a>
+      </div>
+    </div>
+  </div>
+</footer>

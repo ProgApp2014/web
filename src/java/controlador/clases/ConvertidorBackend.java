@@ -72,12 +72,12 @@ public class ConvertidorBackend {
     }
 
     public static DataProveedor toProveedor(DataProveedorWS o) {
-        return new DataProveedor(o.getNickname(), o.getNombre(), o.getApellido(), o.getEmail(), o.getFechaNacimiento(), o.getNombreCompania(), o.getLinkSitio());
+        return new DataProveedor(o.getNickname(), "", o.getNombre(), o.getApellido(), o.getEmail(), o.getFechaNacimiento(), o.getNombreCompania(), o.getLinkSitio());
 
     }
 
     public static DataCliente toCliente(DataClienteWS o) {
-        DataCliente ret = new DataCliente(o.getNickname(),o.getNombre(),o.getApellido(),o.getEmail(),o.getFechaNacimiento());
+        DataCliente ret = new DataCliente(o.getNickname(), "", o.getNombre(),o.getApellido(),o.getEmail(),o.getFechaNacimiento());
         ret.setImagen(o.getImagen());
  
         return ret;

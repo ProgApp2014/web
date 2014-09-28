@@ -20,8 +20,8 @@
         <location>/WEB-INF/500.jsp</location>
     </error-page>
     <servlet>
-        <servlet-name>Producto</servlet-name>
-        <servlet-class>vista.servlets.Producto</servlet-class>
+        <servlet-name>Usuario</servlet-name>
+        <servlet-class>vista.servlets.Usuario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
@@ -32,8 +32,8 @@
         <url-pattern>/iniciar-sesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Producto</servlet-name>
-        <url-pattern>/Producto</url-pattern>
+        <servlet-name>Usuario</servlet-name>
+        <url-pattern>/registro-usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

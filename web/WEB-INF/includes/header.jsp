@@ -1,37 +1,144 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="navbar-wrapper">
-  <div class="container">
+<header>
+    <nav class="navbar navbar-default">
+        <!-- <a class="navbar-brand" href="index.html">
+          <img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
+          <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
+        </a> -->
+        <!-- <a class="toggle-nav btn pull-left" href="#">
+          <i class="icon-reorder"></i>
+        </a> -->
+        <%
+            Boolean login = false;
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="home">Direct Market</a>
-        </div>
-        <form class="navbar-middle">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
-          </div>
+            if (login) {
+        %>
+        <ul class="nav">
+            <li class="dropdown medium only-icon widget">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-shopping-cart"></i>
+                    <div class="label">3</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <div class="widget-body">
+                                <div class="pull-left icon">
+                                    <i class="icon-ok text-success"></i>
+                                </div>
+                                <div class="pull-left text">
+                                    Iphone 5
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div class="widget-body">
+                                <div class="pull-left icon">
+                                    <i class="icon-ok text-success"></i>
+                                </div>
+                                <div class="pull-left text">
+                                    Ipad Mini
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div class="widget-body">
+                                <div class="pull-left icon">
+                                    <i class="icon-ok text-success"></i>
+                                </div>
+                                <div class="pull-left text">
+                                    Cargador Iphone
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="widget-footer">
+                        <a href="#">Ver orden</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown dark user-menu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />
+                    <span class="user-name">Mila Kunis</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <i class="icon-user"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-signout"></i>
+                            Sign out
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <% } else { %>
+        <ul class="nav">
+            <li class="dropdown dark user-menu">
+                <a class="dropdown-toggle" href="registro-usuario">
+                    Registrarse
+                </a>
+            </li>
+            <li class="dropdown dark user-menu">
+                <a class="dropdown-toggle" href="#modal-login" role="button" data-toggle="modal">
+                    <i class="icon-signin"></i>
+                    Iniciar Sesion
+                </a>
+            </li>
+        </ul>
+        <% }%>
+        <form action="#" class="navbar-form navbar-right hidden-xs">
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+            <div class="form-group">
+                <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text" />
+            </div>
         </form>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="home">Inicio</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <a href="registro" class="btn btn-registro navbar-btn btn-sm">Registrarse</a>
-            <a href="iniciar-sesion" class="btn btn-ingreso navbar-btn">Iniciar Sesion</a>
-          </ul>
+    </nav>
+
+    <!-- modal cambiar clave -->
+    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="ModalLogin" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Iniciar Sesion</h4>
+                </div>
+                <div class="modal-body">
+                    <div class='login-container'>
+                        <div class='container'>
+                            <div class='row'>
+                                <form action='index.html' class='validate-form' method='get'>
+                                    <div class='form-group'>
+                                        <div class='controls with-icon-over-input'>
+                                            <input value="" placeholder="Usuario o E-mail" class="form-control" data-rule-required="true" name="email" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class='form-group'>
+                                        <div class='controls with-icon-over-input'>
+                                            <input value="" placeholder="Password" class="form-control" data-rule-required="true" name="password" type="password" />
+                                        </div>
+                                    </div>
+                                    <button class='btn btn-block'>Iniciar Sesion</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-  </div>
-</div>
+</header>
