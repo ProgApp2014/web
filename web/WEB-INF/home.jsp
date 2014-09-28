@@ -1,7 +1,7 @@
  
+<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="controlador.clases.TreeParser"%>
-<%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,19 +27,24 @@
   <body>
         
     <jsp:include page="/WEB-INF/includes/header.jsp"/>
-       <%!
-    void recorrer(List<TreeParser.NodoCategoria> l) {
-        Iterator it = l.iterator();
-        while (it.hasNext()) {
-            TreeParser.NodoCategoria current = (TreeParser.NodoCategoria) it.next();
-            %>
-    <%=current.nombre%>
-      <%
-            
-            if (current.hijos != null && !current.hijos.isEmpty()) {
-                recorrer(current.hijos);
+    <%!
+    public String recorrer(List<TreeParser.NodoCategoria> l, String cat){
+        String arbol = "";
+        for (TreeParser.NodoCategoria current : l) {
+            String activo = "";
+            if(current.nombre.equals(cat)){
+                activo = "active";
+            }
+            if(current.hijos != null && !current.hijos.isEmpty()){
+                arbol += "<li><label class=\"tree-toggler nav-header\">" + current.nombre + "</label>";
+                arbol += "<ul class=\"nav-list tree none\">";
+                arbol += recorrer(current.hijos, cat);
+                arbol += "</ul>";
+            }else{
+                arbol += "<li class=\"" + activo + "\"><a href=\"home?cat="+ current.nombre +"\">" + current.nombre + "</a></li>";
             }
         }
+        return arbol;
     }
     %>
     <div class="container marketing">
@@ -49,53 +54,25 @@
           <ul class="nav-list">
             <% 
                 List<TreeParser.NodoCategoria> categorias = (List<TreeParser.NodoCategoria>) request.getAttribute("categorias");
-                recorrer(categorias);
-            %>  
-             
-            <li><label class="tree-toggler nav-header"></label>
-              <ul class="nav-list tree none">
-                <li><a href="#">categoria 1.1</a></li>
-                <li><label class="tree-toggler nav-header">Categoria 1.2</label>
-                  <ul class="nav-list tree none">
-                    <li><a href="#">categoria 1.2.1</a></li>
-                    <li><label class="tree-toggler nav-header">Categoria 1.2.3</label>
-                    <ul class="nav-list tree none">
-                      <li><a href="#">categoria 1.2.3.1</a></li>
-                      <li><a href="#">categoria 1.2.3.2</a></li>
-                      <li><a href="#">categoria 1.2.3.3</a></li>
-                      <li><a href="#">categoria 1.2.3.4</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="#">categoria 1.2.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li> 
+                String cat = (String) request.getAttribute("cat");
+            %>
+            <%= recorrer(categorias, cat) %>
           </ul>
         </div>
           
         <div class="col-sm-9">
             
+          <%
+          List<DataEspecificacionProducto> productos = (List<DataEspecificacionProducto>) request.getAttribute("productos");
+          for (DataEspecificacionProducto p : productos) {
+          %>
           <div class="col-lg-4">
             <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <h2><%= p.getNombre() %></h2>
+            <p><%= p.getDescripcion() %></p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
-
-          <div class="col-lg-4">
-            <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-
-          <div class="col-lg-4">
-            <img src="http://lorempixel.com/140/140/technics/">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
+          <% } %>
           
         </div>
           

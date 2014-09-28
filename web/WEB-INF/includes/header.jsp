@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">Direct Market</a>
+          <a class="navbar-brand" href="home">Direct Market</a>
         </div>
         <form class="navbar-middle">
           <div class="input-group">
@@ -23,11 +23,11 @@
         </form>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="/">Inicio</a></li>
+            <li class="active"><a href="home">Inicio</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <a href="registro.jsp" class="btn btn-registro navbar-btn btn-sm">Registrarse</a>
-            <a href="login.jsp" class="btn btn-ingreso navbar-btn">Iniciar Sesion</a>
+            <a href="registro" class="btn btn-registro navbar-btn btn-sm">Registrarse</a>
+            <a href="iniciar-sesion" class="btn btn-ingreso navbar-btn">Iniciar Sesion</a>
           </ul>
         </div>
       </div>

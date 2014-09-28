@@ -6,6 +6,8 @@
 
 package controlador.clases;
 
+import Controlador.DataTypes.DataEspecificacionProducto;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,25 +17,37 @@ import java.util.List;
  */
 public class Main {
     
-      public static void main(String args[]) {
-           
-          System.out.println(ProxyUsuario.getInstance().listarClientes());
- 
- 
-          System.out.println(ProxyProducto.getInstance().listarCategorias());
-          TreeParser c = new TreeParser();
-          recorrer(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
-      }
+    public static void main(String args[]) {
+//        TreeParser c = new TreeParser();
+//        recorrer(c.buildTree(ProxyProducto.getInstance().listarCategorias()));
+        
+        ProxyProducto.getInstance().elegirCategoria("Apple");
+        List<DataEspecificacionProducto> productos = ProxyProducto.getInstance().listarProductosCategoria();
+        
+        String prods = "";
+        for (DataEspecificacionProducto p : productos) {
+            prods += "<div class=\"col-lg-4\"><img src=\\\"http://lorempixel.com/140/140/technics/\\\">";
+            prods += "<h2>" + p.getNombre() + "</h2>";
+            prods += "<p>" + p.getNombre() + "</p>";
+            prods += "<p><a class=\"btn btn-default\" href=\"#\" role=\"button\">View details &raquo;</a></p></div>";
+        }
+            
+        System.out.println(prods);
+    }
       
-      public static void recorrer(List<TreeParser.NodoCategoria> l){
-          Iterator it = l.iterator();
-          while(it.hasNext()){
-              TreeParser.NodoCategoria current = (TreeParser.NodoCategoria)it.next();
-              System.out.println(current.nombre);
-              if(current.hijos!=null && !current.hijos.isEmpty()){
-                  recorrer(current.hijos);
-              }
-          }
-    
-      }
+    public static String recorrer(List<TreeParser.NodoCategoria> l){
+        String arbol = "";
+        for (TreeParser.NodoCategoria current : l) {
+            if(current.hijos!=null && !current.hijos.isEmpty()){
+                arbol += "<li><label class=\"tree-toggler nav-header\">" + current.nombre + "</label>";
+                arbol += "<ul class=\"nav-list tree none\">";
+                arbol += recorrer(current.hijos);
+                arbol += "</ul>";
+            }else{
+                arbol += "<li><a href=\"#\">" + current.nombre + "</a></li>";
+            }
+        }
+        System.out.println(arbol);
+        return arbol;
+    }
 }
