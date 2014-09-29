@@ -1,12 +1,8 @@
 <header>
     <nav class="navbar navbar-default">
-        <!-- <a class="navbar-brand" href="index.html">
-          <img width="81" height="21" class="logo" alt="Flatty" src="assets/images/logo.svg" />
-          <img width="21" height="21" class="logo-xs" alt="Flatty" src="assets/images/logo_xs.svg" />
-        </a> -->
-        <!-- <a class="toggle-nav btn pull-left" href="#">
-          <i class="icon-reorder"></i>
-        </a> -->
+         <a class="navbar-brand" href="home">
+          Direct Market
+        </a> 
         <%
             Boolean login = false;
 
