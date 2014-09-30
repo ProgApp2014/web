@@ -211,7 +211,7 @@
       selector = $(".char-max-length");
     }
     if (jQuery().maxlength) {
-      return selector.maxlength();
+      return selector.maxlength({threshold: 255});
     }
   };
 

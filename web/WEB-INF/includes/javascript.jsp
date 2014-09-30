@@ -16,6 +16,3 @@
 <script src="assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
 <!-- / theme file [required] -->
 <script src="assets/javascripts/theme.js" type="text/javascript"></script>
-<!-- / START - page related files and scripts [optional] -->
-<script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
-<script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>

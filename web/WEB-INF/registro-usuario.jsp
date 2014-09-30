@@ -1,6 +1,3 @@
-<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
-<%@page import="controlador.clases.TreeParser"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +20,7 @@
                                 <div class="page-header">
                                     <h1 class="pull-left">
                                         <i class="icon-user"></i>
-                                        <span>Registro</span>
+                                        <span>Registro Usuario</span>
                                     </h1>
                                 </div>
                             </div>
@@ -132,22 +129,22 @@
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
         <script src="assets/javascripts/plugins/fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
         <script src="assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js" type="text/javascript"></script>
-        <script src="assets/javascripts/plugins/validate/jquery.validate.min.js'" type="text/javascript"></script>
-        <script src="assets/javascripts/plugins/validate/additional-methods.js'" type="text/javascript"></script>
-        <script src="assets/javascripts/plugins/validate/validate_messages_es.js'" type="text/javascript"></script>
+        <script src="assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
+        <script src="assets/javascripts/plugins/validate/validate_messages_es.js" type="text/javascript"></script>
         <script type="text/javascript">
-        $(document).ready(function() {
-          $('#imagen').on('change',function(){
-            var image = document.getElementById("imagen").files[0];
-            oFReader = new FileReader();
-            oFReader.readAsDataURL(image);
-            document.getElementById("preview").src = '';
-            oFReader.onload = function (oFREvent){
-              document.getElementById("preview").src = oFREvent.target.result;
-            }
-          });
-        });
-      </script>
+            $(document).ready(function() {
+                $('#imagen').on('change', function(){
+                    var image = document.getElementById("imagen").files[0];
+                    oFReader = new FileReader();
+                    oFReader.readAsDataURL(image);
+                    document.getElementById("preview").src = '';
+                    oFReader.onload = function (oFREvent){
+                        document.getElementById("preview").src = oFREvent.target.result;
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
 

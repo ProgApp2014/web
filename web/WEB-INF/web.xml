@@ -8,6 +8,14 @@
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>vista.servlets.IniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Usuario</servlet-name>
+        <servlet-class>vista.servlets.Usuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Producto</servlet-name>
+        <servlet-class>vista.servlets.Producto</servlet-class>
+    </servlet>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
@@ -19,10 +27,6 @@
         <error-code>500</error-code>
         <location>/WEB-INF/500.jsp</location>
     </error-page>
-    <servlet>
-        <servlet-name>Usuario</servlet-name>
-        <servlet-class>vista.servlets.Usuario</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>Usuario</servlet-name>
         <url-pattern>/registro-usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Producto</servlet-name>
+        <url-pattern>/registro-producto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
