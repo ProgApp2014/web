@@ -1,6 +1,7 @@
 package vista.servlets;
 
 import Controlador.DataTypes.DataCategoria;
+import Controlador.DataTypes.DataComentario;
 import Controlador.DataTypes.DataEspecificacionProducto;
 import Controlador.DataTypes.DataProducto;
 import Controlador.DataTypes.DataProveedor;
@@ -30,8 +31,11 @@ public class Producto extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
             return;
         }
-        
-        request.getRequestDispatcher("/WEB-INF/registro-producto.jsp").forward(request, response);
+        if(request.getSession().getAttribute("usuario_logueado") == null || request.getSession().getAttribute("esProveedor") == null ||(request.getSession().getAttribute("esProveedor") != null && request.getSession().getAttribute("esProveedor") != "yes")){
+            response.sendRedirect("home");
+        }else{
+            request.getRequestDispatcher("/WEB-INF/registro-producto.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -53,7 +57,7 @@ public class Producto extends HttpServlet {
             precioReal = Float.parseFloat(precio);
             
             DataProveedor proveedor = ProxyProducto.getInstance().listarProveedores().get(0);
-            DataEspecificacionProducto espProducto = new DataEspecificacionProducto(nro_referencia, titulo, descripcion, new HashMap(), precioReal, proveedor, new ArrayList<String>(), new ArrayList<DataCategoria>(), new ArrayList<DataProducto>());
+            DataEspecificacionProducto espProducto = new DataEspecificacionProducto(nro_referencia, titulo, descripcion, new HashMap(), precioReal, proveedor, new ArrayList<String>(), new ArrayList<DataCategoria>(), new ArrayList<DataProducto>(), new ArrayList<DataComentario>());
 
             ProxyProducto.getInstance().elegirProveedor("CraigX");
             ProxyProducto.getInstance().ingresarDatosProductos(espProducto);

@@ -5,7 +5,10 @@
         </a> 
         <%
             Boolean login = false;
-
+            //session.invalidate(); 
+            if(session.getAttribute("usuario_logueado") != null){
+                login = true;
+            }
             if (login) {
         %>
         <ul class="nav">
@@ -60,22 +63,30 @@
             </li>
             <li class="dropdown dark user-menu">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />
-                    <span class="user-name">Mila Kunis</span>
+                    <!--<img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />-->
+                    <span class="user-name">${usuario_logueado}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#">
                             <i class="icon-user"></i>
-                            Profile
+                            Perfil
                         </a>
                     </li>
                     <li class="divider"></li>
+                    <% if(session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes"){ %>
                     <li>
-                        <a href="#">
+                        <a href="registro-producto">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                            Publicar producto
+                        </a>
+                    </li>
+                    <li class="divider"></li><% } %>
+                    <li>
+                        <a href="cerrar-sesion">
                             <i class="icon-signout"></i>
-                            Sign out
+                            Cerrar Sesion
                         </a>
                     </li>
                 </ul>
@@ -116,7 +127,7 @@
                     <div class='login-container'>
                         <div class='container'>
                             <div class='row'>
-                                <form action='index.html' class='validate-form' method='get'>
+                                <form action='iniciar-sesion' class='validate-form' method='post'>
                                     <div class='form-group'>
                                         <div class='controls with-icon-over-input'>
                                             <input value="" placeholder="Usuario o E-mail" class="form-control" data-rule-required="true" name="email" type="text" />

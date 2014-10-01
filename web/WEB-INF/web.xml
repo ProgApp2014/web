@@ -9,6 +9,10 @@
         <servlet-class>vista.servlets.IniciarSesion</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CerrarSesion</servlet-name>
+        <servlet-class>vista.servlets.CerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Usuario</servlet-name>
         <servlet-class>vista.servlets.Usuario</servlet-class>
     </servlet>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/iniciar-sesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesion</servlet-name>
+        <url-pattern>/cerrar-sesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Usuario</servlet-name>

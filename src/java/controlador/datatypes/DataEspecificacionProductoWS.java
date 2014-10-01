@@ -17,12 +17,13 @@ public class DataEspecificacionProductoWS {
     private List<String> imagenes;
     private List<DataCategoriaWS> categorias;
     private List<DataProductoWS> productos;
+    private List<DataComentarioWS> comentarios;
     
     public DataEspecificacionProductoWS() {
 
     }
     
-    public DataEspecificacionProductoWS(String nroReferencia, String nombre, String descripcion, Map<String,String> especificacion, Float precio, DataProveedorWS proveedor, ArrayList<String> imagenes, ArrayList<DataCategoriaWS> categorias,List<DataProductoWS> productos) {
+    public DataEspecificacionProductoWS(String nroReferencia, String nombre, String descripcion, Map<String,String> especificacion, Float precio, DataProveedorWS proveedor, ArrayList<String> imagenes, ArrayList<DataCategoriaWS> categorias,List<DataProductoWS> productos,List<DataComentarioWS> comentarios) {
         this.nroReferencia = nroReferencia;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,6 +33,7 @@ public class DataEspecificacionProductoWS {
         this.imagenes = imagenes;
         this.categorias = categorias;
         this.productos = productos;
+        this.comentarios = comentarios;
     }
 
     public String getNroReferencia() {
@@ -105,6 +107,15 @@ public class DataEspecificacionProductoWS {
     public void setProductos(List<DataProductoWS> productos) {
         this.productos = productos;
     }
+    
+    public List<DataComentarioWS> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<DataComentarioWS> comentarios) {
+        this.comentarios = comentarios;
+    }
+    
     public int getStock(){
         
         return productos.size();

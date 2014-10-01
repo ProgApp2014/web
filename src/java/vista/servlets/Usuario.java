@@ -17,7 +17,11 @@ public class Usuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/registro-usuario.jsp").forward(request, response);
+        if(request.getSession().getAttribute("usuario_logueado") != null){
+            response.sendRedirect("home");
+        }else{
+            request.getRequestDispatcher("/WEB-INF/registro-usuario.jsp").forward(request, response);
+        }
     }
 
     @Override

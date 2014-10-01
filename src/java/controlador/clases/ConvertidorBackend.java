@@ -62,7 +62,7 @@ public class ConvertidorBackend {
     public static DataEspecificacionProducto toEspecificacionProducto(DataEspecificacionProductoWS o) {
         ArrayList<String> imagenes =  new ArrayList();
         imagenes.addAll(o.getImagenes());
-        DataEspecificacionProducto ret = new DataEspecificacionProducto(o.getNroReferencia(), o.getNombre(), o.getDescripcion(), o.getEspecificacion(), o.getPrecio(), toProveedor(o.getProveedor()), imagenes, getListDataCategoria(o.getCategorias()), getListDataProducto(o.getProductos()));       
+        DataEspecificacionProducto ret = new DataEspecificacionProducto(o.getNroReferencia(), o.getNombre(), o.getDescripcion(), o.getEspecificacion(), o.getPrecio(), toProveedor(o.getProveedor()), imagenes, getListDataCategoria(o.getCategorias()), getListDataProducto(o.getProductos()), getListDataComentario(o.getComentarios()));       
         return ret;
     }
 
@@ -97,7 +97,10 @@ public class ConvertidorBackend {
     }
     
     public static DataComentario toComentario(DataComentarioWS o) {
-        DataComentario ret = new DataComentario(toCliente(o.getCliente()), toEspecificacionProducto(o.getEspecificacionProducto()), o.getComentario());
+        DataComentario padre = null;
+        if(o.getPadre() != null)
+            padre = toComentario(o.getPadre());
+        DataComentario ret = new DataComentario(toCliente(o.getCliente()), toEspecificacionProducto(o.getEspecificacionProducto()), o.getComentario(), o.getId(), padre);
         return ret;
     }
 
@@ -118,6 +121,18 @@ public class ConvertidorBackend {
         while (it.hasNext()) {
 
             ret.add(toProducto((DataProductoWS) it.next()));
+        }
+
+        return ret;
+
+    }
+    
+    public static List<DataComentario> getListDataComentario(List<DataComentarioWS> o) {
+        List<DataComentario> ret = new ArrayList();
+        Iterator it = o.iterator();
+        while (it.hasNext()) {
+
+            ret.add(toComentario((DataComentarioWS) it.next()));
         }
 
         return ret;

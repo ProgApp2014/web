@@ -118,4 +118,16 @@ public class ProxyUsuario {
         return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).getErrors();
 
     }
+    
+    public Boolean login(String nickname, String hashPassword){
+        return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).login(nickname, hashPassword);
+    }
+    
+    public Boolean esProveedor(String nickname){
+        return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).esProveedor(nickname);
+    }
+    
+    public Boolean esCliente(String nickname){
+        return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).esCliente(nickname);
+    }
 }
