@@ -31,11 +31,7 @@ public class Producto extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
             return;
         }
-        if (request.getSession().getAttribute("usuario_logueado") == null || request.getSession().getAttribute("esProveedor") == null || (request.getSession().getAttribute("esProveedor") != null && request.getSession().getAttribute("esProveedor") != "yes")) {
-            response.sendRedirect("home");
-        } else {
-            request.getRequestDispatcher("/WEB-INF/registro-producto.jsp").forward(request, response);
-        }
+        request.getRequestDispatcher("/WEB-INF/registro-producto.jsp").forward(request, response);
     }
 
     @Override

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class IniciarSesion extends HttpServlet {
 
@@ -25,9 +26,10 @@ public class IniciarSesion extends HttpServlet {
                     ProxyUsuario.getInstance().elegirCliente(usuario);
                     request.getSession().setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosCliente().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosCliente().getApellido());
                 }else if(ProxyUsuario.getInstance().esProveedor(usuario)){
+                    HttpSession session = request.getSession();
                     ProxyUsuario.getInstance().elegirProveedor(usuario);
-                    request.getSession().setAttribute("esProveedor","yes");
-                    request.getSession().setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosProveedor().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosProveedor().getApellido());
+                    session.setAttribute("esProveedor","yes");
+                    session.setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosProveedor().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosProveedor().getApellido());
                 }
             }
             response.sendRedirect("home");
