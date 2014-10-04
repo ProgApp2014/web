@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="widget-footer">
-                        <a href="#">Ver orden</a>
+                        <a href="carrito">Ver orden</a>
                     </li>
                 </ul>
             </li>
@@ -69,7 +69,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#">
+                        <a href="perfil">
                             <i class="icon-user"></i>
                             Perfil
                         </a>
@@ -107,10 +107,10 @@
             </li>
         </ul>
         <% }%>
-        <form action="#" class="navbar-form navbar-right hidden-xs">
+        <form action="buscador" class="navbar-form navbar-right hidden-xs" method="post">
             <button class="btn btn-link icon-search" name="button" type="submit"></button>
             <div class="form-group">
-                <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text" />
+                <input value="" class="form-control" placeholder="Buscar..." autocomplete="off" name="buscar" type="text" />
             </div>
         </form>
     </nav>

@@ -6,19 +6,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CerrarSesion extends HttpServlet {
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("home");
-    }
+public class Buscador extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("home");
+        String buscar = request.getParameter("buscar");
+        request.setAttribute("buscar", buscar);
+        request.getRequestDispatcher("/WEB-INF/buscador.jsp").forward(request, response);
     }
+    
 }

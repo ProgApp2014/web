@@ -31,6 +31,22 @@
         <error-code>500</error-code>
         <location>/WEB-INF/500.jsp</location>
     </error-page>
+    <servlet>
+        <servlet-name>UsuarioPerfil</servlet-name>
+        <servlet-class>vista.servlets.UsuarioPerfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Buscador</servlet-name>
+        <servlet-class>vista.servlets.Buscador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Orden</servlet-name>
+        <servlet-class>vista.servlets.Orden</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductoDetalle</servlet-name>
+        <servlet-class>vista.servlets.ProductoDetalle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -50,6 +66,22 @@
     <servlet-mapping>
         <servlet-name>Producto</servlet-name>
         <url-pattern>/registro-producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioPerfil</servlet-name>
+        <url-pattern>/perfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Buscador</servlet-name>
+        <url-pattern>/buscador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Orden</servlet-name>
+        <url-pattern>/carrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductoDetalle</servlet-name>
+        <url-pattern>/detalle-producto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

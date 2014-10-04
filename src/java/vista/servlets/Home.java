@@ -34,9 +34,8 @@ public class Home extends HttpServlet {
             List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
             request.setAttribute("categorias", tp.buildTree(categorias));
         } catch (Exception ex) {
-            //response.sendError(404);
-            //request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
-            System.out.println("HOLA!!" + ex.getMessage());
+            response.sendError(404);
+            request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
             return;
         }
 

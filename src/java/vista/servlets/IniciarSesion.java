@@ -23,7 +23,7 @@ public class IniciarSesion extends HttpServlet {
             }else{
                 if(ProxyUsuario.getInstance().esCliente(usuario)){
                     ProxyUsuario.getInstance().elegirCliente(usuario);
-                    request.getSession().setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosCliente().getNombre());
+                    request.getSession().setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosCliente().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosCliente().getApellido());
                 }else if(ProxyUsuario.getInstance().esProveedor(usuario)){
                     ProxyUsuario.getInstance().elegirProveedor(usuario);
                     request.getSession().setAttribute("esProveedor","yes");

@@ -76,7 +76,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="row pricing-tables" style="min-height: 550px;">
+                            <div class="row pricing-tables">
                                 <%
                                     List<DataEspecificacionProducto> productos = (List<DataEspecificacionProducto>) request.getAttribute("productos");
                                     if (productos.size() > 0) {
@@ -84,7 +84,7 @@
                                 %>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="pricing-table">
-                                        <div class="header"><%= p.getNombre()%></div>
+                                        <div class="header"><%= p.getNombre() %></div>
                                         <div class="price green-background">
                                             <span>$<%= p.getPrecio()%></span>
                                         </div>
@@ -92,12 +92,15 @@
                                             <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/">
                                         </div>
                                         <p class="text-center"><%= p.getDescripcion()%></p>
+                                        <div class="footer">
+                                            <a class="btn" href="detalle-producto?id=<%= p.getNroReferencia() %>">Ver producto</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <%
-                                        }
-                                    } else {
-                                        if (cat == null) {
+                                    }
+                                } else {
+                                    if (cat == null) {
                                 %>
                                 <div class="col-sm-6 col-sm-offset-3">
                                     <div class="text-center">
@@ -119,12 +122,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <jsp:include page="/WEB-INF/includes/footer.jsp" />
-
                 </div>
             </section>
         </div>
+
+        <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
 

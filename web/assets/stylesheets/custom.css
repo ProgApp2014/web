@@ -2,3 +2,21 @@
     width: 40%;
     left: 45%;
 }
+
+#main-nav .navigation > .nav {
+    margin-bottom: 40px;
+}
+
+.gran-footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width: 100%;
+    background-color: #f34541;
+    color: white;
+    text-shadow: none;
+    font-weight: 200;
+    height: 40px;
+    vertical-align: middle;
+    line-height: 40px;
+}

@@ -22,7 +22,7 @@ public class Producto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             List<DataCategoria> categorias = ProxyProducto.getInstance().listarCategorias();
             request.setAttribute("categorias", categorias);
@@ -31,9 +31,9 @@ public class Producto extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
             return;
         }
-        if(request.getSession().getAttribute("usuario_logueado") == null || request.getSession().getAttribute("esProveedor") == null ||(request.getSession().getAttribute("esProveedor") != null && request.getSession().getAttribute("esProveedor") != "yes")){
+        if (request.getSession().getAttribute("usuario_logueado") == null || request.getSession().getAttribute("esProveedor") == null || (request.getSession().getAttribute("esProveedor") != null && request.getSession().getAttribute("esProveedor") != "yes")) {
             response.sendRedirect("home");
-        }else{
+        } else {
             request.getRequestDispatcher("/WEB-INF/registro-producto.jsp").forward(request, response);
         }
     }
@@ -52,35 +52,35 @@ public class Producto extends HttpServlet {
             String[] imagenes = request.getParameterValues("imagenes");
             Float precioReal = null;
             Integer stockReal = null;
-        
+
             stockReal = Integer.parseInt(stock);
             precioReal = Float.parseFloat(precio);
-            
+
             DataProveedor proveedor = ProxyProducto.getInstance().listarProveedores().get(0);
             DataEspecificacionProducto espProducto = new DataEspecificacionProducto(nro_referencia, titulo, descripcion, new HashMap(), precioReal, proveedor, new ArrayList<String>(), new ArrayList<DataCategoria>(), new ArrayList<DataProducto>(), new ArrayList<DataComentario>());
 
             ProxyProducto.getInstance().elegirProveedor("CraigX");
             ProxyProducto.getInstance().ingresarDatosProductos(espProducto);
-            
+
             System.out.println(Arrays.toString(imagenes));
 
-            for(String esp : especificaciones){
+            for (String esp : especificaciones) {
                 String[] espe = esp.split(":");
                 ProxyProducto.getInstance().ingresarEspecificacion(espe[0], espe[1].trim());
             }
 
             ProxyProducto.getInstance().agregarMultiplesProductosAutogenerados(stockReal);
-            
-            for(String cat : categorias){
+
+            for (String cat : categorias) {
                 ProxyProducto.getInstance().agregarCategoriaAEspecificacion(cat);
             }
-            
-            if(imagenes != null && imagenes.length > 0){
-                for(String img : imagenes){
+
+            if (imagenes != null && imagenes.length > 0) {
+                for (String img : imagenes) {
                     ProxyProducto.getInstance().agregarImagen(img);
                 }
             }
-            
+
             ProxyProducto.getInstance().guardarProducto();
         } catch (Exception ex) {
             response.sendError(404);
@@ -89,15 +89,5 @@ public class Producto extends HttpServlet {
 
         response.sendRedirect("home");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

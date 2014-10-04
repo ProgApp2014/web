@@ -22,8 +22,22 @@
                                 <div class="page-header">
                                     <h1 class="pull-left">
                                         <i class="icon-star"></i>
-                                        <span>Registro Productos</span>
+                                        <span>Registro de Productos</span>
                                     </h1>
+                                    <div class="pull-right">
+                                        <ul class="breadcrumb">
+                                            <li>
+                                                <a href="home">
+                                                    <i class="icon-home"></i>
+                                                    Inicio
+                                                </a>
+                                            </li>
+                                            <li class="separator">
+                                                <i class="icon-angle-right"></i>
+                                            </li>
+                                            <li class="active">Registro de Productos</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,12 +139,11 @@
                         </div>
                     </div>
                 </div>
-
-                <jsp:include page="/WEB-INF/includes/footer.jsp" />
-
             </div>
         </div>
-
+                                                        
+        <jsp:include page="/WEB-INF/includes/footer.jsp" />
+        
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
         <script src="assets/javascripts/plugins/fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
         <script src="assets/javascripts/plugins/select2/select2.js" type="text/javascript"></script>
@@ -149,7 +162,7 @@
                         document.getElementById("preview1").src = oFREvent.target.result;
                     }
                 });
-                
+
                 $('#imagen2').on('change', function () {
                     var image = document.getElementById("imagen2").files[0];
                     oFReader = new FileReader();
@@ -159,7 +172,7 @@
                         document.getElementById("preview2").src = oFREvent.target.result;
                     }
                 });
-                
+
                 $('#imagen3').on('change', function () {
                     var image = document.getElementById("imagen3").files[0];
                     oFReader = new FileReader();

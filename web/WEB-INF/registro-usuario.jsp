@@ -20,8 +20,22 @@
                                 <div class="page-header">
                                     <h1 class="pull-left">
                                         <i class="icon-user"></i>
-                                        <span>Registro Usuario</span>
+                                        <span>Registro de Usuario</span>
                                     </h1>
+                                    <div class="pull-right">
+                                        <ul class="breadcrumb">
+                                            <li>
+                                                <a href="home">
+                                                    <i class="icon-home"></i>
+                                                    Inicio
+                                                </a>
+                                            </li>
+                                            <li class="separator">
+                                                <i class="icon-angle-right"></i>
+                                            </li>
+                                            <li class="active">Registro de Usuario</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -120,11 +134,10 @@
                         </div>
                     </div>
                 </div>
-
-                <jsp:include page="/WEB-INF/includes/footer.jsp" />
-
             </div>
         </div>
+
+        <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
         <script src="assets/javascripts/plugins/fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
@@ -133,13 +146,13 @@
         <script src="assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
         <script src="assets/javascripts/plugins/validate/validate_messages_es.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('#imagen').on('change', function(){
+            $(document).ready(function () {
+                $('#imagen').on('change', function () {
                     var image = document.getElementById("imagen").files[0];
                     oFReader = new FileReader();
                     oFReader.readAsDataURL(image);
                     document.getElementById("preview").src = '';
-                    oFReader.onload = function (oFREvent){
+                    oFReader.onload = function (oFREvent) {
                         document.getElementById("preview").src = oFREvent.target.result;
                     }
                 });
