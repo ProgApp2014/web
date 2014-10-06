@@ -95,7 +95,7 @@
                                                             </tbody>
                                                             <% }%>
                                                         </table>
-                                                        Ï                                                    </address>
+                                                    </address>
                                                 </div>
                                             </fieldset>
                                             <hr class="hr-normal">
