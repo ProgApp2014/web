@@ -162,6 +162,18 @@
                                                 }
                                             });
                                         }); 
+                                        $('#usuInp').live("keypress", function(e) {
+                                            var code = (e.keyCode ? e.keyCode : e.which);
+                                            if (code == 13) {
+                                               $('#pwdInp').focus();
+                                            }
+                                         });
+                                         $('#pwdInp').live("keypress", function(e) {
+                                            var code = (e.keyCode ? e.keyCode : e.which);
+                                            if (code == 13) {
+                                               $('#btnIniciar').click();
+                                            }
+                                         });
                                     
                                     
                                     }
