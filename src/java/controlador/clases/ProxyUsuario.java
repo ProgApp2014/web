@@ -8,6 +8,7 @@ package controlador.clases;
 import Controlador.Clases.Fabrica;
 import Controlador.DataTypes.DataCategoria;
 import Controlador.DataTypes.DataCliente;
+import Controlador.DataTypes.DataEspecificacionProducto;
 import Controlador.DataTypes.DataOrdenCompra;
 import Controlador.DataTypes.DataProveedor;
 
@@ -129,5 +130,9 @@ public class ProxyUsuario {
     
     public Boolean esCliente(String nickname){
         return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).esCliente(nickname);
+    }
+    
+    public List<DataEspecificacionProducto> listarProductosProveedor(){
+        return Fabrica.getInstance().getControladorUsuarios(idUsuariosControlador).listarProductosProveedor();
     }
 }
