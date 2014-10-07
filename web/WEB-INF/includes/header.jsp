@@ -124,22 +124,49 @@
                     <h4 class="modal-title">Iniciar Sesion</h4>
                 </div>
                 <div class="modal-body">
+                    <div id="ErrorMsg" style="color:red;"></div>
                     <div class='login-container'>
                         <div class='container'>
                             <div class='row'>
-                                <form action='iniciar-sesion' class='validate-form' method='post'>
-                                    <div class='form-group'>
-                                        <div class='controls with-icon-over-input'>
-                                            <input value="" placeholder="Usuario o E-mail" class="form-control" data-rule-required="true" name="email" type="text" />
-                                        </div>
+                                <div class='form-group'>
+                                    <div class='controls with-icon-over-input'>
+                                        <input id="usuInp" value="" placeholder="Usuario" class="form-control" data-rule-required="true" name="email" type="text" />
                                     </div>
-                                    <div class='form-group'>
-                                        <div class='controls with-icon-over-input'>
-                                            <input value="" placeholder="Password" class="form-control" data-rule-required="true" name="password" type="password" />
-                                        </div>
+                                </div>
+                                <div class='form-group'>
+                                    <div class='controls with-icon-over-input'>
+                                        <input id="pwdInp" value="" placeholder="Password" class="form-control" data-rule-required="true" name="password" type="password" />
                                     </div>
-                                    <button class='btn btn-block'>Iniciar Sesion</button>
-                                </form>
+                                </div>
+                                <button id="btnIniciar" class='btn btn-block'>Iniciar Sesion</button>
+
+                                <script>
+                                    function init() {
+                                        $("#btnIniciar").click(function(){
+                                            var formData = {email:$("#usuInp").val(),password:$("#pwdInp").val()}; //Array
+
+                                            $.ajax({
+                                                url : "iniciar-sesion",
+                                                type: "POST",
+                                                data : formData,
+                                                success: function(result)
+                                                {
+                                                    console.info(result);
+                                                    if(result.indexOf("Ok") > -1){
+                                                        window.location.href="/ProgWeb/home";
+                                                    }else{
+                                                        $("#usuInp").val("");
+                                                        $("#pwdInp").val("");
+                                                        $("#ErrorMsg").html("Usuario o clave incorrectos");
+                                                    }
+                                                }
+                                            });
+                                        }); 
+                                    
+                                    
+                                    }
+                                    window.onload = init; 
+                                </script>
                             </div>
                         </div>
                     </div>

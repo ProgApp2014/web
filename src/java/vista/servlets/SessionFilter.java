@@ -37,6 +37,9 @@ public class SessionFilter implements Filter {
         allUrls.add("/home");
         allUrls.add("/registro-usuario");
         allUrls.add("/registro-producto");
+        allUrls.add("/perfil");
+        allUrls.add("/detalle-producto");
+        allUrls.add("/buscador");
         if(allUrls.contains(url)){
 
             if(session.getAttribute("usuario_logueado") == null && !urlsLstVisitante.contains(url)){

@@ -2,6 +2,7 @@ package vista.servlets;
 
 import controlador.clases.ProxyUsuario;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,22 +18,25 @@ public class IniciarSesion extends HttpServlet {
             throws ServletException, IOException {
         String usuario = request.getParameter("email");
         String clave = request.getParameter("password");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
         try {
             if(!ProxyUsuario.getInstance().login(usuario,md5(clave))){
-                request.getSession().setAttribute("login_error", "Usuario o clave incorrecta");
+                out.println("Error");
             }else{
                 if(ProxyUsuario.getInstance().esCliente(usuario)){
                     ProxyUsuario.getInstance().elegirCliente(usuario);
                     request.getSession().setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosCliente().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosCliente().getApellido());
+                    out.println("Ok");
                 }else if(ProxyUsuario.getInstance().esProveedor(usuario)){
                     HttpSession session = request.getSession();
                     ProxyUsuario.getInstance().elegirProveedor(usuario);
                     session.setAttribute("esProveedor","yes");
                     session.setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosProveedor().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosProveedor().getApellido());
+                    out.println("Ok");
                 }
             }
-            response.sendRedirect("home");
         } catch(Exception ex){
             response.sendError(404);
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
