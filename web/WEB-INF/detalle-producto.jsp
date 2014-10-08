@@ -97,6 +97,8 @@
                                                         </table>
                                                     </address>
                                                 </div>
+                                                Cantidad: <input type="number" name="quantity" min="1" max="<%= producto.getStock() %>" value="1"> 
+                                                <button id="btnAgregar" class='btn btn-block'>Agregar a carrito</button>
                                             </fieldset>
                                             <hr class="hr-normal">
                                             <fieldset>

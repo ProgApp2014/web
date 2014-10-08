@@ -15,6 +15,7 @@ import Controlador.DataTypes.DataProveedor;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -196,5 +197,12 @@ public class ProxyProducto {
     public Boolean categoryAlreadyExist(String categoria) {
 
         return Fabrica.getInstance().getControladorProductos(idProductosControlador).categoryAlreadyExist(categoria);
+    }
+    
+    public List<DataEspecificacionProducto> buscarProductos(String keyword){
+        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductos(keyword);
+    }
+    public Map<String,List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword){
+        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductosSeparados(keyword);
     }
 }
