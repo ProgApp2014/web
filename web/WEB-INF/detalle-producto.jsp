@@ -28,7 +28,7 @@
                         stockMaximo = stockMaximo - Integer.parseInt(productoCantidad[0]);
                         stockMaximo = stockMaximo < 0 ? 0 : stockMaximo;
                         break;
-                    }
+                    } 
                 }
             }
         %>
