@@ -44,6 +44,10 @@
         <servlet-class>vista.servlets.AgregarCarrito</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>GenerarOrden</servlet-name>
+        <servlet-class>vista.servlets.GenerarOrden</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Orden</servlet-name>
         <servlet-class>vista.servlets.Orden</servlet-class>
     </servlet>
@@ -90,6 +94,10 @@
     <servlet-mapping>
         <servlet-name>AgregarCarrito</servlet-name>
         <url-pattern>/agregar-carrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenerarOrden</servlet-name>
+        <url-pattern>/generar-orden</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

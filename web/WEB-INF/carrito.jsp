@@ -88,7 +88,7 @@
                         <hr class="hr-normal">
                         <div class="row">
                             <div class="col-sm-6">
-                                <a class="btn btn-success" href="#"><i class="icon-ok"></i>
+                                <a class="btn btn-success" href="#" id="generarOrdenLk"><i class="icon-ok"></i>
                                     Generar orden de compra
                                 </a>
                             </div>
@@ -102,7 +102,23 @@
                 </div>
             </div>
         </div>
+        <script>
+            function initCarrito() {
+                $("#generarOrdenLk").click(function(){
 
+                    $.ajax({
+                        url : "generar-orden",
+                        type: "POST",
+                        success: function(result)
+                        {
+                            alert("Orden generada con exito");
+                            window.location.href="/ProgWeb/home";
+                        }
+                    });
+                }); 
+            }
+            window.onload = initCarrito; 
+        </script>
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />

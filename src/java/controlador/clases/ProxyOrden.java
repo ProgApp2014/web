@@ -55,7 +55,7 @@ public class ProxyOrden {
     }
 
     public void elegirCliente(String nickname) {
-        Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).elegirCategoria(nickname);
+        Fabrica.getInstance().getControladorOrdenes(idOrdenesControlador).elegirCliente(nickname);
     }
 
     public List<DataCategoria> listarCategorias() {

@@ -5,7 +5,10 @@
  */
 package vista.servlets;
 
+import Controlador.DataTypes.DataOrdenCompra;
+import controlador.clases.ProxyOrden;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,32 +19,24 @@ import javax.servlet.http.HttpSession;
  *
  * @author dario
  */
-public class AgregarCarrito extends HttpServlet {
+public class GenerarOrden extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String idProducto = request.getParameter("nroRef");
-        String cantidad = request.getParameter("cantidad");
         HttpSession session = request.getSession();
         String carrito = session.getAttribute("carrito") == null?"":session.getAttribute("carrito").toString();
-        String nuevoCarrito = "";
-        Boolean agregado = false;
-        if(carrito.equals("")){
-            carrito = cantidad + "-"+idProducto;
-        }else{
+        ProxyOrden.getInstance().elegirCliente(session.getAttribute("nickname").toString());
+        if(!carrito.equals("")){
             for(String iter : carrito.split(";")){
                 String[] current = iter.split("-");
-                if(current[1].equals(idProducto)){
-                    agregado = true;
-                    current[0] = String.valueOf(Integer.parseInt(current[0]) + Integer.parseInt(cantidad));
-                }
-                nuevoCarrito += nuevoCarrito.equals("")?current[0]+"-"+current[1]:";"+current[0]+"-"+current[1];
+                ProxyOrden.getInstance().elegirEspecificacionProducto(current[1]);
+                ProxyOrden.getInstance().elegirCantidadProducto(Integer.parseInt(current[0]));
+                ProxyOrden.getInstance().generarItemOrden();
             }
-            if(!agregado)
-                nuevoCarrito += ";"+cantidad + "-"+idProducto;
-            carrito = nuevoCarrito;
+             DataOrdenCompra dataOrden = new DataOrdenCompra(0);
+            ProxyOrden.getInstance().guardarOrden(dataOrden);
+            session.setAttribute("carrito", null);
         }
-        session.setAttribute("carrito", carrito);
     }
+    
 }
