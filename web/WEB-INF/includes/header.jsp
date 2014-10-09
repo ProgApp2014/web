@@ -1,3 +1,5 @@
+<%@page import="controlador.clases.ProxyProducto"%>
+<%@page import="java.util.List"%>
 <header>
     <nav class="navbar navbar-default">
          <a class="navbar-brand" href="home">
@@ -9,15 +11,29 @@
             if(session.getAttribute("usuario_logueado") != null){
                 login = true;
             }
+            String carrito = session.getAttribute("carrito") == null?null:session.getAttribute("carrito").toString();
+            String[] items = null;
+            if(carrito != null){
+                items = carrito.split(";");
+            }
+            int listLength = items != null?items.length:0;
             if (login) {
         %>
         <ul class="nav">
             <li class="dropdown medium only-icon widget">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="icon-shopping-cart"></i>
-                    <div class="label">3</div>
+                    <div class="label">
+                        <%=listLength%>
+                    </div>
                 </a>
                 <ul class="dropdown-menu">
+                    <%
+                        if(items != null){
+                            for(String iter : items){
+                                String[] productoCantidad = iter.split("-");
+                            
+                    %>
                     <li>
                         <a href="#">
                             <div class="widget-body">
@@ -25,37 +41,13 @@
                                     <i class="icon-ok text-success"></i>
                                 </div>
                                 <div class="pull-left text">
-                                    Iphone 5
+                                    <%= ProxyProducto.getInstance().mostrarDatosProducto(productoCantidad[1]).getNombre()%> (<%= productoCantidad[0]%>)
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div class="widget-body">
-                                <div class="pull-left icon">
-                                    <i class="icon-ok text-success"></i>
-                                </div>
-                                <div class="pull-left text">
-                                    Ipad Mini
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div class="widget-body">
-                                <div class="pull-left icon">
-                                    <i class="icon-ok text-success"></i>
-                                </div>
-                                <div class="pull-left text">
-                                    Cargador Iphone
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                    <% }} %>
                     <li class="widget-footer">
                         <a href="carrito">Ver orden</a>
                     </li>

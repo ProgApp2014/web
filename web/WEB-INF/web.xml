@@ -40,6 +40,10 @@
         <servlet-class>vista.servlets.Buscador</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AgregarCarrito</servlet-name>
+        <servlet-class>vista.servlets.AgregarCarrito</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Orden</servlet-name>
         <servlet-class>vista.servlets.Orden</servlet-class>
     </servlet>
@@ -83,6 +87,10 @@
         <servlet-name>ProductoDetalle</servlet-name>
         <url-pattern>/detalle-producto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarCarrito</servlet-name>
+        <url-pattern>/agregar-carrito</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -99,7 +107,7 @@
         </init-param>
         <init-param>
             <param-name>cliente-urls</param-name>
-            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador</param-value>
+            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito</param-value>
         </init-param>
         <init-param>
             <param-name>proveedor-urls</param-name>

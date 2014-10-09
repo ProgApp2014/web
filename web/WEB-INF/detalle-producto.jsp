@@ -1,3 +1,4 @@
+<%@page import="controlador.clases.ProxyProducto"%>
 <%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,6 +15,22 @@
 
         <%
             DataEspecificacionProducto producto = (DataEspecificacionProducto) request.getAttribute("producto");
+            int stockMaximo = producto.getStock();
+            String carrito = session.getAttribute("carrito") == null?null:session.getAttribute("carrito").toString();
+            String[] items = null;
+            if(carrito != null){
+                items = carrito.split(";");
+            }
+            if(items != null){
+                for(String iter : items){
+                    String[] productoCantidad = iter.split("-");
+                    if(productoCantidad[1].equals(producto.getNroReferencia())){
+                        stockMaximo = stockMaximo - Integer.parseInt(productoCantidad[0]);
+                        stockMaximo = stockMaximo < 0 ? 0 : stockMaximo;
+                        break;
+                    }
+                }
+            }
         %>
 
         <div id="wrapper">
@@ -46,101 +63,125 @@
                             </div>
                         </div>
                         <div class="row">
-                            <form class="form validate-form" method="post" action="registro-producto" novalidate="novalidate">
-                                <div class="col-sm-12">
-                                    <div class="box">
-                                        <div class="box-content box-double-padding">
-                                            <fieldset>
-                                                <div class="col-sm-4">
-                                                    <div style="width: 140px; height: 140px">
-                                                        <div class="carousel slide" id="myCarousel">
-                                                            <div class="carousel-inner">
-                                                                <div class="active item"><img src="http://placehold.it/140x140&text=1" /></div>
-                                                                <div class="item"><img src="http://placehold.it/140x140/143249/fff&text=2" /></div>
-                                                                <div class="item"><img src="http://placehold.it/140x140/f34541/fff&text=3" /></div>
+                            
+                            <div class="col-sm-12">
+                                <div class="box">
+                                    <div class="box-content box-double-padding">
+                                        <fieldset>
+                                            <div class="col-sm-4">
+                                                <div style="width: 140px; height: 140px">
+                                                    <div class="carousel slide" id="myCarousel">
+                                                        <div class="carousel-inner">
+                                                            <div class="active item"><img src="http://placehold.it/140x140&text=1" /></div>
+                                                            <div class="item"><img src="http://placehold.it/140x140/143249/fff&text=2" /></div>
+                                                            <div class="item"><img src="http://placehold.it/140x140/f34541/fff&text=3" /></div>
+                                                        </div>
+                                                        <a class="left carousel-control" data-slide="prev" href="#myCarousel">
+                                                            <span class="icon-angle-left icon-prev"></span>
+                                                        </a>
+                                                        <a class="right carousel-control" data-slide="next" href="#myCarousel">
+                                                            <span class="icon-angle-right icon-next"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <address>
+                                                    <strong>Descripcion</strong>
+                                                    <br>
+                                                    <span><%= producto.getDescripcion()%></span>
+                                                    <br>
+                                                    <strong>Categorias</strong>
+                                                    <br>
+                                                    <% for (DataCategoria cat : producto.getCategorias()) {%>
+                                                    <span><%= cat.getNombre()%></span>
+                                                    <br>
+                                                    <% } %>
+                                                </address>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <address>
+                                                    <strong>Especificaciones</strong>
+                                                    <table class="table table-hover table-striped" style="margin-bottom:0;">
+                                                        <% for (String keyEsp : producto.getEspecificacion().keySet()) {%>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><%= keyEsp%></td>
+                                                                <td><%= producto.getEspecificacion().get(keyEsp)%></td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <% }%>
+                                                    </table>
+                                                </address>
+                                            </div>
+                                            <% if(stockMaximo > 0){ %>
+                                                Cantidad: <input type="number" id="cantidadProductos" name="quantity" min="1" max="<%= stockMaximo %>" value="1"> 
+                                                <button id="btnAgregar">Agregar a carrito</button>
+                                            <% } %>
+                                        </fieldset>
+                                        <%
+                                            if(session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())){
+                                        %>
+                                        <hr class="hr-normal">
+                                        <fieldset>
+                                            <div class="col-sm-12 recent-activity">
+                                                <div class="box-header">
+                                                    <div class="title">
+                                                        <i class="icon-comments"></i>
+                                                        Comentarios
+                                                    </div>
+                                                </div>
+                                                <div class="box-content box-no-padding">
+                                                    <ul class="list-unstyled comments list-hover list-striped">
+                                                        <li>
+                                                            <div class="avatar pull-left">
+                                                                <div class="icon-user"></div>
                                                             </div>
-                                                            <a class="left carousel-control" data-slide="prev" href="#myCarousel">
-                                                                <span class="icon-angle-left icon-prev"></span>
-                                                            </a>
-                                                            <a class="right carousel-control" data-slide="next" href="#myCarousel">
-                                                                <span class="icon-angle-right icon-next"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <address>
-                                                        <strong>Descripcion</strong>
-                                                        <br>
-                                                        <span><%= producto.getDescripcion()%></span>
-                                                        <br>
-                                                        <strong>Categorias</strong>
-                                                        <br>
-                                                        <% for (DataCategoria cat : producto.getCategorias()) {%>
-                                                        <span><%= cat.getNombre()%></span>
-                                                        <br>
-                                                        <% } %>
-                                                    </address>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <address>
-                                                        <strong>Especificaciones</strong>
-                                                        <table class="table table-hover table-striped" style="margin-bottom:0;">
-                                                            <% for (String keyEsp : producto.getEspecificacion().keySet()) {%>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><%= keyEsp%></td>
-                                                                    <td><%= producto.getEspecificacion().get(keyEsp)%></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <% }%>
-                                                        </table>
-                                                    </address>
-                                                </div>
-                                                Cantidad: <input type="number" name="quantity" min="1" max="<%= producto.getStock() %>" value="1"> 
-                                                <button id="btnAgregar" class='btn btn-block'>Agregar a carrito</button>
-                                            </fieldset>
-                                            <hr class="hr-normal">
-                                            <fieldset>
-                                                <div class="col-sm-12 recent-activity">
-                                                    <div class="box-header">
-                                                        <div class="title">
-                                                            <i class="icon-comments"></i>
-                                                            Comentarios
-                                                        </div>
-                                                    </div>
-                                                    <div class="box-content box-no-padding">
-                                                        <ul class="list-unstyled comments list-hover list-striped">
-                                                            <li>
-                                                                <div class="avatar pull-left">
-                                                                    <div class="icon-user"></div>
-                                                                </div>
-                                                                <div class="body">
-                                                                    <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
-                                                                    <div class="actions">
-                                                                        <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class="icon-thumbs-up"></i>
-                                                                        </a>
+                                                            <div class="body">
+                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
+                                                                <div class="actions">
+                                                                    <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class="icon-thumbs-up"></i>
+                                                                    </a>
 
-                                                                        <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class="icon-thumbs-down"></i>
-                                                                        </a>
+                                                                    <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class="icon-thumbs-down"></i>
+                                                                    </a>
 
-                                                                    </div>
-                                                                    <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
                                                                 </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                            </fieldset>
-                                        </div>
+                                            </div>
+                                        </fieldset>
+                                        <% } %>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function initDetalleProd() {
+                $("#btnAgregar").click(function(){
+
+                    var formData = {nroRef:'<%= producto.getNroReferencia()%>',cantidad:$("#cantidadProductos").val()};
+
+                    $.ajax({
+                        url : "agregar-carrito",
+                        type: "POST",
+                        data : formData,
+                        success: function(result)
+                        {
+                            window.location.href="/ProgWeb/home";
+                        }
+                    });
+                }); 
+            }
+            window.onload = initDetalleProd; 
+        </script>
 
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
