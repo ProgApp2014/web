@@ -17,7 +17,7 @@
 
         <%
             String buscar = (String) request.getAttribute("buscar");
-            Map<String,List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar);
+            Map<String, List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar);
         %>
 
         <div id="wrapper">
@@ -45,65 +45,59 @@
                                 </ul>
                             </div>
                         </div>
-                        RESULTADOS POR PRODUCTO
+                        <h2>Resultados por productos</h2>
                         <div class="row pricing-tables">
-                            
+
                             <%
-                                    
-                                    if (listaProductos.size() > 0) {
-                                        for (DataEspecificacionProducto p : listaProductos.get("productos")) {
-                                %>
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="pricing-table">
-                                        <div class="header"><%= p.getNombre() %></div>
-                                        <div class="price green-background">
-                                            <span>$<%= p.getPrecio()%></span>
-                                        </div>
-                                        <div>
-                                            <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/">
-                                        </div>
-                                        <p class="text-center"><%= p.getDescripcion()%></p>
-                                        <div class="footer">
-                                            <a class="btn" href="detalle-producto?id=<%= p.getNroReferencia() %>">Ver producto</a>
-                                        </div>
+
+                                if (listaProductos.size() > 0) {
+                                    for (DataEspecificacionProducto p : listaProductos.get("productos")) {
+                            %>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="pricing-table">
+                                    <div class="header"><%= p.getNombre()%></div>
+                                    <div class="price green-background">
+                                        <span>$<%= p.getPrecio()%></span>
+                                    </div>
+                                    <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/"/>
+                                    <p class="text-center"><%= p.getDescripcion()%></p>
+                                    <div class="footer">
+                                        <a class="btn btn-primary" href="detalle-producto?id=<%= p.getNroReferencia()%>">Ver producto</a>
                                     </div>
                                 </div>
-                                <%
-                                    }
-                                }
-                                 
-                                %>
                             </div>
                             <%
-                                    
-                                    if (listaProductos.size() > 0) {
-                                        for (DataEspecificacionProducto p : listaProductos.get("categorias")) {
-                                %>
-                            <hr>
-                            RESULTADOS POR CATEGORIA
-                            <div class="row pricing-tables">
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="pricing-table">
-                                        <div class="header"><%= p.getNombre() %></div>
-                                        <div class="price green-background">
-                                            <span>$<%= p.getPrecio()%></span>
-                                        </div>
-                                        <div>
-                                            <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/">
-                                        </div>
-                                        <p class="text-center"><%= p.getDescripcion()%></p>
-                                        <div class="footer">
-                                            <a class="btn" href="detalle-producto?id=<%= p.getNroReferencia() %>">Ver producto</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                        </div>
-                                        <%
                                     }
                                 }
-                                 
-                                %>
+
+                            %>
+                        </div>
+                        <%                                if (listaProductos.size() > 0) {
+                                for (DataEspecificacionProducto p : listaProductos.get("categorias")) {
+                        %>
+                        <hr>
+                        <h2>Resultados por categoria</h2>
+                        <div class="row pricing-tables">
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="pricing-table">
+                                    <div class="header"><%= p.getNombre()%></div>
+                                    <div class="price green-background">
+                                        <span>$<%= p.getPrecio()%></span>
+                                    </div>
+                                    <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/"/>
+                                    <p class="text-center"><%= p.getDescripcion()%></p>
+                                    <div class="footer">
+                                        <a class="btn btn-primary" href="detalle-producto?id=<%= p.getNroReferencia()%>">Ver producto</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <%
+                                }
+                            }
+
+                        %>
                     </div>
                 </div>
             </div>

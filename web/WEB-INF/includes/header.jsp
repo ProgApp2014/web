@@ -2,37 +2,35 @@
 <%@page import="java.util.List"%>
 <header>
     <nav class="navbar navbar-default">
-         <a class="navbar-brand" href="home">
-          Direct Market
+        <a class="navbar-brand" href="home">
+            Direct Market
         </a> 
         <%
             Boolean login = false;
             //session.invalidate(); 
-            if(session.getAttribute("usuario_logueado") != null){
+            if (session.getAttribute("usuario_logueado") != null) {
                 login = true;
             }
-            String carrito = session.getAttribute("carrito") == null?null:session.getAttribute("carrito").toString();
+            String carrito = session.getAttribute("carrito") == null ? null : session.getAttribute("carrito").toString();
             String[] items = null;
-            if(carrito != null){
+            if (carrito != null) {
                 items = carrito.split(";");
             }
-            int listLength = items != null?items.length:0;
+            int listLength = items != null ? items.length : 0;
             if (login) {
         %>
         <ul class="nav">
             <li class="dropdown medium only-icon widget">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="icon-shopping-cart"></i>
-                    <div class="label">
-                        <%=listLength%>
-                    </div>
+                    <div class="label"><%= listLength %></div>
                 </a>
                 <ul class="dropdown-menu">
                     <%
-                        if(items != null){
-                            for(String iter : items){
+                        if (items != null) {
+                            for (String iter : items) {
                                 String[] productoCantidad = iter.split("-");
-                            
+
                     %>
                     <li>
                         <a href="#">
@@ -47,7 +45,10 @@
                         </a>
                     </li>
                     <li class="divider"></li>
-                    <% }} %>
+                        <%
+                                }
+                            }
+                        %>
                     <li class="widget-footer">
                         <a href="carrito">Ver orden</a>
                     </li>
@@ -55,7 +56,6 @@
             </li>
             <li class="dropdown dark user-menu">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <!--<img width="23" height="23" alt="Mila Kunis" src="assets/images/avatar.jpg" />-->
                     <span class="user-name">${usuario_logueado}</span>
                     <b class="caret"></b>
                 </a>
@@ -67,7 +67,7 @@
                         </a>
                     </li>
                     <li class="divider"></li>
-                    <% if(session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes"){ %>
+                        <% if (session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes") { %>
                     <li>
                         <a href="registro-producto">
                             <i class="glyphicon glyphicon-list-alt"></i>
@@ -107,7 +107,7 @@
         </form>
     </nav>
 
-    <!-- modal cambiar clave -->
+    <!-- modal inisiar sesion -->
     <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="ModalLogin" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -116,7 +116,7 @@
                     <h4 class="modal-title">Iniciar Sesion</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="ErrorMsg" style="color:red;"></div>
+                    <div class="alert alert-danger alert-dismissable" id="ErrorMsg" style="display:none"></div>
                     <div class='login-container'>
                         <div class='container'>
                             <div class='row'>
@@ -131,46 +131,6 @@
                                     </div>
                                 </div>
                                 <button id="btnIniciar" class='btn btn-block'>Iniciar Sesion</button>
-
-                                <script>
-                                    function init() {
-                                        $("#btnIniciar").click(function(){
-                                            var formData = {email:$("#usuInp").val(),password:$("#pwdInp").val()}; //Array
-
-                                            $.ajax({
-                                                url : "iniciar-sesion",
-                                                type: "POST",
-                                                data : formData,
-                                                success: function(result)
-                                                {
-                                                    console.info(result);
-                                                    if(result.indexOf("Ok") > -1){
-                                                        window.location.href="/ProgWeb/home";
-                                                    }else{
-                                                        $("#usuInp").val("");
-                                                        $("#pwdInp").val("");
-                                                        $("#ErrorMsg").html("Usuario o clave incorrectos");
-                                                    }
-                                                }
-                                            });
-                                        }); 
-                                        $('#usuInp').live("keypress", function(e) {
-                                            var code = (e.keyCode ? e.keyCode : e.which);
-                                            if (code == 13) {
-                                               $('#pwdInp').focus();
-                                            }
-                                         });
-                                         $('#pwdInp').live("keypress", function(e) {
-                                            var code = (e.keyCode ? e.keyCode : e.which);
-                                            if (code == 13) {
-                                               $('#btnIniciar').click();
-                                            }
-                                         });
-                                    
-                                    
-                                    }
-                                    window.onload = init; 
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -178,5 +138,4 @@
             </div>
         </div>
     </div>
-
 </header>

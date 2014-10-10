@@ -16,19 +16,19 @@
         <%
             DataEspecificacionProducto producto = (DataEspecificacionProducto) request.getAttribute("producto");
             int stockMaximo = producto.getStock();
-            String carrito = session.getAttribute("carrito") == null?null:session.getAttribute("carrito").toString();
+            String carrito = session.getAttribute("carrito") == null ? null : session.getAttribute("carrito").toString();
             String[] items = null;
-            if(carrito != null){
+            if (carrito != null) {
                 items = carrito.split(";");
             }
-            if(items != null){
-                for(String iter : items){
+            if (items != null) {
+                for (String iter : items) {
                     String[] productoCantidad = iter.split("-");
-                    if(productoCantidad[1].equals(producto.getNroReferencia())){
+                    if (productoCantidad[1].equals(producto.getNroReferencia())) {
                         stockMaximo = stockMaximo - Integer.parseInt(productoCantidad[0]);
                         stockMaximo = stockMaximo < 0 ? 0 : stockMaximo;
                         break;
-                    } 
+                    }
                 }
             }
         %>
@@ -63,27 +63,56 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col-sm-12">
                                 <div class="box">
                                     <div class="box-content box-double-padding">
                                         <fieldset>
                                             <div class="col-sm-4">
-                                                <div style="width: 140px; height: 140px">
-                                                    <div class="carousel slide" id="myCarousel">
-                                                        <div class="carousel-inner">
-                                                            <div class="active item"><img src="http://placehold.it/140x140&text=1" /></div>
-                                                            <div class="item"><img src="http://placehold.it/140x140/143249/fff&text=2" /></div>
-                                                            <div class="item"><img src="http://placehold.it/140x140/f34541/fff&text=3" /></div>
+                                                <div class="col-sm-5">
+                                                    <div style="width: 140px; height: 140px;">
+                                                        <div class="carousel slide" id="myCarousel">
+                                                            <div class="carousel-inner">
+                                                                <div class="active item"><img src="http://placehold.it/140x140&text=1" /></div>
+                                                                <div class="item"><img src="http://placehold.it/140x140/143249/fff&text=2" /></div>
+                                                                <div class="item"><img src="http://placehold.it/140x140/f34541/fff&text=3" /></div>
+                                                            </div>
+                                                            <a class="left carousel-control" data-slide="prev" href="#myCarousel">
+                                                                <span class="icon-angle-left icon-prev"></span>
+                                                            </a>
+                                                            <a class="right carousel-control" data-slide="next" href="#myCarousel">
+                                                                <span class="icon-angle-right icon-next"></span>
+                                                            </a>
                                                         </div>
-                                                        <a class="left carousel-control" data-slide="prev" href="#myCarousel">
-                                                            <span class="icon-angle-left icon-prev"></span>
-                                                        </a>
-                                                        <a class="right carousel-control" data-slide="next" href="#myCarousel">
-                                                            <span class="icon-angle-right icon-next"></span>
-                                                        </a>
                                                     </div>
                                                 </div>
+                                                <%
+                                                    if (session.getAttribute("nickname") != null && session.getAttribute("esProveedor") == null) {
+                                                        if (stockMaximo > 0) {
+                                                %>
+                                                <div class="col-sm-7">
+                                                    <div class="box">
+                                                        <div class="box-content">
+                                                            <div class="form-group">
+                                                                <label>Cantidad:</label>
+                                                                <select class="form-control" data-rule-required="true" id="cantidadProductos" name="quantity">
+                                                                    <% for (Integer stock = 1; stock <= stockMaximo; stock++) {%>
+                                                                    <option><%= stock%></option>
+                                                                    <% }%>
+                                                                </select>
+                                                                <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
+                                                            </div>
+                                                            <button class="btn btn-primary btn-block btn-lg" type="button" id="btnAgregar">
+                                                                <i class="icon-plus"></i>
+                                                                Agregar al carrito
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%
+                                                        }
+                                                    }
+                                                %>
                                             </div>
                                             <div class="col-sm-4">
                                                 <address>
@@ -114,47 +143,58 @@
                                                     </table>
                                                 </address>
                                             </div>
-                                            <% if(stockMaximo > 0){ %>
-                                                Cantidad: <input type="number" id="cantidadProductos" name="quantity" min="1" max="<%= stockMaximo %>" value="1"> 
-                                                <button id="btnAgregar">Agregar a carrito</button>
-                                            <% } %>
                                         </fieldset>
                                         <%
-                                            if(session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())){
+                                            if (session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
                                         %>
                                         <hr class="hr-normal">
                                         <fieldset>
                                             <div class="col-sm-12 recent-activity">
                                                 <div class="box-header">
                                                     <div class="title">
-                                                        <i class="icon-comments"></i>
+                                                        <i class="icon-comment"></i>
                                                         Comentarios
                                                     </div>
                                                 </div>
-                                                <div class="box-content box-no-padding">
-                                                    <ul class="list-unstyled comments list-hover list-striped">
-                                                        <li>
-                                                            <div class="avatar pull-left">
-                                                                <div class="icon-user"></div>
-                                                            </div>
-                                                            <div class="body">
+                                                <div class="box">
+                                                    <div class="box-content">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="inputTextArea1" placeholder="Ingresar comentario..." rows="3"></textarea>
+                                                        </div>
+                                                        <div class="text-right">
+                                                            <a class="btn btn-warning" href="#">Comentar</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="box-content">
+                                                        <ul class="list-unstyled comments">
+                                                            <li class="comentario-padre">
                                                                 <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
-                                                                <div class="actions">
-                                                                    <a class="btn btn-link ok has-tooltip" title="Approve" href="#"><i class="icon-thumbs-up"></i>
-                                                                    </a>
-
-                                                                    <a class="btn btn-link remove has-tooltip" title="Remove" href="#"><i class="icon-thumbs-down"></i>
-                                                                    </a>
-
-                                                                </div>
                                                                 <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                            </li>
+                                                            <li class="comentario-hijo">
+                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
+                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
+                                                            </li>
+                                                            <li class="comentario-hijo">
+                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
+                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
+                                                            </li>
+                                                            <li class="comentario-hijo">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="inputTextArea1" placeholder="Ingresar respuesta..." rows="3"></textarea>
+                                                        </div>
+                                                        <div class="text-right">
+                                                            <a class="btn btn-primary" href="#">Responder</a>
+                                                        </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>  
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <% } %>
+                                        <% }%>
                                     </div>
                                 </div>
                             </div>
@@ -163,25 +203,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            function initDetalleProd() {
-                $("#btnAgregar").click(function(){
-
-                    var formData = {nroRef:'<%= producto.getNroReferencia()%>',cantidad:$("#cantidadProductos").val()};
-
-                    $.ajax({
-                        url : "agregar-carrito",
-                        type: "POST",
-                        data : formData,
-                        success: function(result)
-                        {
-                            window.location.href="/ProgWeb/home";
-                        }
-                    });
-                }); 
-            }
-            window.onload = initDetalleProd; 
-        </script>
 
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 

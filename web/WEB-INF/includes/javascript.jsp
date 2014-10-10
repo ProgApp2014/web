@@ -16,3 +16,6 @@
 <script src="assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
 <!-- / theme file [required] -->
 <script src="assets/javascripts/theme.js" type="text/javascript"></script>
+
+<!-- / theme file [required] -->
+<script src="assets/javascripts/main.js" type="text/javascript"></script>

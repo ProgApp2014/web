@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="responsive-table">
-                                    <div class="scrollable-area">
+                                    <div>
                                         <table class="table table-striped table-hover table-bordered">
                                             <thead>
                                                 <tr>
@@ -56,29 +56,32 @@
                                             </thead>
                                             <tbody>
                                                 <%
-                                                    String carrito = session.getAttribute("carrito") == null?null:session.getAttribute("carrito").toString();
+                                                    String carrito = session.getAttribute("carrito") == null ? null : session.getAttribute("carrito").toString();
                                                     String[] items = null;
-                                                    if(carrito != null){
+                                                    if (carrito != null) {
                                                         items = carrito.split(";");
                                                     }
                                                     NumberFormat formatter = NumberFormat.getNumberInstance();
                                                     formatter.setMinimumFractionDigits(2);
                                                     Float precioTotal = 0.0F;
-                                                    if(items != null){
-                                                        for(String iter : items){
+                                                    if (items != null) {
+                                                        for (String iter : items) {
                                                             String[] productoCantidad = iter.split("-");
                                                             DataEspecificacionProducto producto = ProxyProducto.getInstance().mostrarDatosProducto(productoCantidad[1]);
                                                             precioTotal += (Float.parseFloat(producto.getPrecio().toString()) * Integer.valueOf(productoCantidad[0]));
                                                 %>
                                                 <tr>
-                                                    <td><%= producto.getNroReferencia() %></td>
-                                                    <td><%= producto.getNombre() %></td>
-                                                    <td><%= producto.getDescripcion() %></td>
-                                                    <td><%= productoCantidad[0].toString() %></td>
-                                                    <td>$<%= producto.getPrecio() %></td>
-                                                    <td>$<%= formatter.format(Float.parseFloat(producto.getPrecio().toString()) * Integer.valueOf(productoCantidad[0])) %></td>
+                                                    <td><%= producto.getNroReferencia()%></td>
+                                                    <td><%= producto.getNombre()%></td>
+                                                    <td><%= producto.getDescripcion()%></td>
+                                                    <td><%= productoCantidad[0].toString()%></td>
+                                                    <td>$<%= producto.getPrecio()%></td>
+                                                    <td>$<%= formatter.format(Float.parseFloat(producto.getPrecio().toString()) * Integer.valueOf(productoCantidad[0]))%></td>
                                                 </tr>
-                                                <% }} %>
+                                                <%
+                                                        }
+                                                    }
+                                                %>
                                             </tbody>
                                         </table>
                                     </div>
@@ -102,23 +105,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            function initCarrito() {
-                $("#generarOrdenLk").click(function(){
-
-                    $.ajax({
-                        url : "generar-orden",
-                        type: "POST",
-                        success: function(result)
-                        {
-                            alert("Orden generada con exito");
-                            window.location.href="/ProgWeb/home";
-                        }
-                    });
-                }); 
-            }
-            window.onload = initCarrito; 
-        </script>
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />

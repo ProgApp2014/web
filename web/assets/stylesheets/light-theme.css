@@ -3947,6 +3947,7 @@ input[type="color"],
   border: 1px solid white;
   margin-bottom: 20px;
   position: relative;
+  background-color: #EEEEEE;
   -webkit-transition: opacity 100ms ease;
   -moz-transition: opacity 100ms ease;
   -o-transition: opacity 100ms ease;
@@ -3963,26 +3964,28 @@ input[type="color"],
         opacity: 1; } }
   .pricing-tables .pricing-table .header {
     text-align: center;
-    padding: 20px 0 50px 0;
+    padding: 20px 0 20px 0;
     font-size: 20px;
     font-family: Montserrat;
     background-color: #dddddd; }
   .pricing-tables .pricing-table .price {
-    width: 30%;
+    width: 100%;
     height: 60px;
     line-height: 60px;
-    position: absolute;
-    top: 60px;
-    z-index: 900;
-    left: 50%;
+    /*position: absolute;*/
+    /*top: 60px;*/
+    /*z-index: 900;*/
+    /*left: 50%;*/
     display: block;
     font-size: 25px;
     text-align: center;
     color: white;
-    margin-left: -15%;
+    /*margin-left: -15%;*/
     font-family: Montserrat; }
     .pricing-tables .pricing-table .price span {
       vertical-align: middle; }
+    .pricing-tables .pricing-table p {
+      height: 100px;}
   .pricing-tables .pricing-table .features {
     padding-top: 50px;
     text-align: center;
