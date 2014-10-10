@@ -7,6 +7,7 @@ package controlador.clases;
 
 import Controlador.Clases.Fabrica;
 import Controlador.DataTypes.DataCategoria;
+import Controlador.DataTypes.DataComentario;
 import Controlador.DataTypes.DataEspecificacionProducto;
 import Controlador.DataTypes.DataOrdenCompra;
 import Controlador.DataTypes.DataProducto;
@@ -208,5 +209,13 @@ public class ProxyProducto {
     
     public Boolean puedeComentar(String nickname, String nroRef){
         return Fabrica.getInstance().getControladorProductos(idProductosControlador).puedeComentar(nickname, nroRef);
+    }
+    
+    public List<DataComentario> listarComentarios(String nroRef){
+        return Fabrica.getInstance().getControladorProductos(idProductosControlador).listarComentarios(nroRef);
+    }
+    
+    public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario){
+        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarComentario(nickname, nroRef, padre, Comentario);
     }
 }

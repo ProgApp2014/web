@@ -65,3 +65,17 @@ $("#btnAgregar").click(function () {
         }
     });
 });
+
+$("#comentarLnk").click(function () {
+    var formData = {comentario: $("#comentarioText").val(), nroRef: $("#nroRef").val(), cliente: $("#cliente").val()}; //Array
+
+    $.ajax({
+        url: "agregar-comentario",
+        type: "POST",
+        data: formData,
+        success: function (result)
+        {
+            window.location.href = "/ProgWeb/detalle-producto?id="+$("#nroRef").val();
+        }
+    });
+});

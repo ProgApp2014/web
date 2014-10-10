@@ -44,6 +44,10 @@
         <servlet-class>vista.servlets.AgregarCarrito</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AgregarComentario</servlet-name>
+        <servlet-class>vista.servlets.AgregarComentario</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GenerarOrden</servlet-name>
         <servlet-class>vista.servlets.GenerarOrden</servlet-class>
     </servlet>
@@ -96,6 +100,10 @@
         <url-pattern>/agregar-carrito</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AgregarComentario</servlet-name>
+        <url-pattern>/agregar-comentario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>GenerarOrden</servlet-name>
         <url-pattern>/generar-orden</url-pattern>
     </servlet-mapping>
@@ -115,7 +123,7 @@
         </init-param>
         <init-param>
             <param-name>cliente-urls</param-name>
-            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito</param-value>
+            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito,/agregar-comentario</param-value>
         </init-param>
         <init-param>
             <param-name>proveedor-urls</param-name>

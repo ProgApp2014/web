@@ -1,3 +1,5 @@
+<%@page import="controlador.clases.TreeParserComentarios"%>
+<%@page import="java.util.List"%>
 <%@page import="controlador.clases.ProxyProducto"%>
 <%@page import="Controlador.DataTypes.DataCategoria"%>
 <%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
@@ -30,6 +32,23 @@
                         break;
                     }
                 }
+            }
+        %>
+        
+        <%!
+            public String recorrer(List<TreeParserComentarios.NodoComentario> l) {
+                String arbol = "";
+                for (TreeParserComentarios.NodoComentario current : l) {
+                    if (current.hijos != null && !current.hijos.isEmpty()) {
+                        arbol += "<li><a href=\"home?cat=\"><i class=\"icon-folder-open-alt\"></i><span>" + current.id + "</span><i class=\"icon-angle-down angle-down\"></i></a>";
+                        arbol += "<ul class=\"nav nav-stacked in\">";
+                        arbol += recorrer(current.hijos);
+                        arbol += "</ul>";
+                    } else {
+                        arbol += "<li class=\"\"><a href=\"home?cat=" + current.id + "\"><i class=\"icon-caret-right\"></i><span>" + current.id + "</span></a></li>";
+                    }
+                }
+                return arbol;
             }
         %>
 
@@ -101,6 +120,7 @@
                                                                     <% }%>
                                                                 </select>
                                                                 <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
+                                                                <input type="hidden" name="cliente" id="cliente" value="<%= session.getAttribute("nickname")%>"/>
                                                             </div>
                                                             <button class="btn btn-primary btn-block btn-lg" type="button" id="btnAgregar">
                                                                 <i class="icon-plus"></i>
@@ -144,9 +164,6 @@
                                                 </address>
                                             </div>
                                         </fieldset>
-                                        <%
-                                            if (session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
-                                        %>
                                         <hr class="hr-normal">
                                         <fieldset>
                                             <div class="col-sm-12 recent-activity">
@@ -156,19 +173,27 @@
                                                         Comentarios
                                                     </div>
                                                 </div>
+                                                <%
+                                                    if (session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                %>
                                                 <div class="box">
                                                     <div class="box-content">
                                                         <div class="form-group">
-                                                            <textarea class="form-control" id="inputTextArea1" placeholder="Ingresar comentario..." rows="3"></textarea>
+                                                            <textarea class="form-control" id="comentarioText" placeholder="Ingresar comentario..." rows="3"></textarea>
                                                         </div>
                                                         <div class="text-right">
-                                                            <a class="btn btn-warning" href="#">Comentar</a>
+                                                            <a class="btn btn-warning" href="#" id="comentarLnk">Comentar</a>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <% }%>
                                                 <div class="box">
                                                     <div class="box-content">
-                                                        <ul class="list-unstyled comments">
+                                                        <%
+                                                            List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
+                                                        %>
+                                                        <%= recorrer(comentarios)%>
+                                                        <!--<ul class="list-unstyled comments">
                                                             <li class="comentario-padre">
                                                                 <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
                                                                 <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
@@ -189,12 +214,11 @@
                                                             <a class="btn btn-primary" href="#">Responder</a>
                                                         </div>
                                                             </li>
-                                                        </ul>
+                                                        </ul>-->
                                                     </div>  
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <% }%>
                                     </div>
                                 </div>
                             </div>
