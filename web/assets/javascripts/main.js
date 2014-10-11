@@ -79,3 +79,25 @@ $("#comentarLnk").click(function () {
         }
     });
 });
+
+function responderComentario(commId){
+    if(!$("#comentarioText"+commId).is(':visible')){
+        $("#comentarioText"+commId).show("slow")
+    }else{
+        if($("#comentarioText"+commId).val().length < 3){
+            alert("Mensaje muy corto");
+        }else{
+            var formData = {comentario: $("#comentarioText"+commId).val(), nroRef: $("#nroRef").val(), cliente: $("#cliente").val(),padre: commId}; //Array
+
+            $.ajax({
+                url: "agregar-comentario",
+                type: "POST",
+                data: formData,
+                success: function (result)
+                {
+                    window.location.href = "/ProgWeb/detalle-producto?id="+$("#nroRef").val();
+                }
+            });
+        }
+    }
+}

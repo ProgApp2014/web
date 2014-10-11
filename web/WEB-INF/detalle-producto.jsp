@@ -40,18 +40,33 @@
                 String arbol = "";
                 for (TreeParserComentarios.NodoComentario current : l) {
                     if (current.hijos != null && !current.hijos.isEmpty()) {
-                        arbol += "<li><a href=\"home?cat=\"><i class=\"icon-folder-open-alt\"></i><span>" + current.id + "</span><i class=\"icon-angle-down angle-down\"></i></a>";
-                        arbol += "<ul class=\"nav nav-stacked in\">";
+                        arbol += "<li class=\"comentario\">";
+                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">"+current.cliente.getNombre() + " " +current.cliente.getApellido() +"</a></div>";
+                        arbol += "<div class=\"text\">"+current.comentario.toString()+"</div>";
+                        arbol += "</li>";
+                        arbol += "<ul class=\"list-unstyled comentario-hijo\">";
                         arbol += recorrer(current.hijos);
                         arbol += "</ul>";
                     } else {
-                        arbol += "<li class=\"\"><a href=\"home?cat=" + current.id + "\"><i class=\"icon-caret-right\"></i><span>" + current.id + "</span></a></li>";
+                        arbol += "<li class=\"comentario\">";
+                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">"+current.cliente.getNombre() + " " +current.cliente.getApellido() +"</a></div>";
+                        arbol += "<div class=\"text\">"+current.comentario.toString()+"</div>";
+                        arbol += "</li>";
+                        arbol += "<ul class=\"list-unstyled comentario-hijo\">";
+                        arbol += "<li>";
+                        arbol += "<div class=\"form-group\">";
+                        arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText"+current.id+"\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
+                        arbol += "</div>";
+                        arbol += "<div class=\"text-right\">";
+                        arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario("+current.id+")\">Responder</div>";
+                        arbol += "</div>";
+                        arbol += "</li>";
+                        arbol += "</ul>";
                     }
                 }
                 return arbol;
             }
         %>
-
         <div id="wrapper">
 
             <div class="container">
@@ -189,32 +204,12 @@
                                                 <% }%>
                                                 <div class="box">
                                                     <div class="box-content">
-                                                        <%
-                                                            List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
-                                                        %>
-                                                        <%= recorrer(comentarios)%>
-                                                        <!--<ul class="list-unstyled comments">
-                                                            <li class="comentario-padre">
-                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
-                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
-                                                            </li>
-                                                            <li class="comentario-hijo">
-                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
-                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
-                                                            </li>
-                                                            <li class="comentario-hijo">
-                                                                <div class="name"><a class="text-contrast" href="#">Kellie</a></div>
-                                                                <div class="text">Qui vel omnis quia ea quasi voluptate rerum cum sit. Corporis qui ducimus quidem</div>
-                                                            </li>
-                                                            <li class="comentario-hijo">
-                                                        <div class="form-group">
-                                                            <textarea class="form-control" id="inputTextArea1" placeholder="Ingresar respuesta..." rows="3"></textarea>
-                                                        </div>
-                                                        <div class="text-right">
-                                                            <a class="btn btn-primary" href="#">Responder</a>
-                                                        </div>
-                                                            </li>
-                                                        </ul>-->
+                                                        <ul class="list-unstyled comments">
+                                                            <%
+                                                                List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
+                                                            %>
+                                                            <%= recorrer(comentarios)%>
+                                                        </ul>
                                                     </div>  
                                                 </div>
                                             </div>
