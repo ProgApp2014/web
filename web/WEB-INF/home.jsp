@@ -129,7 +129,7 @@
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
-
+     
     </body>
 </html>
 
