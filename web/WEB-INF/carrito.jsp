@@ -1,3 +1,6 @@
+<%@page import="java.text.NumberFormat"%>
+<%@page import="controlador.clases.ProxyProducto"%>
+<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="responsive-table">
-                                    <div class="scrollable-area">
+                                    <div>
                                         <table class="table table-striped table-hover table-bordered">
                                             <thead>
                                                 <tr>
@@ -52,14 +55,33 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <%
+                                                    String carrito = session.getAttribute("carrito") == null ? null : session.getAttribute("carrito").toString();
+                                                    String[] items = null;
+                                                    if (carrito != null) {
+                                                        items = carrito.split(";");
+                                                    }
+                                                    NumberFormat formatter = NumberFormat.getNumberInstance();
+                                                    formatter.setMinimumFractionDigits(2);
+                                                    Float precioTotal = 0.0F;
+                                                    if (items != null) {
+                                                        for (String iter : items) {
+                                                            String[] productoCantidad = iter.split("-");
+                                                            DataEspecificacionProducto producto = ProxyProducto.getInstance().mostrarDatosProducto(productoCantidad[1]);
+                                                            precioTotal += (Float.parseFloat(producto.getPrecio().toString()) * Integer.valueOf(productoCantidad[0]));
+                                                %>
                                                 <tr>
-                                                    <td>AO2</td>
-                                                    <td>Facilis est esse dolores</td>
-                                                    <td>Facilis est esse dolores Facilis est esse dolores Facilis est esse dolores</td>
-                                                    <td>1</td>
-                                                    <td>$302.00</td>
-                                                    <td>$302.00</td>
+                                                    <td><%= producto.getNroReferencia()%></td>
+                                                    <td><%= producto.getNombre()%></td>
+                                                    <td><%= producto.getDescripcion()%></td>
+                                                    <td><%= productoCantidad[0].toString()%></td>
+                                                    <td>$<%= producto.getPrecio()%></td>
+                                                    <td>$<%= formatter.format(Float.parseFloat(producto.getPrecio().toString()) * Integer.valueOf(productoCantidad[0]))%></td>
                                                 </tr>
+                                                <%
+                                                        }
+                                                    }
+                                                %>
                                             </tbody>
                                         </table>
                                     </div>
@@ -69,13 +91,13 @@
                         <hr class="hr-normal">
                         <div class="row">
                             <div class="col-sm-6">
-                                <a class="btn btn-success" href="#"><i class="icon-ok"></i>
+                                <a class="btn btn-success" href="#" id="generarOrdenLk"><i class="icon-ok"></i>
                                     Generar orden de compra
                                 </a>
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-right text-contrast subtotal">
-                                    $4,681.00
+                                    $<%= formatter.format(precioTotal)%>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +105,6 @@
                 </div>
             </div>
         </div>
-
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />

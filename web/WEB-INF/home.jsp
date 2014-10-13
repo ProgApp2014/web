@@ -84,16 +84,14 @@
                                 %>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="pricing-table">
-                                        <div class="header"><%= p.getNombre() %></div>
+                                        <div class="header"><%= p.getNombre()%></div>
                                         <div class="price green-background">
                                             <span>$<%= p.getPrecio()%></span>
                                         </div>
-                                        <div>
-                                            <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/">
-                                        </div>
+                                        <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/"/>
                                         <p class="text-center"><%= p.getDescripcion()%></p>
                                         <div class="footer">
-                                            <a class="btn" href="detalle-producto?id=<%= p.getNroReferencia() %>">Ver producto</a>
+                                            <a class="btn btn-primary" href="detalle-producto?id=<%= p.getNroReferencia()%>">Ver producto</a>
                                         </div>
                                     </div>
                                 </div>

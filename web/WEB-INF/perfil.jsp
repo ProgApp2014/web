@@ -19,10 +19,10 @@
         <%
             Boolean esProveedor;
             DataUsuario usuario;
-            if(session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes"){
+            if (session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes") {
                 esProveedor = true;
                 usuario = (DataProveedor) request.getAttribute("usuario");
-            }else{
+            } else {
                 esProveedor = false;
                 usuario = (DataCliente) request.getAttribute("usuario");
             }
@@ -81,16 +81,16 @@
                                                         <br>
                                                         <strong>Tipo Usuario</strong>
                                                         <br>
-                                                        <% if(esProveedor){ %>
-                                                            <span>Proveedor</span>
-                                                        <% }else{%>
-                                                            <span>Cliente</span>
+                                                        <% if (esProveedor) { %>
+                                                        <span>Proveedor</span>
+                                                        <% } else {%>
+                                                        <span>Cliente</span>
                                                         <% }%>
-                                                        <% if(esProveedor){ %>
+                                                        <% if (esProveedor) {%>
                                                         <br>
                                                         <strong>Nombre Compania</strong>
                                                         <br>
-                                                        <span><%= ((DataProveedor) usuario).getNombreCompania() %></span>
+                                                        <span><%= ((DataProveedor) usuario).getNombreCompania()%></span>
                                                         <% }%>
                                                         <br>
                                                     </address>
@@ -99,98 +99,106 @@
                                                     <address>
                                                         <strong>Nombre</strong>
                                                         <br>
-                                                        <span><%= usuario.getNombre() %></span>
+                                                        <span><%= usuario.getNombre()%></span>
                                                         <br>
                                                         <strong>Apellido</strong>
                                                         <br>
-                                                        <span><%= usuario.getApellido() %></span>
+                                                        <span><%= usuario.getApellido()%></span>
                                                         <br>
                                                         <strong>Fecha Nacimiento</strong>
                                                         <br>
                                                         <span><%= usuario.getFechaNacFormateada()%></span>
                                                         <br>
-                                                        <% if(esProveedor){ %>
+                                                        <% if (esProveedor) {%>
                                                         <strong>Link Compania</strong>
                                                         <br>
-                                                        <span><%= ((DataProveedor) usuario).getLinkSitio() %></span>
+                                                        <span><%= ((DataProveedor) usuario).getLinkSitio()%></span>
                                                         <% }%>
                                                     </address>
                                                 </div>
                                             </fieldset>
                                             <hr class="hr-normal">
-                                            <% if(esProveedor){ %>
-                                                <fieldset>
-                                                    <div class="col-sm-12">
-                                                        <table class="table table-hover table-striped" style="margin-bottom:0;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Nombre</th>
-                                                                    <th>Descripcion</th>
-                                                                    <th>Precio</th>
-                                                                    <th></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <% 
-                                                                    ProxyUsuario.getInstance().elegirProveedor(usuario.getNickname());
-                                                                    List<DataEspecificacionProducto> listaProductos = ProxyUsuario.getInstance().listarProductosProveedor();
-                                                                    if (listaProductos.size() > 0) {
-                                                                        for (DataEspecificacionProducto p : listaProductos) {
-                                                                %>
-                                                                    <tr>
-                                                                        <td><%= p.getNombre() %></td>
-                                                                        <td><%= p.getDescripcion() %></td>
-                                                                        <td>$<%= p.getPrecio() %></td>
-                                                                        <td>
-                                                                            <div class="text-right">
-                                                                                <a class="btn btn-primary btn-xs" href="detalle-producto?id=<%= p.getNroReferencia()%>">
-                                                                                    <i class="icon-search"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                <% } } %>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </fieldset>
+                                            <% if (esProveedor) { %>
+                                            <h3>Listado de productos</h3>
+                                            <fieldset>
+                                                <div class="col-sm-12">
+                                                    <table class="table table-hover table-striped" style="margin-bottom:0;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Nombre</th>
+                                                                <th>Descripcion</th>
+                                                                <th>Precio</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%
+                                                                ProxyUsuario.getInstance().elegirProveedor(usuario.getNickname());
+                                                                List<DataEspecificacionProducto> listaProductos = ProxyUsuario.getInstance().listarProductosProveedor();
+                                                                if (listaProductos.size() > 0) {
+                                                                    for (DataEspecificacionProducto p : listaProductos) {
+                                                            %>
+                                                            <tr>
+                                                                <td><%= p.getNombre()%></td>
+                                                                <td><%= p.getDescripcion()%></td>
+                                                                <td>$<%= p.getPrecio()%></td>
+                                                                <td>
+                                                                    <div class="text-right">
+                                                                        <a class="btn btn-primary btn-xs" href="detalle-producto?id=<%= p.getNroReferencia()%>">
+                                                                            <i class="icon-search"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <%
+                                                                    }
+                                                                }
+                                                            %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </fieldset>
                                             <%}%>
-                                            <% if(!esProveedor){ %>
-                                                <fieldset>
-                                                    <div class="col-sm-12">
-                                                        <table class="table table-hover table-striped" style="margin-bottom:0;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Numero de Orden</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Precio Total</th>
-                                                                    <th></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <% 
-                                                                    ProxyUsuario.getInstance().elegirCliente(usuario.getNickname());
-                                                                    List<DataOrdenCompra> listaOrdenes = ProxyUsuario.getInstance().listarOrdenesCliente();
-                                                                    if (listaOrdenes.size() > 0) {
-                                                                        for (DataOrdenCompra o : listaOrdenes) {
-                                                                %>
-                                                                    <tr>
-                                                                        <td><%= o.getNroOrden() %></td>
-                                                                        <td><%= o.getFechaFormateada()%></td>
-                                                                        <td>$<%= o.getPrecioTotal() %></td>
-                                                                        <td>
-                                                                            <div class="text-right">
-                                                                                <a class="btn btn-primary btn-xs" href="#">
-                                                                                    <i class="icon-search"></i>
-                                                                                </a>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                <% } } %>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </fieldset>
+                                            <% if (!esProveedor) { %>
+                                            <h3>Listado de ordenes</h3>
+                                            <fieldset>
+                                                <div class="col-sm-12">
+                                                    <table class="table table-hover table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Numero de Orden</th>
+                                                                <th>Fecha</th>
+                                                                <th>Precio Total</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%
+                                                                ProxyUsuario.getInstance().elegirCliente(usuario.getNickname());
+                                                                List<DataOrdenCompra> listaOrdenes = ProxyUsuario.getInstance().listarOrdenesCliente();
+                                                                if (listaOrdenes.size() > 0) {
+                                                                    for (DataOrdenCompra o : listaOrdenes) {
+                                                            %>
+                                                            <tr>
+                                                                <td><%= o.getNroOrden()%></td>
+                                                                <td><%= o.getFechaFormateada()%></td>
+                                                                <td>$<%= o.getPrecioTotal()%></td>
+                                                                <td>
+                                                                    <div class="text-right">
+                                                                        <a class="btn btn-primary btn-xs verDetalle" href="#" data-id="<%= o.getNroOrden()%>">
+                                                                            <i class="icon-search"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <%
+                                                                    }
+                                                                }
+                                                            %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </fieldset>
                                             <%}%>
                                         </div>
                                     </div>
@@ -202,9 +210,47 @@
             </div>
         </div>
 
+        <!-- modal detalle orden -->
+        <div class="modal fade" id="modal-detalle-orden" tabindex="-1" role="dialog" aria-labelledby="ModalDetalle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Orden de compra</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.verDetalle').live('click', ver);
+            });
+            
+            function ver(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var id = $(this).data('id');
+                $('#modal-detalle-orden').modal('toggle');
+//                $.ajax({
+//                    type: "get",
+//                    url: '/adminver/' + id,
+//                    dataType: "html",
+//                    success: function (data) {
+//                        $('#modal-detalle-orden .modal-body').html(data);
+//                        $('#modal-detalle-orden').modal('toggle');
+//                    }
+//                });
+            }
+        </script>
     </body>
 </html>
 
