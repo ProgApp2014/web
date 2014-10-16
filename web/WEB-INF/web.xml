@@ -103,8 +103,7 @@
     <servlet-mapping>  
         <servlet-name>saveImage</servlet-name>
         <url-pattern>/saveImage</url-pattern> 
-        <servlet-name>AgregarCarrito</servlet-name>
-        <url-pattern>/agregar-carrito</url-pattern>
+        
     </servlet-mapping>
  
     <servlet-mapping>
