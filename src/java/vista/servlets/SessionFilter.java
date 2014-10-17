@@ -40,8 +40,8 @@ public class SessionFilter implements Filter {
         allUrls.add("/perfil");
         allUrls.add("/detalle-producto");
         allUrls.add("/buscador");
+        allUrls.add("/carrito");
         if(allUrls.contains(url)){
-
             if(session.getAttribute("usuario_logueado") == null && !urlsLstVisitante.contains(url)){
                 RequestDispatcher dispatcher = request.getRequestDispatcher("home");
                 dispatcher.forward(request, response);
@@ -49,7 +49,6 @@ public class SessionFilter implements Filter {
             if(session.getAttribute("usuario_logueado") != null && session.getAttribute("esProveedor") != null && "yes".equals(session.getAttribute("esProveedor").toString()) && !urlsLstProveedor.contains(url)){
                 RequestDispatcher dispatcher = request.getRequestDispatcher("home");
                 dispatcher.forward(request, response);
-                System.out.println("ACAAA2 "+url);
             }
 
             if(session.getAttribute("usuario_logueado") != null && session.getAttribute("esProveedor") == null && !urlsLstCliente.contains(url)){

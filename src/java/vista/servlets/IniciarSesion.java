@@ -46,8 +46,6 @@ public class IniciarSesion extends HttpServlet {
             response.sendRedirect("homeERROR");
             return;
         }
-        
-        
     }
 
     @Override

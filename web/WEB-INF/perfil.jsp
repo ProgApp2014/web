@@ -219,7 +219,18 @@
                         <h4 class="modal-title">Orden de compra</h4>
                     </div>
                     <div class="modal-body">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nro Ref</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -228,27 +239,32 @@
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
-        
+
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.verDetalle').live('click', ver);
             });
-            
+
             function ver(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
                 var id = $(this).data('id');
-                $('#modal-detalle-orden').modal('toggle');
-//                $.ajax({
-//                    type: "get",
-//                    url: '/adminver/' + id,
-//                    dataType: "html",
-//                    success: function (data) {
-//                        $('#modal-detalle-orden .modal-body').html(data);
-//                        $('#modal-detalle-orden').modal('toggle');
-//                    }
-//                });
+                $.ajax({
+                    type: "post",
+                    url: '/ProgWeb/carrito',
+                    data: {nroOrden: id},
+                    dataType: "json",
+                    success: function (data) {
+                        var html;
+                        console.log(data);
+                        $.each(data, function (key, value) {
+                            html += "<tr><td>" + value.nroRef + "</td><td>" + value.nombre + "</td><td>" + value.precio + "</td></tr>";
+                        });
+                        $('#modal-detalle-orden .modal-body tbody').html(html);
+                        $('#modal-detalle-orden').modal('toggle');
+                    }
+                });
             }
         </script>
     </body>

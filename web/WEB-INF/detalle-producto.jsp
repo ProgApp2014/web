@@ -34,34 +34,34 @@
                 }
             }
         %>
-        
+
         <%!
             public String recorrer(List<TreeParserComentarios.NodoComentario> l) {
                 String arbol = "";
                 for (TreeParserComentarios.NodoComentario current : l) {
                     if (current.hijos != null && !current.hijos.isEmpty()) {
                         arbol += "<li class=\"comentario\">";
-                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">"+current.cliente.getNombre() + " " +current.cliente.getApellido() +"</a></div>";
-                        arbol += "<div class=\"text\">"+current.comentario.toString()+"</div>";
+                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">" + current.cliente.getNombre() + " " + current.cliente.getApellido() + "</a></div>";
+                        arbol += "<div class=\"text\">" + current.comentario.toString() + "</div>";
                         arbol += "</li>";
-                        arbol += "<ul class=\"list-unstyled comentario-hijo\">";
+                        arbol += "<ul class=\"list-unstyled comments comentario-hijo\">";
                         arbol += recorrer(current.hijos);
                         arbol += "</ul>";
                     } else {
                         arbol += "<li class=\"comentario\">";
-                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">"+current.cliente.getNombre() + " " +current.cliente.getApellido() +"</a></div>";
-                        arbol += "<div class=\"text\">"+current.comentario.toString()+"</div>";
+                        arbol += "<div class=\"name\"><a class=\"text-contrast\" href=\"#\">" + current.cliente.getNombre() + " " + current.cliente.getApellido() + "</a></div>";
+                        arbol += "<div class=\"text\">" + current.comentario.toString() + "</div>";
                         arbol += "</li>";
-                        arbol += "<ul class=\"list-unstyled comentario-hijo\">";
+                        arbol += "<ul class=\"list-unstyled comments comentario-hijo\">";
                         arbol += "<li>";
                         arbol += "<div class=\"form-group\">";
-                        arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText"+current.id+"\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
+                        arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText" + current.id + "\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
                         arbol += "</div>";
                         arbol += "<div class=\"text-right\">";
-                        arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario("+current.id+")\">Responder</div>";
+                        arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario(" + current.id + ")\">Responder</div>";
                         arbol += "</div>";
                         arbol += "</li>";
-                        arbol += "</ul>";
+                        arbol += "</ul><hr class=\"hr-normal\">";
                     }
                 }
                 return arbol;
