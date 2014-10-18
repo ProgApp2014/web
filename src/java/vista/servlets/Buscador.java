@@ -12,7 +12,10 @@ public class Buscador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String buscar = request.getParameter("buscar");
+        String ordenBusqueda = request.getParameter("ordenBusqueda");
+        ordenBusqueda = ordenBusqueda == null?"nombre":ordenBusqueda;
         request.setAttribute("buscar", buscar);
+        request.setAttribute("ordenBusqueda", ordenBusqueda);
         request.getRequestDispatcher("/WEB-INF/buscador.jsp").forward(request, response);
     }
     

@@ -203,8 +203,8 @@ public class ProxyProducto {
     public List<DataEspecificacionProducto> buscarProductos(String keyword){
         return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductos(keyword);
     }
-    public Map<String,List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductosSeparados(keyword);
+    public Map<String,List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword,String Orden){
+        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductosSeparados(keyword, Orden);
     }
     
     public Boolean puedeComentar(String nickname, String nroRef){

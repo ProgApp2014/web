@@ -17,7 +17,8 @@
 
         <%
             String buscar = (String) request.getAttribute("buscar");
-            Map<String, List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar);
+            String ordenBusqueda = (String) request.getAttribute("ordenBusqueda");
+            Map<String, List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar,ordenBusqueda);
         %>
 
         <div id="wrapper">
@@ -29,6 +30,18 @@
                             <h1 class="pull-left">
                                 <i class="icon-search"></i>
                                 <span><%= listaProductos.get("productos").size() + listaProductos.get("categorias").size()%> resultados para "<%= buscar%>"</span>
+                                
+                                <div class="form-group">
+                                    <label>Orden:</label>
+                                    <form action="buscador" method="post">
+                                        <select class="form-control" data-rule-required="true" id="ordenBusqueda" name="ordenBusqueda" onchange="this.form.submit()">
+                                            <option value="nombre" <%if(ordenBusqueda.equals("nombre")){%> selected <%}%>>Nombre</option>
+                                            <option value="precio" <%if(ordenBusqueda.equals("precio")){%> selected <%}%>>Precio</option>
+                                            <option value="ventas" <%if(ordenBusqueda.equals("ventas")){%> selected <%}%>>Mas vendido</option>
+                                        </select>
+                                        <input type="hidden" value="<%=buscar%>" name="buscar"/>
+                                    </form>
+                                </div>
                             </h1>
                             <div class="pull-right">
                                 <ul class="breadcrumb">
@@ -45,13 +58,14 @@
                                 </ul>
                             </div>
                         </div>
+                        <%
+                            if (listaProductos.get("productos").size() > 0) {
+                        %>
                         <h2>Resultados por productos</h2>
                         <div class="row pricing-tables">
 
                             <%
-
-                                if (listaProductos.size() > 0) {
-                                    for (DataEspecificacionProducto p : listaProductos.get("productos")) {
+                                for (DataEspecificacionProducto p : listaProductos.get("productos")) {
                             %>
                             <div class="col-xs-6 col-sm-3">
                                 <div class="pricing-table">
@@ -66,18 +80,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <%
-                                    }
-                                }
-
-                            %>
+                            <% } %>
                         </div>
-                        <%                                if (listaProductos.size() > 0) {
-                                for (DataEspecificacionProducto p : listaProductos.get("categorias")) {
+                        <% } %>
+                        <%                                
+                            if (listaProductos.get("categorias").size() > 0) {
                         %>
                         <hr>
                         <h2>Resultados por categoria</h2>
                         <div class="row pricing-tables">
+                            <%                                
+                                for (DataEspecificacionProducto p : listaProductos.get("categorias")) {
+                            %>
                             <div class="col-xs-6 col-sm-3">
                                 <div class="pricing-table">
                                     <div class="header"><%= p.getNombre()%></div>
@@ -91,13 +105,9 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <% } %>
                         </div>
-                        <%
-                                }
-                            }
-
-                        %>
+                        <% } %>
                     </div>
                 </div>
             </div>
