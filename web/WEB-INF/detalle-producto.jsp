@@ -111,13 +111,15 @@
                                                                 <%
                                                                  if(!producto.getImagenes().isEmpty()){
                                                                    Iterator it =  producto.getImagenes().iterator();
+                                                                   
+                                                                   String isActive = "active";
                                                                    while(it.hasNext()){
                                                                        
                                                                     String s = (String)it.next();
                                                                 %>
                                                                     
-                                                                    <div class="active item"><img width="140" height="140" src="images/<%=s%>" /></div> 
-                                                                <%}}else{%> 
+                                                                    <div class="<%=isActive%> item"><img width="140" height="140" src="images/<%=s%>" /></div> 
+                                                                <% isActive="";}}else{%> 
                                                                     <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
                                                                  <%}%>
                                                                     
