@@ -225,6 +225,9 @@
                                     <th>Nro Ref</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
+                                    <th>Cant.</th>
+                                    <th>Total</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -259,7 +262,7 @@
                         var html;
                         console.log(data);
                         $.each(data, function (key, value) {
-                            html += "<tr><td>" + value.nroRef + "</td><td>" + value.nombre + "</td><td>" + value.precio + "</td></tr>";
+                            html += "<tr><td>" + value.nroRef + "</td><td>" + value.nombre + "</td><td>$" + value.precio + "</td><td>" + value.cantidad + "</td><td>$" + (value.precio * value.cantidad) + "</td><td><div class='text-right'><a class='btn btn-primary btn-xs' href='detalle-producto?id=" + value.nroRef + "'><i class='icon-search'></i></a></div></td></tr>";
                         });
                         $('#modal-detalle-orden .modal-body tbody').html(html);
                         $('#modal-detalle-orden').modal('toggle');
