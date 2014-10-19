@@ -4,11 +4,14 @@ import Controlador.DataTypes.DataEspecificacionProducto;
 import controlador.clases.ProxyOrden;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map.Entry;
 
 public class Orden extends HttpServlet {
 
@@ -25,12 +28,22 @@ public class Orden extends HttpServlet {
         ProxyOrden.getInstance().elegirOrden(nroOrden);
         List<DataEspecificacionProducto> productos = ProxyOrden.getInstance().listarProductosEnOrden();
         
+        HashMap<String, DatosProducto> mp = new HashMap();
+        for (DataEspecificacionProducto p : productos) {
+            if (!mp.containsKey(p.getNroReferencia())) {
+                mp.put(p.getNroReferencia(), new DatosProducto(p));
+            } else {
+                mp.get(p.getNroReferencia()).incrementar();
+            }
+        }
+        
         String json = "[";
         Integer i = 0;
-        for (DataEspecificacionProducto p : productos) {
+        for (Entry<String, DatosProducto> dp : mp.entrySet()){
+            DatosProducto valor = dp.getValue();
             i++;
-            json += "{\"nroRef\": \"" + p.getNroReferencia() + "\",\"nombre\": \"" + p.getNombre() + "\",\"precio\": \"" + p.getPrecio() + "\"}";
-            if(i < productos.size()){
+            json += "{\"nroRef\": \"" + valor.getProducto().getNroReferencia() + "\",\"nombre\": \"" + valor.getProducto().getNombre() + "\",\"precio\": \"" + valor.getProducto().getPrecio() + "\",\"cantidad\": \"" + valor.getCantidad() + "\"}";
+            if(i < mp.size()){
                 json += ",";
             }
         }
@@ -40,5 +53,35 @@ public class Orden extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.print(json);
         out.close();
+    }
+    
+    class DatosProducto {
+
+        private int cantidad;
+        private DataEspecificacionProducto p;
+
+        private DatosProducto() {
+
+        }
+
+        public DatosProducto(DataEspecificacionProducto producto) {
+
+            this.p = producto;
+            this.cantidad = 1;
+
+        }
+
+        private void incrementar() {
+            this.cantidad++;
+        }
+
+        private DataEspecificacionProducto getProducto() {
+            return p;
+        }
+
+        private int getCantidad() {
+            return cantidad;
+        }
+
     }
 }
