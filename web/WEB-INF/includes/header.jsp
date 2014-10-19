@@ -18,8 +18,16 @@
             }
             int listLength = items != null ? items.length : 0;
             if (login) {
+                
+            Boolean esProveedor;
+            if (session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes") {
+                esProveedor = true;
+            } else {
+                esProveedor = false;
+            }
         %>
         <ul class="nav">
+            <% if (!esProveedor) { %>
             <li class="dropdown medium only-icon widget">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="icon-shopping-cart"></i>
@@ -54,6 +62,7 @@
                     </li>
                 </ul>
             </li>
+            <% } %>
             <li class="dropdown dark user-menu">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="user-name">${usuario_logueado}</span>
@@ -67,7 +76,7 @@
                         </a>
                     </li>
                     <li class="divider"></li>
-                        <% if (session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString() == "yes") { %>
+                        <% if (esProveedor) { %>
                     <li>
                         <a href="registro-producto">
                             <i class="glyphicon glyphicon-list-alt"></i>
