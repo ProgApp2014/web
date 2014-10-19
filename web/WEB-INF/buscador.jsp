@@ -67,9 +67,9 @@
                                         <span>$<%= p.getPrecio()%></span>
                                     </div>
                                      <%if(!p.getImagenes().isEmpty()){%>
-                                            <img class="img-responsive center-block" src="images/<%= p.getImagenes().get(0)%>"/>
+                                            <img class="img-responsive center-block" width="140" height="140" src="images/<%= p.getImagenes().get(0)%>"/>
                                         <%}else{%> 
-                                            <img class="img-responsive center-block" src="http://placehold.it/140x140&text=Foto"/>
+                                            <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
                                         <%}%>
                                     <p class="text-center"><%= p.getDescripcion()%></p>
                                     <div class="footer">

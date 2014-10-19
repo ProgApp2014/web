@@ -109,15 +109,18 @@
                                                         <div class="carousel slide" id="myCarousel">
                                                             <div class="carousel-inner">
                                                                 <%
-                                                                
+                                                                 if(!producto.getImagenes().isEmpty()){
                                                                    Iterator it =  producto.getImagenes().iterator();
                                                                    while(it.hasNext()){
                                                                        
                                                                     String s = (String)it.next();
                                                                 %>
                                                                     
-                                                                    <div class="active item"><img src="images/<%=s%>" /></div> 
-                                                                <%}%>
+                                                                    <div class="active item"><img width="140" height="140" src="images/<%=s%>" /></div> 
+                                                                <%}}else{%> 
+                                                                    <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
+                                                                 <%}%>
+                                                                    
                                                             </div>
                                                             <a class="left carousel-control" data-slide="prev" href="#myCarousel">
                                                                 <span class="icon-angle-left icon-prev"></span>
