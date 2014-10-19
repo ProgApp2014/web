@@ -61,7 +61,11 @@
                                 <div class="col-sm-3 col-lg-2">
                                     <div class="box">
                                         <div class="box-content">
-                                            <img class="img-responsive" src="http://placehold.it/230x230&text=Foto"/>
+                                            <%if (usuario.getImagen() != null && !usuario.getImagen().isEmpty()) {%>
+                                            <img class="img-responsive" src="images/<%=usuario.getImagen()%>"/>
+                                            <%} else {%>
+                                            <img class="img-responsive" src="http://placehold.it/140x140&text=Foto"/>
+                                            <%}%>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +245,7 @@
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
 
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $('.verDetalle').live('click', ver);
             });
 
@@ -255,10 +259,10 @@
                     url: '/ProgWeb/carrito',
                     data: {nroOrden: id},
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
                         var html;
                         console.log(data);
-                        $.each(data, function (key, value) {
+                        $.each(data, function(key, value) {
                             html += "<tr><td>" + value.nroRef + "</td><td>" + value.nombre + "</td><td>" + value.precio + "</td></tr>";
                         });
                         $('#modal-detalle-orden .modal-body tbody').html(html);

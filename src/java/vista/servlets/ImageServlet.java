@@ -5,26 +5,23 @@
  */
 package vista.servlets;
 
- 
-import Controlador.Clases.ImageHandler;
-import Controlador.Clases.ImageHanlderException; 
-import java.io.IOException; 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.Collection;
-import java.util.Iterator;
+import java.nio.file.Files;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 /**
  *
  * @author rodro
  */
-@MultipartConfig(maxFileSize = 16177215)
-public class saveImage extends HttpServlet {
+public class ImageServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,37 +32,24 @@ public class saveImage extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private static final String IMAGE_NAME = "images";
+    private static final String ROOT = System.getProperty("user.dir") + File.separator;
+    private static final String IMAGE_FOLDER = ROOT + IMAGE_NAME + File.separator;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
+            String image = IMAGE_FOLDER + request.getPathInfo();
 
-//            StringBuffer jb = new StringBuffer();
-//            String line = null;
-//            try {
-//                BufferedReader reader = request.getReader();
-//                while ((line = reader.readLine()) != null) {
-//                    jb.append(line);
-//                }
-//            } catch (Exception e) { /*report an error*/ }
-            out.println("start");
-            try{
-                Collection<Part> p = request.getParts();
-                 Iterator it = p.iterator();
-            while(it.hasNext()){ 
-               ImageHandler ih= new ImageHandler();
-               Part currentP = (Part) it.next();
-               
-               String newName = ih.saveInputStream(currentP.getInputStream());
- 
-               out.println(newName);
-            }
+            File f = new File(image);
            
-            }catch(IOException | ServletException | ImageHanlderException e){
-                out.println(e.getMessage());
-            }
+            response.setContentType(Files.probeContentType(f.toPath()));
             
+            BufferedImage bi = ImageIO.read(f);
+
+            ImageIO.write(bi, "jpg", out);
+            out.close();
         }
     }
 

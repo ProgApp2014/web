@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <form class="form validate-form" method="post" action="registro-usuario" novalidate="novalidate" id="form-registrar">
+                            <form class="form validate-form" method="post" enctype="multipart/form-data" action="registro-usuario" novalidate="novalidate" id="form-registrar">
                                 <div class="col-sm-3 col-lg-2">
                                     <div class="box">
                                         <div class="box-content">
@@ -66,7 +66,7 @@
                                                         <input class="form-control" data-rule-required="true" name="nickname" id="nickname" placeholder="Nickname" type="text" onblur="validarNickname()">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control" data-rule-required="true" name="email" id="email"  placeholder="E-mail" type="text" onblur="validarEmail()">
+                                                        <input class="form-control" data-rule-email="true" data-rule-required="true" name="email" id="email"  placeholder="E-mail" type="text" onblur="validarEmail()">
                                                     </div>
                                                     <div class="form-group">
                                                         <input class="form-control" data-rule-required="true" name="password" id="password" placeholder="Password" type="password">

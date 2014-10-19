@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <form class="form validate-form" method="post" action="registro-producto" novalidate="novalidate">
+                            <form class="form validate-form" method="post" action="registro-producto" novalidate="novalidate" enctype="multipart/form-data">
                                 <div class="col-sm-12">
                                     <div class="box">
                                         <div class="box-content box-double-padding">

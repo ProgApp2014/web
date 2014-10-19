@@ -66,7 +66,11 @@
                                     <div class="price green-background">
                                         <span>$<%= p.getPrecio()%></span>
                                     </div>
-                                    <img class="img-responsive center-block" src="http://lorempixel.com/140/140/technics/"/>
+                                     <%if(!p.getImagenes().isEmpty()){%>
+                                            <img class="img-responsive center-block" src="images/<%= p.getImagenes().get(0)%>"/>
+                                        <%}else{%> 
+                                            <img class="img-responsive center-block" src="http://placehold.it/140x140&text=Foto"/>
+                                        <%}%>
                                     <p class="text-center"><%= p.getDescripcion()%></p>
                                     <div class="footer">
                                         <a class="btn btn-primary" href="detalle-producto?id=<%= p.getNroReferencia()%>">Ver producto</a>

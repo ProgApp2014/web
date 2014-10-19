@@ -18,6 +18,7 @@ public class ProductoDetalle extends HttpServlet {
             throws ServletException, IOException {
         String nro_ref = request.getParameter("id");
         if (nro_ref != null) {
+            System.out.println(nro_ref);
             DataEspecificacionProducto dataProducto = ProxyProducto.getInstance().mostrarDatosProducto(nro_ref);
             request.setAttribute("producto", dataProducto);
             TreeParserComentarios tp = new TreeParserComentarios();

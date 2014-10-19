@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import="controlador.clases.TreeParserComentarios"%>
 <%@page import="java.util.List"%>
 <%@page import="controlador.clases.ProxyProducto"%>
@@ -107,9 +108,16 @@
                                                     <div style="width: 140px; height: 140px;">
                                                         <div class="carousel slide" id="myCarousel">
                                                             <div class="carousel-inner">
-                                                                <div class="active item"><img src="http://placehold.it/140x140&text=1" /></div>
-                                                                <div class="item"><img src="http://placehold.it/140x140/143249/fff&text=2" /></div>
-                                                                <div class="item"><img src="http://placehold.it/140x140/f34541/fff&text=3" /></div>
+                                                                <%
+                                                                
+                                                                   Iterator it =  producto.getImagenes().iterator();
+                                                                   while(it.hasNext()){
+                                                                       
+                                                                    String s = (String)it.next();
+                                                                %>
+                                                                    
+                                                                    <div class="active item"><img src="images/<%=s%>" /></div> 
+                                                                <%}%>
                                                             </div>
                                                             <a class="left carousel-control" data-slide="prev" href="#myCarousel">
                                                                 <span class="icon-angle-left icon-prev"></span>
