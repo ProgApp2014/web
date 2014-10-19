@@ -18,12 +18,10 @@ public class ProductoDetalle extends HttpServlet {
             throws ServletException, IOException {
         String nro_ref = request.getParameter("id");
         if (nro_ref != null) {
-            System.out.println(nro_ref);
             DataEspecificacionProducto dataProducto = ProxyProducto.getInstance().mostrarDatosProducto(nro_ref);
             request.setAttribute("producto", dataProducto);
             TreeParserComentarios tp = new TreeParserComentarios();
             List<DataComentario> comentarios = ProxyProducto.getInstance().listarComentarios(nro_ref);
-            System.out.println("ACAAAAAAAAA"+nro_ref);
             request.setAttribute("comentarios", tp.buildTree(comentarios));
             request.getRequestDispatcher("/WEB-INF/detalle-producto.jsp").forward(request, response);
         } else {
