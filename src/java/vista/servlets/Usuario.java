@@ -48,8 +48,10 @@ public class Usuario extends HttpServlet {
 
             ImageHandler ih = new ImageHandler();
             Part imgPart = request.getPart("imagen");
-
-            imagen = ih.saveInputStream(imgPart.getInputStream(),getFileName(imgPart));
+            String imageName = getFileName(imgPart);
+            if(imageName!=null && !imageName.isEmpty()){
+                imagen = ih.saveInputStream(imgPart.getInputStream(),imageName);
+            }
 
             String fechaNacimiento = request.getParameter("fecha_nacimiento");
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);

@@ -60,7 +60,7 @@ public class Producto extends HttpServlet {
 
                 if (p.getName().equals("imagenes")) {
 
-                    String fileName = getFileName(p); 
+                    String fileName = getFileName(p);
                     if (fileName != null && !fileName.isEmpty()) {
                         String imagen = ih.saveInputStream(p.getInputStream(), fileName);
                         imagenes.add(imagen);
@@ -79,18 +79,21 @@ public class Producto extends HttpServlet {
 
             ProxyProducto.getInstance().elegirProveedor((String) request.getSession().getAttribute("nickname"));
             ProxyProducto.getInstance().ingresarDatosProductos(espProducto);
-            System.out.println(especificaciones);
-            for (String esp : especificaciones) {
-                String[] espe = esp.split(":");
-                ProxyProducto.getInstance().ingresarEspecificacion(espe[0], espe[1].trim());
+            if (especificaciones != null) {
+                for (String esp : especificaciones) {
+                    String[] espe = esp.split(":");
+                    ProxyProducto.getInstance().ingresarEspecificacion(espe[0], espe[1].trim());
+                }
             }
-            System.out.println("  sss 3");
+
             ProxyProducto.getInstance().agregarMultiplesProductosAutogenerados(stockReal);
 
-            for (String cat : categorias) {
-                ProxyProducto.getInstance().agregarCategoriaAEspecificacion(cat);
-            }
-            System.out.println("  sss ");
+            if (categorias != null) {
+                for (String cat : categorias) {
+                    ProxyProducto.getInstance().agregarCategoriaAEspecificacion(cat);
+                }
+            } 
+            
             if (imagenes != null && imagenes.size() > 0) {
                 for (String img : imagenes) {
                     ProxyProducto.getInstance().agregarImagen(img);
