@@ -126,6 +126,9 @@
                                             </fieldset>
                                             <div class="form-actions form-actions-padding" style="margin-bottom: 0;">
                                                 <div class="text-right">
+                                                    <a class="btn" href="home">
+                                                        Cancelar
+                                                    </a>
                                                     <button class="btn btn-primary" type="submit">
                                                         <i class="icon-save"></i>
                                                         Guardar

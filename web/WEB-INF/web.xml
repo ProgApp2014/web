@@ -63,6 +63,10 @@
         <servlet-name>saveImage</servlet-name>
         <servlet-class>vista.servlets.saveImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarUsuario</servlet-name>
+        <servlet-class>vista.servlets.ValidarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -99,13 +103,10 @@
         <servlet-name>ProductoDetalle</servlet-name>
         <url-pattern>/detalle-producto</url-pattern>
     </servlet-mapping>
- 
-    <servlet-mapping>  
+    <servlet-mapping>
         <servlet-name>saveImage</servlet-name>
-        <url-pattern>/saveImage</url-pattern> 
-        
+        <url-pattern>/saveImage</url-pattern>
     </servlet-mapping>
- 
     <servlet-mapping>
         <servlet-name>AgregarCarrito</servlet-name>
         <url-pattern>/agregar-carrito</url-pattern>
@@ -117,6 +118,10 @@
     <servlet-mapping>
         <servlet-name>GenerarOrden</servlet-name>
         <url-pattern>/generar-orden</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarUsuario</servlet-name>
+        <url-pattern>/validar-usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

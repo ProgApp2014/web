@@ -14,18 +14,18 @@ public class UsuarioPerfil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            HttpSession session = request.getSession();
-            String userId = session.getAttribute("nickname").toString();
-            DataUsuario dataUsuario;
-            if(session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString().equals("yes")){
-                ProxyUsuario.getInstance().elegirProveedor(userId);
-                dataUsuario = ProxyUsuario.getInstance().mostrarDatosProveedor();
-            }else{
-                ProxyUsuario.getInstance().elegirCliente(userId);
-                dataUsuario = ProxyUsuario.getInstance().mostrarDatosCliente();
-            }
-            request.setAttribute("usuario", dataUsuario);
-            request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        String userId = session.getAttribute("nickname").toString();
+        DataUsuario dataUsuario;
+        if (session.getAttribute("esProveedor") != null && session.getAttribute("esProveedor").toString().equals("yes")) {
+            ProxyUsuario.getInstance().elegirProveedor(userId);
+            dataUsuario = ProxyUsuario.getInstance().mostrarDatosProveedor();
+        } else {
+            ProxyUsuario.getInstance().elegirCliente(userId);
+            dataUsuario = ProxyUsuario.getInstance().mostrarDatosCliente();
+        }
+        request.setAttribute("usuario", dataUsuario);
+        request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
     }
 
 }

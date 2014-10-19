@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <form class="form validate-form" method="post" action="registro-usuario" novalidate="novalidate">
+                            <form class="form validate-form" method="post" action="registro-usuario" novalidate="novalidate" id="form-registrar">
                                 <div class="col-sm-3 col-lg-2">
                                     <div class="box">
                                         <div class="box-content">
@@ -63,10 +63,10 @@
                                                 </div>
                                                 <div class="col-sm-7 col-sm-offset-1">
                                                     <div class="form-group">
-                                                        <input class="form-control" data-rule-required="true" name="nickname" placeholder="Nickname" type="text">
+                                                        <input class="form-control" data-rule-required="true" name="nickname" id="nickname" placeholder="Nickname" type="text" onblur="validarNickname()">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control" data-rule-required="true" name="email" placeholder="E-mail" type="text">
+                                                        <input class="form-control" data-rule-required="true" name="email" id="email"  placeholder="E-mail" type="text" onblur="validarEmail()">
                                                     </div>
                                                     <div class="form-group">
                                                         <input class="form-control" data-rule-required="true" name="password" id="password" placeholder="Password" type="password">
@@ -121,7 +121,10 @@
                                             </fieldset>
                                             <div class="form-actions form-actions-padding" style="margin-bottom: 0;">
                                                 <div class="text-right">
-                                                    <button class="btn btn-primary" type="submit">
+                                                    <a class="btn" href="home">
+                                                        Cancelar
+                                                    </a>
+                                                    <button class="btn btn-primary" type="button" id="btnGuardarPerfil">
                                                         <i class="icon-save"></i>
                                                         Guardar
                                                     </button>
@@ -156,7 +159,47 @@
                         document.getElementById("preview").src = oFREvent.target.result;
                     }
                 });
+                
+                $('#btnGuardarPerfil').on('click', function(){
+                    if($('#form-registrar').valid()){
+                        $('#form-registrar').submit();
+                    }
+                });
             });
+
+            function validarNickname() {
+                var xhr = new XMLHttpRequest();
+                var nickname = document.getElementById("nickname").value;
+                xhr.open("POST", "/ProgWeb/validar-usuario", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("nickname=" + nickname);
+
+                xhr.onreadystatechange = function (e) {
+                    if(xhr.readyState === 4){
+                        if (xhr.status !== 200){
+                            document.getElementById("nickname").value = '';
+                            alert('El nickname ya esta en uso, ingrese uno nuevo.');
+                        }
+                    }
+                };
+            }
+            
+            function validarEmail() {
+                var xhr = new XMLHttpRequest();
+                var email = document.getElementById("email").value;
+                xhr.open("POST", "/ProgWeb/validar-usuario", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("email=" + email);
+
+                xhr.onreadystatechange = function (e) {
+                    if(xhr.readyState === 4){
+                        if (xhr.status !== 200){
+                            document.getElementById("email").value = '';
+                            alert('El email ya esta en uso, ingrese uno nuevo.');
+                        }
+                    }
+                };
+            }
         </script>
     </body>
 </html>

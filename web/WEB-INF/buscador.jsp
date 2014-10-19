@@ -18,7 +18,7 @@
         <%
             String buscar = (String) request.getAttribute("buscar");
             String ordenBusqueda = (String) request.getAttribute("ordenBusqueda");
-            Map<String, List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar,ordenBusqueda);
+            Map<String, List<DataEspecificacionProducto>> listaProductos = ProxyProducto.getInstance().buscarProductosSeparados(buscar, ordenBusqueda);
         %>
 
         <div id="wrapper">
@@ -29,33 +29,26 @@
                         <div class="page-header page-header-with-buttons">
                             <h1 class="pull-left">
                                 <i class="icon-search"></i>
-                                <span><%= listaProductos.get("productos").size() + listaProductos.get("categorias").size()%> resultados para "<%= buscar%>"</span>
-                                
-                                <div class="form-group">
-                                    <label>Orden:</label>
-                                    <form action="buscador" method="post">
-                                        <select class="form-control" data-rule-required="true" id="ordenBusqueda" name="ordenBusqueda" onchange="this.form.submit()">
-                                            <option value="nombre" <%if(ordenBusqueda.equals("nombre")){%> selected <%}%>>Nombre</option>
-                                            <option value="precio" <%if(ordenBusqueda.equals("precio")){%> selected <%}%>>Precio</option>
-                                            <option value="ventas" <%if(ordenBusqueda.equals("ventas")){%> selected <%}%>>Mas vendido</option>
-                                        </select>
-                                        <input type="hidden" value="<%=buscar%>" name="buscar"/>
-                                    </form>
-                                </div>
+                                <span>Buscandor <small><%= listaProductos.get("productos").size() + listaProductos.get("categorias").size()%> resultados para "<%= buscar%>"</small></span>
+
+
                             </h1>
                             <div class="pull-right">
-                                <ul class="breadcrumb">
-                                    <li>
-                                        <a href="home">
-                                            <i class="icon-home"></i>
-                                            Inicio
-                                        </a>
-                                    </li>
-                                    <li class="separator">
-                                        <i class="icon-angle-right"></i>
-                                    </li>
-                                    <li class="active">Buscador</li>
-                                </ul>
+                                <div style="width: 300px;">
+                                    <form action="buscador" method="post" class="form form-horizontal">
+                                    <label class="control-label col-sm-3">Orden:</label>
+                                    
+                                    <div class="col-sm-9 controls">
+                                    <select class="form-control" data-rule-required="true" id="ordenBusqueda" name="ordenBusqueda" onchange="this.form.submit()">
+                                        <option value="nombre" <%if (ordenBusqueda.equals("nombre")) {%> selected <%}%>>Nombre</option>
+                                        <option value="precio" <%if (ordenBusqueda.equals("precio")) {%> selected <%}%>>Precio</option>
+                                        <option value="ventas" <%if (ordenBusqueda.equals("ventas")) {%> selected <%}%>>Mas vendido</option>
+                                    </select>
+                                    <input type="hidden" value="<%=buscar%>" name="buscar"/>
+                                    </div>
+                                </form>
+                                </div>
+                                
                             </div>
                         </div>
                         <%
@@ -83,13 +76,13 @@
                             <% } %>
                         </div>
                         <% } %>
-                        <%                                
+                        <%
                             if (listaProductos.get("categorias").size() > 0) {
                         %>
                         <hr>
                         <h2>Resultados por categoria</h2>
                         <div class="row pricing-tables">
-                            <%                                
+                            <%
                                 for (DataEspecificacionProducto p : listaProductos.get("categorias")) {
                             %>
                             <div class="col-xs-6 col-sm-3">
@@ -107,7 +100,7 @@
                             </div>
                             <% } %>
                         </div>
-                        <% } %>
+                        <% }%>
                     </div>
                 </div>
             </div>
