@@ -55,11 +55,8 @@ public class Producto extends HttpServlet {
             Iterator it = request.getParts().iterator();
             ImageHandler ih = new ImageHandler();
             while (it.hasNext()) {
-
                 Part p = (Part) it.next();
-
                 if (p.getName().equals("imagenes")) {
-
                     String fileName = getFileName(p);
                     if (fileName != null && !fileName.isEmpty()) {
                         String imagen = ih.saveInputStream(p.getInputStream(), fileName);

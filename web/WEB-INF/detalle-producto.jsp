@@ -147,8 +147,6 @@
                                                                     <option><%= stock%></option>
                                                                     <% }%>
                                                                 </select>
-                                                                <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
-                                                                <input type="hidden" name="cliente" id="cliente" value="<%= session.getAttribute("nickname")%>"/>
                                                             </div>
                                                             <button class="btn btn-primary btn-block btn-lg" type="button" id="btnAgregar">
                                                                 <i class="icon-plus"></i>
@@ -227,6 +225,8 @@
                                                 </div>
                                             </div>
                                         </fieldset>
+                                        <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
+                                        <input type="hidden" name="cliente" id="cliente" value="<%= session.getAttribute("nickname")%>"/>
                                     </div>
                                 </div>
                             </div>

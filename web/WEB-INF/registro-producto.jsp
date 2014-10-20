@@ -42,14 +42,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <form class="form validate-form" method="post" action="registro-producto" novalidate="novalidate" enctype="multipart/form-data">
+                            <form class="form validate-form" id="form-productos" method="post" action="registro-producto" novalidate="novalidate" enctype="multipart/form-data">
                                 <div class="col-sm-12">
                                     <div class="box">
                                         <div class="box-content box-double-padding">
                                             <fieldset>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <input class="form-control" data-rule-required="true" name="nro_referencia" placeholder="Nro. Referencia" type="text">
+                                                        <input class="form-control" data-rule-required="true" name="nro_referencia" id="nroRef" placeholder="Nro. Referencia" type="text" onblur="validarNroRef()">
                                                     </div>
                                                     <div class="form-group">
                                                         <input class="form-control" data-rule-required="true" name="titulo" placeholder="Titulo" type="text">
@@ -129,7 +129,7 @@
                                                     <a class="btn" href="home">
                                                         Cancelar
                                                     </a>
-                                                    <button class="btn btn-primary" type="submit">
+                                                    <button class="btn btn-primary" type="button" id="btnGuardarProducto">
                                                         <i class="icon-save"></i>
                                                         Guardar
                                                     </button>
@@ -185,6 +185,14 @@
                         document.getElementById("preview3").src = oFREvent.target.result;
                     }
                 });
+                
+                $('#btnGuardarProducto').on('click', function(){
+                    if($('input[name="especificaciones"]').val()){
+                        $('#form-productos').submit();
+                    }else{
+                        alert('Debe ingresar una especificacion.')
+                    }
+                });
             });
 
             $("#add-especificacion").live('click', function (e) {
@@ -210,6 +218,23 @@
                 e.preventDefault();
                 return false;
             });
+            
+            function validarNroRef() {
+                var xhr = new XMLHttpRequest();
+                var nroRef = document.getElementById("nroRef").value;
+                xhr.open("POST", "/ProgWeb/validar-producto", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send("nroRef=" + nroRef);
+
+                xhr.onreadystatechange = function (e) {
+                    if(xhr.readyState === 4){
+                        if (xhr.status !== 200){
+                            document.getElementById("nroRef").value = '';
+                            alert('El Numero de Referencia ya esta ingresado, ingrese uno nuevo.');
+                        }
+                    }
+                };
+            }
         </script>
     </body>
 </html>

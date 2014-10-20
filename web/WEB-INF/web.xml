@@ -71,6 +71,10 @@
         <servlet-name>images</servlet-name>
         <servlet-class>vista.servlets.ImageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ValidarProducto</servlet-name>
+        <servlet-class>vista.servlets.ValidarProducto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -130,6 +134,10 @@
     <servlet-mapping>
         <servlet-name>images</servlet-name>
         <url-pattern>/images/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidarProducto</servlet-name>
+        <url-pattern>/validar-producto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

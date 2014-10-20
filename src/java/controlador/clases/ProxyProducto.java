@@ -218,4 +218,8 @@ public class ProxyProducto {
     public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario){
         Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarComentario(nickname, nroRef, padre, Comentario);
     }
+    
+    public Boolean verificarEspecificacionProducto(String nroRef){
+        return Fabrica.getInstance().getControladorProductos(idProductosControlador).verificarEspecificacionProducto(nroRef);
+    }
 }
