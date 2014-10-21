@@ -38,7 +38,7 @@ public class ImageServlet extends HttpServlet {
             throws ServletException, IOException {
         try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
-            String image = ImageHandler.getStaticFolder() + request.getPathInfo();
+            String image = ImageHandler.getStaticFolder() + request.getPathInfo().subSequence(1, request.getPathInfo().length());
             System.out.println(image);
             File f = new File(image);
            
