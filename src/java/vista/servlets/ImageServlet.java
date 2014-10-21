@@ -5,6 +5,7 @@
  */
 package vista.servlets;
 
+import Controlador.Clases.ImageHandler;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -32,16 +33,13 @@ public class ImageServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String IMAGE_NAME = "images";
-    private static final String ROOT = System.getProperty("user.dir") + File.separator;
-    private static final String IMAGE_FOLDER = ROOT + IMAGE_NAME + File.separator;
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
-            String image = IMAGE_FOLDER + request.getPathInfo();
-
+            String image = ImageHandler.getStaticFolder() + request.getPathInfo();
+            System.out.println(image);
             File f = new File(image);
            
             response.setContentType(Files.probeContentType(f.toPath()));
