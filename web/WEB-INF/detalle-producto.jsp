@@ -34,10 +34,17 @@
                     }
                 }
             }
+            
+            Boolean esCliente;
+            if (session.getAttribute("esCliente") != null && session.getAttribute("esCliente").toString() == "yes") {
+                esCliente = true;
+            } else {
+                esCliente = false;
+            }
         %>
 
         <%!
-            public String recorrer(List<TreeParserComentarios.NodoComentario> l) {
+            public String recorrer(List<TreeParserComentarios.NodoComentario> l, Boolean puedeResponder) {
                 String arbol = "";
                 for (TreeParserComentarios.NodoComentario current : l) {
                     if (current.hijos != null && !current.hijos.isEmpty()) {
@@ -46,7 +53,7 @@
                         arbol += "<div class=\"text\">" + current.comentario.toString() + "</div>";
                         arbol += "</li>";
                         arbol += "<ul class=\"list-unstyled comments comentario-hijo\">";
-                        arbol += recorrer(current.hijos);
+                        arbol += recorrer(current.hijos, puedeResponder);
                         arbol += "</ul>";
                     } else {
                         arbol += "<li class=\"comentario\">";
@@ -55,6 +62,7 @@
                         arbol += "</li>";
                         arbol += "<ul class=\"list-unstyled comments comentario-hijo\">";
                         arbol += "<li>";
+                        if (puedeResponder) {
                         arbol += "<div class=\"form-group\">";
                         arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText" + current.id + "\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
                         arbol += "</div>";
@@ -62,6 +70,7 @@
                         arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario(" + current.id + ")\">Responder</div>";
                         arbol += "</div>";
                         arbol += "</li>";
+                        }
                         arbol += "</ul><hr class=\"hr-normal\">";
                     }
                 }
@@ -109,20 +118,22 @@
                                                         <div class="carousel slide" id="myCarousel">
                                                             <div class="carousel-inner">
                                                                 <%
-                                                                 if(!producto.getImagenes().isEmpty()){
-                                                                   Iterator it =  producto.getImagenes().iterator();
-                                                                   
-                                                                   String isActive = "active";
-                                                                   while(it.hasNext()){
-                                                                       
-                                                                    String s = (String)it.next();
+                                                                    if (!producto.getImagenes().isEmpty()) {
+                                                                        Iterator it = producto.getImagenes().iterator();
+
+                                                                        String isActive = "active";
+                                                                        while (it.hasNext()) {
+
+                                                                            String s = (String) it.next();
                                                                 %>
-                                                                    
-                                                                    <div class="<%=isActive%> item"><img width="140" height="140" src="images/<%=s%>" /></div> 
-                                                                <% isActive="";}}else{%> 
-                                                                    <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
-                                                                 <%}%>
-                                                                    
+
+                                                                <div class="<%=isActive%> item"><img width="140" height="140" src="images/<%=s%>" /></div> 
+                                                                    <% isActive = "";
+                                                                    }
+                                                                } else {%> 
+                                                                <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
+                                                                <%}%>
+
                                                             </div>
                                                             <a class="left carousel-control" data-slide="prev" href="#myCarousel">
                                                                 <span class="icon-angle-left icon-prev"></span>
@@ -134,7 +145,7 @@
                                                     </div>
                                                 </div>
                                                 <%
-                                                    if (session.getAttribute("nickname") != null && session.getAttribute("esProveedor") == null) {
+                                                    if (esCliente) {
                                                         if (stockMaximo > 0) {
                                                 %>
                                                 <div class="col-sm-7">
@@ -190,6 +201,10 @@
                                                 </address>
                                             </div>
                                         </fieldset>
+                                        <%
+                                            List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
+                                            if (comentarios.size() > 0) {
+                                        %>
                                         <hr class="hr-normal">
                                         <fieldset>
                                             <div class="col-sm-12 recent-activity">
@@ -200,7 +215,9 @@
                                                     </div>
                                                 </div>
                                                 <%
-                                                    if (session.getAttribute("nickname") != null && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                    Boolean puedeComentar = false;
+                                                    if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                        puedeComentar = true;
                                                 %>
                                                 <div class="box">
                                                     <div class="box-content">
@@ -216,15 +233,13 @@
                                                 <div class="box">
                                                     <div class="box-content">
                                                         <ul class="list-unstyled comments">
-                                                            <%
-                                                                List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
-                                                            %>
-                                                            <%= recorrer(comentarios)%>
+                                                            <%= recorrer(comentarios, puedeComentar)%>
                                                         </ul>
                                                     </div>  
                                                 </div>
                                             </div>
                                         </fieldset>
+                                        <% }%>
                                         <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
                                         <input type="hidden" name="cliente" id="cliente" value="<%= session.getAttribute("nickname")%>"/>
                                     </div>

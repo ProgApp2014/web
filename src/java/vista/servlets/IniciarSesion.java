@@ -28,6 +28,7 @@ public class IniciarSesion extends HttpServlet {
                 if(ProxyUsuario.getInstance().esCliente(usuario)){
                     ProxyUsuario.getInstance().elegirCliente(usuario);
                     HttpSession session = request.getSession();
+                    session.setAttribute("esCliente","yes");
                     session.setAttribute("usuario_logueado", ProxyUsuario.getInstance().mostrarDatosCliente().getNombre() + " " + ProxyUsuario.getInstance().mostrarDatosCliente().getApellido());
                     session.setAttribute("nickname", usuario);
                     out.println("Ok");
