@@ -202,7 +202,6 @@
                                             </div>
                                         </fieldset>
                                         <%
-                                            List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
                                             Boolean puedeComentar = false;
                                             if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
                                                 puedeComentar = true;
@@ -213,12 +212,9 @@
                                                 <div class="box-header">
                                                     <div class="title">
                                                         <i class="icon-comment"></i>
-                                                        Comentarios
+                                                        Comentar
                                                     </div>
                                                 </div>
-                                                <%
-
-                                                %>
                                                 <div class="box">
                                                     <div class="box-content">
                                                         <div class="form-group">
@@ -229,7 +225,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                            </div>
+                                        </fieldset>
+                                        <% }%>
+                                        <%
+                                            List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
+                                            if (comentarios.size() > 0) {
+                                        %>
+                                        <hr class="hr-normal">
+                                        <fieldset>
+                                            <div class="col-sm-12 recent-activity">
+                                                <div class="box-header">
+                                                    <div class="title">
+                                                        <i class="icon-comments"></i>
+                                                        Comentarios
+                                                    </div>
+                                                </div>
                                                 <div class="box">
                                                     <div class="box-content">
                                                         <ul class="list-unstyled comments">
