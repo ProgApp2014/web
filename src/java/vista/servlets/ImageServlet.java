@@ -41,12 +41,14 @@ public class ImageServlet extends HttpServlet {
             String image = ImageHandler.getStaticFolder() + request.getPathInfo().subSequence(1, request.getPathInfo().length());
             System.out.println(image);
             File f = new File(image);
-           
+            String ext = image.substring(image.lastIndexOf(".")+1);
+            
             response.setContentType(Files.probeContentType(f.toPath()));
+            System.out.println(image);
             
             BufferedImage bi = ImageIO.read(f);
 
-            ImageIO.write(bi, "jpg", out);
+            ImageIO.write(bi, ext, out);
             out.close();
         }
     }

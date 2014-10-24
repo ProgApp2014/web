@@ -34,7 +34,7 @@
                     }
                 }
             }
-            
+
             Boolean esCliente;
             if (session.getAttribute("esCliente") != null && session.getAttribute("esCliente").toString() == "yes") {
                 esCliente = true;
@@ -63,13 +63,13 @@
                         arbol += "<ul class=\"list-unstyled comments comentario-hijo\">";
                         arbol += "<li>";
                         if (puedeResponder) {
-                        arbol += "<div class=\"form-group\">";
-                        arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText" + current.id + "\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
-                        arbol += "</div>";
-                        arbol += "<div class=\"text-right\">";
-                        arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario(" + current.id + ")\">Responder</div>";
-                        arbol += "</div>";
-                        arbol += "</li>";
+                            arbol += "<div class=\"form-group\">";
+                            arbol += "<textarea class=\"form-control\" style=\"display:none\" id=\"comentarioText" + current.id + "\" placeholder=\"Ingresar respuesta...\" rows=\"3\"></textarea>";
+                            arbol += "</div>";
+                            arbol += "<div class=\"text-right\">";
+                            arbol += "<div class=\"btn btn-primary\" onclick=\"responderComentario(" + current.id + ")\">Responder</div>";
+                            arbol += "</div>";
+                            arbol += "</li>";
                         }
                         arbol += "</ul><hr class=\"hr-normal\">";
                     }
@@ -129,8 +129,8 @@
 
                                                                 <div class="<%=isActive%> item"><img width="140" height="140" src="images/<%=s%>" /></div> 
                                                                     <% isActive = "";
-                                                                    }
-                                                                } else {%> 
+                                                                        }
+                                                                    } else {%> 
                                                                 <img class="img-responsive center-block" width="140" height="140" src="http://placehold.it/140x140&text=Foto"/>
                                                                 <%}%>
 
@@ -203,7 +203,9 @@
                                         </fieldset>
                                         <%
                                             List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
-                                            if (comentarios.size() > 0) {
+                                            Boolean puedeComentar = false;
+                                            if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                puedeComentar = true;
                                         %>
                                         <hr class="hr-normal">
                                         <fieldset>
@@ -215,9 +217,7 @@
                                                     </div>
                                                 </div>
                                                 <%
-                                                    Boolean puedeComentar = false;
-                                                    if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
-                                                        puedeComentar = true;
+
                                                 %>
                                                 <div class="box">
                                                     <div class="box-content">
@@ -229,7 +229,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <% }%>
+                                                
                                                 <div class="box">
                                                     <div class="box-content">
                                                         <ul class="list-unstyled comments">
