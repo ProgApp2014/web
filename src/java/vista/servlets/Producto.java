@@ -1,16 +1,14 @@
 package vista.servlets;
 
-import Controlador.Clases.ImageHandler;
-import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataComentario;
-import Controlador.DataTypes.DataEspecificacionProducto;
-import Controlador.DataTypes.DataProducto;
-import Controlador.DataTypes.DataProveedor;
+ 
 import controlador.clases.ProxyProducto;
+import controlador.middleware.DataCategoria;
+import controlador.middleware.DataComentario;
+import controlador.middleware.DataEspecificacionProducto;
+import controlador.middleware.DataProducto;
+import controlador.middleware.DataProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -51,7 +49,8 @@ public class Producto extends HttpServlet {
             String[] categorias = request.getParameterValues("categorias");
             String[] especificaciones = request.getParameterValues("especificaciones");
             ArrayList<String> imagenes = new ArrayList<>();
-
+            
+            /*
             Iterator it = request.getParts().iterator();
             ImageHandler ih = new ImageHandler();
             while (it.hasNext()) {
@@ -63,7 +62,7 @@ public class Producto extends HttpServlet {
                         imagenes.add(imagen);
                     }
                 }
-            }
+            }*/
 
             Float precioReal = null;
             Integer stockReal = null;
@@ -72,8 +71,13 @@ public class Producto extends HttpServlet {
             precioReal = Float.parseFloat(precio);
 
             DataProveedor proveedor = ProxyProducto.getInstance().listarProveedores().get(0);
-            DataEspecificacionProducto espProducto = new DataEspecificacionProducto(nro_referencia, titulo, descripcion, new HashMap(), precioReal, proveedor, new ArrayList<String>(), new ArrayList<DataCategoria>(), new ArrayList<DataProducto>(), new ArrayList<DataComentario>());
-
+            DataEspecificacionProducto espProducto = new DataEspecificacionProducto();
+            espProducto.setDescripcion(descripcion);
+            espProducto.setNroReferencia(nro_referencia);
+            espProducto.setNombre(titulo);
+            espProducto.setPrecio(precioReal);
+            espProducto.setProveedor(proveedor);
+            
             ProxyProducto.getInstance().elegirProveedor((String) request.getSession().getAttribute("nickname"));
             ProxyProducto.getInstance().ingresarDatosProductos(espProducto);
             if (especificaciones != null) {

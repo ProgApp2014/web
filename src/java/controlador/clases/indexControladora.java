@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package controlador.clases;
-
-import Controlador.DataTypes.DataCategoria;
-import java.util.ArrayList;
+ 
+import controlador.middleware.DataCategoria;
 import java.util.List;
 
 /**

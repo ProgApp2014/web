@@ -1,9 +1,9 @@
 package vista.servlets;
-
-import Controlador.DataTypes.DataComentario;
-import Controlador.DataTypes.DataEspecificacionProducto;
+ 
 import controlador.clases.ProxyProducto;
 import controlador.clases.TreeParserComentarios;
+import controlador.middleware.DataComentario;
+import controlador.middleware.DataEspecificacionProducto;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;

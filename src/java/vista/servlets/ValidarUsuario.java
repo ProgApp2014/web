@@ -1,8 +1,8 @@
 package vista.servlets;
 
-import Controlador.DataTypes.DataCliente;
-import Controlador.DataTypes.DataProveedor;
 import controlador.clases.ProxyUsuario;
+import controlador.middleware.DataCliente;
+import controlador.middleware.DataProveedor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;

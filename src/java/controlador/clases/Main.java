@@ -5,10 +5,8 @@
  */
 
 package controlador.clases;
-
-import Controlador.DataTypes.DataEspecificacionProducto;
-import java.util.ArrayList;
-import java.util.Iterator;
+ 
+import controlador.middleware.DataEspecificacionProducto;
 import java.util.List;
 
 /**

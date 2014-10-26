@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package vista.servlets;
-
-import Controlador.DataTypes.DataOrdenCompra;
+  
 import controlador.clases.ProxyOrden;
+import controlador.middleware.DataOrdenCompra;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +32,7 @@ public class GenerarOrden extends HttpServlet{
                 ProxyOrden.getInstance().elegirCantidadProducto(Integer.parseInt(current[0]));
                 ProxyOrden.getInstance().generarItemOrden();
             }
-             DataOrdenCompra dataOrden = new DataOrdenCompra(0);
+             DataOrdenCompra dataOrden = new DataOrdenCompra();
             ProxyOrden.getInstance().guardarOrden(dataOrden);
             session.setAttribute("carrito", null);
         }

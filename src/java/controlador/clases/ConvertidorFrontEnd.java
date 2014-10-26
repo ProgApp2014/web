@@ -5,14 +5,7 @@
  */
 package controlador.clases;
 
-import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataCliente;
-import Controlador.DataTypes.DataClienteCompraProducto;
-import Controlador.DataTypes.DataComentario;
-import Controlador.DataTypes.DataEspecificacionProducto;
-import Controlador.DataTypes.DataOrdenCompra;
-import Controlador.DataTypes.DataProducto;
-import Controlador.DataTypes.DataProveedor;
+ 
 import controlador.datatypes.DataCategoriaWS;
 import controlador.datatypes.DataClienteCompraProductoWS;
 import controlador.datatypes.DataClienteWS;
@@ -21,6 +14,14 @@ import controlador.datatypes.DataEspecificacionProductoWS;
 import controlador.datatypes.DataOrdenCompraWS;
 import controlador.datatypes.DataProductoWS;
 import controlador.datatypes.DataProveedorWS;
+import controlador.middleware.DataCategoria;
+import controlador.middleware.DataCliente;
+import controlador.middleware.DataClienteCompraProducto;
+import controlador.middleware.DataComentario;
+import controlador.middleware.DataEspecificacionProducto;
+import controlador.middleware.DataOrdenCompra;
+import controlador.middleware.DataProducto;
+import controlador.middleware.DataProveedor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +33,7 @@ import java.util.Map;
  * @author rodro
  */
 public class ConvertidorFrontEnd {
-
+/*
     public static DataCategoriaWS toCategoria(DataCategoria o) {
         DataCategoriaWS ret = new DataCategoriaWS();
         ret.setNombre(o.getNombre());
@@ -147,5 +148,5 @@ public class ConvertidorFrontEnd {
         }
         return lp;
     }
-
+*/
 }

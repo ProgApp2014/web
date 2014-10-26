@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package vista.servlets;
-
-import Controlador.Clases.ImageHandler;
+ 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -38,6 +36,8 @@ public class ImageServlet extends HttpServlet {
             throws ServletException, IOException {
         try (OutputStream out = response.getOutputStream()) {
             /* TODO output your page here. You may use following sample code. */
+            
+            /*
             String image = ImageHandler.getStaticFolder() + request.getPathInfo().subSequence(1, request.getPathInfo().length());
             System.out.println(image);
             File f = new File(image);
@@ -50,6 +50,7 @@ public class ImageServlet extends HttpServlet {
 
             ImageIO.write(bi, ext, out);
             out.close();
+            */
         }
     }
 

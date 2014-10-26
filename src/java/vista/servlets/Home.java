@@ -1,9 +1,10 @@
 package vista.servlets;
 
-import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataEspecificacionProducto;
+
 import controlador.clases.ProxyProducto;
 import controlador.clases.TreeParser;
+import controlador.middleware.DataCategoria;
+import controlador.middleware.DataEspecificacionProducto;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package vista.servlets;
-
-import Controlador.DataTypes.DataUsuario;
+ 
 import controlador.clases.ProxyUsuario;
+import controlador.middleware.DataUsuario;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

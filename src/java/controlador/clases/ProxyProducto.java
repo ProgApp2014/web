@@ -5,15 +5,15 @@
  */
 package controlador.clases;
 
-import Controlador.Clases.Fabrica;
-import Controlador.DataTypes.DataCategoria;
-import Controlador.DataTypes.DataComentario;
-import Controlador.DataTypes.DataEspecificacionProducto;
-import Controlador.DataTypes.DataOrdenCompra;
-import Controlador.DataTypes.DataProducto;
-import Controlador.DataTypes.DataProveedor;
- 
+import controlador.middleware.ControladorProductosWS;
+import controlador.middleware.ControladorProductosWSService;
+import controlador.middleware.DataCategoria;
+import controlador.middleware.DataComentario;
+import controlador.middleware.DataEspecificacionProducto;
+import controlador.middleware.DataProducto;
+import controlador.middleware.DataProveedor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,7 @@ import java.util.Map;
  */
 public class ProxyProducto {
 
-    private final Integer idProductosControlador;
+    private Integer idProductosControlador;
 
     private static ProxyProducto instance = null;
 
@@ -37,189 +37,181 @@ public class ProxyProducto {
         }
         return ProxyProducto.instance;
     }
+    private final ControladorProductosWS controlador;
 
     private ProxyProducto() {
 
-        idProductosControlador = Fabrica.getInstance().getControladorProductos(null).getId();
-
+        idProductosControlador = null;
+        ControladorProductosWSService servicio = new ControladorProductosWSService();
+        controlador = servicio.getControladorProductosWSPort();
+        idProductosControlador = controlador.getId();
     }
 
     public List<DataProveedor> listarProveedores() {
-
-        List<DataProveedor> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarProveedores();
-//        List<DataProveedorWS> ret = new ArrayList();
-//        Iterator it = l.iterator();
-//        while (it.hasNext()) {
-//            ret.add(ConvertidorFrontEnd.toProveedor((DataProveedor) it.next()));
-//        }
-        return l;
+        return (List<DataProveedor>) controlador.listarProveedores(idProductosControlador);
     }
 
     public void elegirProveedor(String nickname) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirProveedor(nickname);
+        controlador.elegirProveedor(nickname, idProductosControlador);
     }
 
     public void ingresarDatosProductos(DataEspecificacionProducto espProducto) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosProductos(espProducto);
+        controlador.ingresarDatosProductos(espProducto, idProductosControlador);
     }
 
     public Boolean elegirTipoProducto() {
 
-        return null;
+        return controlador.elegirTipoProducto(idProductosControlador);
     }
 
     public void agregarMultiplesProductosAutogenerados(Integer cantidad) {
-
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarMultiplesProductosAutogenerados(cantidad);
+        controlador.agregarMultiplesProductosAutogenerados(cantidad, idProductosControlador);
     }
 
     public void ingresarDatosUnidad(DataProducto producto) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosUnidad(producto);
+        controlador.ingresarDatosUnidad(producto, idProductosControlador);
     }
 
     public List<DataCategoria> listarCategorias() {
-        List<DataCategoria> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarCategorias();
-//        List<DataCategoriaWS> ret = new ArrayList();
-//        Iterator it = l.iterator();
-//        while (it.hasNext()) {
-//            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
-//        }
-        return l;
+        return (List<DataCategoria>) controlador.listarCategorias(idProductosControlador);
     }
 
     public void elegirCategoria(String categoria) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirCategoria(categoria);
+
+        controlador.elegirCategoria(categoria, idProductosControlador);
     }
 
     public List<DataEspecificacionProducto> listarProductosCategoria() {
-        List<DataEspecificacionProducto> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarProductosCategoria();
-//        List<DataEspecificacionProductoWS> ret = new ArrayList();
-//        Iterator it = l.iterator();
-//        while (it.hasNext()) {
-//            ret.add(ConvertidorFrontEnd.toEspecificacionProducto((DataEspecificacionProducto) it.next()));
-//        }
-        return l;
+        return (List<DataEspecificacionProducto>) controlador.listarProductosCategoria(idProductosControlador);
     }
 
     public DataEspecificacionProducto mostrarDatosProducto(String numRef) {
-        DataEspecificacionProducto l = Fabrica.getInstance().getControladorProductos(idProductosControlador).mostrarDatosProducto(numRef);
-        return l;
+
+        return controlador.mostrarDatosProducto(numRef, idProductosControlador);
     }
 
     public Boolean controlarErrores() {
-
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).controlarErrores();
+        return controlador.controlarErrores(idProductosControlador);
     }
 
     public void guardarProducto() {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).guardarProducto();
+
+        controlador.guardarProducto(idProductosControlador);
     }
 
     public DataCategoria elegirCategoriaPadre(String categoria) {
-        DataCategoria l = Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirCategoriaPadre(categoria);
-        return l;
+
+        return controlador.elegirCategoriaPadre(categoria, idProductosControlador);
     }
 
     public void ingresarDatosCategoria(DataCategoria categoria) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarDatosCategoria(categoria);
+        controlador.ingresarDatosCategoria(categoria, idProductosControlador);
     }
 
     public void asociarCategoriaPadre(DataCategoria padre) {
 
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).asociarCategoriaPadre(padre);
+        controlador.asociarCategoriaPadre(padre, idProductosControlador);
     }
 
     public void guardarCategoria() {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).guardarCategoria();
+
+        controlador.guardarCategoria(idProductosControlador);
     }
 
     public void elegirEspProducto(String numRef) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).elegirEspProducto(numRef);
+
+        controlador.elegirEspProducto(numRef, idProductosControlador);
     }
 
     public DataProducto mostrarInformacionProducto() {
-        DataProducto l = Fabrica.getInstance().getControladorProductos(idProductosControlador).mostrarInformacionProducto();
-        return l;
+        return controlador.mostrarInformacionProducto(idProductosControlador);
     }
 
     public void modificarDatosEspecificacionProducto(DataEspecificacionProducto espProducto) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).modificarDatosEspecificacionProducto(espProducto);
+
+        controlador.modificarDatosEspecificacionProducto(espProducto, idProductosControlador);
     }
 
     public void agregarImagen(String rutaImagen) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarImagen(rutaImagen);
+
+        controlador.agregarImagen(rutaImagen, idProductosControlador);
     }
 
     public void agregarCategoria(DataCategoria categoria) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarCategoria(categoria);
+
+        controlador.agregarCategoria(categoria, idProductosControlador);
     }
 
     public Boolean validarInfo() {
 
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).validarInfo();
+        return controlador.validarInfo(idProductosControlador);
     }
 
     public void ingresarEspecificacion(String clave, String desc) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).ingresarEspecificacion(clave, desc);
+
+        controlador.ingresarEspecificacion(clave, desc, idProductosControlador);
     }
 
     public void agregarCategoriaAEspecificacion(String categoria) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarCategoriaAEspecificacion(categoria);
+        controlador.agregarCategoriaAEspecificacion(categoria, idProductosControlador);
     }
 
     public List<String> listarImagenesAModificar() {
+        return (List<String>) controlador.listarImagenesAModificar(idProductosControlador);
 
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).listarImagenesAModificar();
     }
 
     public void borrarImagen(String rutaImagen) {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).borrarImagen(rutaImagen);
+        controlador.borrarImagen(rutaImagen, idProductosControlador);
     }
 
     public List<DataCategoria> listarCategoriasAModificar() {
-        List<DataCategoria> l = Fabrica.getInstance().getControladorProductos(idProductosControlador).listarCategoriasAModificar();
-//        List<DataCategoriaWS> ret = new ArrayList();
-//        Iterator it = l.iterator();
-//        while (it.hasNext()) {
-//            ret.add(ConvertidorFrontEnd.toCategoria((DataCategoria) it.next()));
-//        }
-        return l;
+        return (List<DataCategoria>) controlador.listarCategoriasAModificar(idProductosControlador);
     }
 
     public void borrarCategoriaAEspecificacion(String categoria) {
+
+        controlador.borrarCategoriaAEspecificacion(categoria, idProductosControlador);
     }
 
     public void guardarEspProductoModificado() {
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).guardarEspProductoModificado();
+
+        controlador.guardarEspProductoModificado(idProductosControlador);
     }
 
     public Boolean categoryAlreadyExist(String categoria) {
+        return controlador.categoryAlreadyExist(categoria, idProductosControlador);
 
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).categoryAlreadyExist(categoria);
     }
-    
-    public List<DataEspecificacionProducto> buscarProductos(String keyword){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductos(keyword);
+
+    public List<DataEspecificacionProducto> buscarProductos(String keyword) {
+
+        return (List<DataEspecificacionProducto>) controlador.buscarProductos(keyword, idProductosControlador);
     }
-    public Map<String,List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword,String Orden){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).buscarProductosSeparados(keyword, Orden);
+
+    public Map<String, List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword, String Orden) {
+        //controlador.buscarProductosSeparados(keyword,Orden, idProductosControlador);
+         return null;
     }
-    
-    public Boolean puedeComentar(String nickname, String nroRef){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).puedeComentar(nickname, nroRef);
+
+    public Boolean puedeComentar(String nickname, String nroRef) {
+
+        return controlador.puedeComentar(nickname, nroRef, idProductosControlador);
     }
-    
-    public List<DataComentario> listarComentarios(String nroRef){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).listarComentarios(nroRef);
+
+    public List<DataComentario> listarComentarios(String nroRef) {
+
+        return (List<DataComentario>) controlador.listarComentarios(nroRef, idProductosControlador);
     }
-    
-    public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario){
-        Fabrica.getInstance().getControladorProductos(idProductosControlador).agregarComentario(nickname, nroRef, padre, Comentario);
+
+    public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario) {
+        controlador.agregarComentario(nickname, nroRef, padre, Comentario, idProductosControlador);
     }
-    
-    public Boolean verificarEspecificacionProducto(String nroRef){
-        return Fabrica.getInstance().getControladorProductos(idProductosControlador).verificarEspecificacionProducto(nroRef);
+
+    public Boolean verificarEspecificacionProducto(String nroRef) {
+
+        return controlador.verificarEspecificacionProducto(nroRef, idProductosControlador);
     }
 }

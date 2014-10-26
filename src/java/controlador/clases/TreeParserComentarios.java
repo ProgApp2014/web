@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package controlador.clases;
-
-import Controlador.DataTypes.DataCliente;
-import Controlador.DataTypes.DataComentario;
-import Controlador.DataTypes.DataEspecificacionProducto;
+ 
+import controlador.middleware.DataCliente;
+import controlador.middleware.DataComentario;
+import controlador.middleware.DataEspecificacionProducto;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -46,7 +46,7 @@ public class TreeParserComentarios {
 
             while (!padresAgregados) {
 
-                if (!auxDeBusqueda.tienePadre()) {
+                if (auxDeBusqueda.getPadre() == null) {
 
                     NodoComentario nodoRaiz = new NodoComentario(auxDeBusqueda.getId(),auxDeBusqueda.getCliente(), auxDeBusqueda.getEspecificacionProducto(), auxDeBusqueda.getComentario());
                     if (auxHuerfana != null) {
@@ -75,7 +75,7 @@ public class TreeParserComentarios {
                         DataComentario auxBusqPadre = auxDeBusqueda.getPadre();
                         NodoComentario padre = new NodoComentario(auxBusqPadre.getId(),auxBusqPadre.getCliente(),auxBusqPadre.getEspecificacionProducto(),auxBusqPadre.getComentario());
                         padre.addHijo(new NodoComentario(auxDeBusqueda.getId(),auxDeBusqueda.getCliente(),auxDeBusqueda.getEspecificacionProducto(),auxDeBusqueda.getComentario()));
-                        if (auxDeBusqueda.getPadre().tienePadre()) {
+                        if (auxDeBusqueda.getPadre().getPadre() != null) {
                             auxDeBusqueda = auxDeBusqueda.getPadre().getPadre();
                             auxHuerfana = padre;
                         } else {
