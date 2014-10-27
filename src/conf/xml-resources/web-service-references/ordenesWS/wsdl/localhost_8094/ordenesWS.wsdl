@@ -19,7 +19,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarCategoriasResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataCategoriaArray"></part>
 </message>
 <message name="elegirCategoria">
 <part name="arg0" type="xsd:string"></part>
@@ -30,7 +30,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarEspecificacionProductosResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataEspecificacionProductoArray"></part>
 </message>
 <message name="elegirEspecificacionProducto">
 <part name="arg0" type="xsd:string"></part>
@@ -41,7 +41,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarProductosEnOrdenResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataEspecificacionProductoArray"></part>
 </message>
 <message name="elegirProducto">
 <part name="arg0" type="xsd:int"></part>
@@ -66,7 +66,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarOrdenesResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataOrdenCompraArray"></part>
 </message>
 <message name="elegirOrden">
 <part name="arg0" type="xsd:int"></part>

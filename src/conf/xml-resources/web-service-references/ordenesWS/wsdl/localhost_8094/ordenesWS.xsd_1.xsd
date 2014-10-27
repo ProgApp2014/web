@@ -135,4 +135,22 @@
 <xs:complexType name="abstractCollection" abstract="true">
 <xs:sequence></xs:sequence>
 </xs:complexType>
+
+<xs:complexType name="dataEspecificacionProductoArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataEspecificacionProducto" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataCategoriaArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataCategoria" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataOrdenCompraArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataOrdenCompra" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
 </xs:schema>

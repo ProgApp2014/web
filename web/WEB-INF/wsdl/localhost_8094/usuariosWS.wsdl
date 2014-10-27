@@ -8,7 +8,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarClientesResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataClienteArray"></part>
 </message>
 <message name="elegirCliente">
 <part name="arg0" type="xsd:string"></part>
@@ -51,7 +51,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarProveedoresResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataProveedorArray"></part>
 </message>
 <message name="elegirProveedor">
 <part name="arg0" type="xsd:string"></part>
@@ -96,7 +96,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarProductosProveedorResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataEspecificacionProductoArray"></part>
 </message>
 <message name="getId"></message>
 <message name="getIdResponse">
