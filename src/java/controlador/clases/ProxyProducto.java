@@ -48,7 +48,7 @@ public class ProxyProducto {
     }
 
     public List<DataProveedor> listarProveedores() {
-        return (List<DataProveedor>) controlador.listarProveedores(idProductosControlador);
+        return  controlador.listarProveedores(idProductosControlador).getItem();
     }
 
     public void elegirProveedor(String nickname) {
@@ -74,7 +74,7 @@ public class ProxyProducto {
     }
 
     public List<DataCategoria> listarCategorias() {
-        return (List<DataCategoria>) controlador.listarCategorias(idProductosControlador);
+        return  controlador.listarCategorias(idProductosControlador).getItem();
     }
 
     public void elegirCategoria(String categoria) {
@@ -83,7 +83,7 @@ public class ProxyProducto {
     }
 
     public List<DataEspecificacionProducto> listarProductosCategoria() {
-        return (List<DataEspecificacionProducto>) controlador.listarProductosCategoria(idProductosControlador);
+        return controlador.listarProductosCategoria(idProductosControlador).getItem();
     }
 
     public DataEspecificacionProducto mostrarDatosProducto(String numRef) {
@@ -159,7 +159,7 @@ public class ProxyProducto {
     }
 
     public List<String> listarImagenesAModificar() {
-        return (List<String>) controlador.listarImagenesAModificar(idProductosControlador);
+        return controlador.listarImagenesAModificar(idProductosControlador).getItem();
 
     }
 
@@ -168,7 +168,7 @@ public class ProxyProducto {
     }
 
     public List<DataCategoria> listarCategoriasAModificar() {
-        return (List<DataCategoria>) controlador.listarCategoriasAModificar(idProductosControlador);
+        return  controlador.listarCategoriasAModificar(idProductosControlador).getItem();
     }
 
     public void borrarCategoriaAEspecificacion(String categoria) {
@@ -188,7 +188,7 @@ public class ProxyProducto {
 
     public List<DataEspecificacionProducto> buscarProductos(String keyword) {
 
-        return (List<DataEspecificacionProducto>) controlador.buscarProductos(keyword, idProductosControlador);
+        return controlador.buscarProductos(keyword, idProductosControlador).getItem();
     }
 
     public Map<String, List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword, String Orden) {
@@ -203,7 +203,7 @@ public class ProxyProducto {
 
     public List<DataComentario> listarComentarios(String nroRef) {
 
-        return (List<DataComentario>) controlador.listarComentarios(nroRef, idProductosControlador);
+        return   controlador.listarComentarios(nroRef, idProductosControlador).getItem();
     }
 
     public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario) {

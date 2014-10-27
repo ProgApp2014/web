@@ -45,7 +45,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarOrdenesClienteResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataOrdenCompraArray"></part>
 </message>
 <message name="listarProveedores">
 <part name="arg0" type="xsd:int"></part>

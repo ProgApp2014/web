@@ -116,26 +116,6 @@
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="arrayList">
-<xs:complexContent>
-<xs:extension base="tns:abstractList">
-<xs:sequence></xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="abstractList" abstract="true">
-<xs:complexContent>
-<xs:extension base="tns:abstractCollection">
-<xs:sequence></xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="abstractCollection" abstract="true">
-<xs:sequence></xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="dataEspecificacionProductoArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataEspecificacionProducto" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
@@ -145,6 +125,12 @@
 <xs:complexType name="dataCategoriaArray" final="#all">
 <xs:sequence>
 <xs:element name="item" type="tns:dataCategoria" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataClienteArray" final="#all">
+<xs:sequence>
+<xs:element name="item" type="tns:dataCliente" minOccurs="0" maxOccurs="unbounded" nillable="true"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

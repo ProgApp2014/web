@@ -11,6 +11,9 @@ import controlador.middleware.DataCliente;
 import controlador.middleware.DataEspecificacionProducto;
 import controlador.middleware.DataOrdenCompra;
 import controlador.middleware.DataProveedor;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -62,8 +65,8 @@ public class ProxyUsuario {
     }
 
     public List<DataCliente> listarClientes() {
-        
-        return (List<DataCliente>)controlador.listarClientes( idUsuariosControlador);
+        return  controlador.listarClientes( idUsuariosControlador).getItem();
+       
     }
 
     public void elegirCliente(String nickname) {
@@ -75,12 +78,12 @@ public class ProxyUsuario {
     }
 
     public List<DataOrdenCompra> listarOrdenesCliente() {
-        return (List<DataOrdenCompra>)controlador.listarOrdenesCliente( idUsuariosControlador);
+        return  controlador.listarOrdenesCliente( idUsuariosControlador).getItem();
 
     }
 
     public List<DataProveedor> listarProveedores() {
-        return (List<DataProveedor>)controlador.listarProveedores( idUsuariosControlador);
+        return controlador.listarProveedores( idUsuariosControlador).getItem();
 
     }
 
@@ -112,6 +115,6 @@ public class ProxyUsuario {
     }
 
     public List<DataEspecificacionProducto> listarProductosProveedor() {
-        return (List<DataEspecificacionProducto>)controlador.listarProductosProveedor( idUsuariosControlador);
+        return  controlador.listarProductosProveedor( idUsuariosControlador).getItem();
     }
 }

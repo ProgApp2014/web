@@ -45,7 +45,7 @@ public class ProxyOrden {
 
     public List<DataCliente> listarClientes() {
 
-        return (List<DataCliente>) controlador.listarClientes(idOrdenesControlador);
+        return  controlador.listarClientes(idOrdenesControlador).getItem();
 
     }
 
@@ -55,7 +55,7 @@ public class ProxyOrden {
 
     public List<DataCategoria> listarCategorias() {
 
-        return (List<DataCategoria>) controlador.listarCategorias(idOrdenesControlador);
+        return   controlador.listarCategorias(idOrdenesControlador).getItem();
 
     }
 
@@ -65,7 +65,7 @@ public class ProxyOrden {
     }
 
     public List<DataEspecificacionProducto> listarEspecificacionProductos() {
-        return (List<DataEspecificacionProducto>) controlador.listarEspecificacionProductos(idOrdenesControlador);
+        return  controlador.listarEspecificacionProductos(idOrdenesControlador).getItem();
 
     }
 
@@ -74,7 +74,7 @@ public class ProxyOrden {
     }
 
     public List<DataEspecificacionProducto> listarProductosEnOrden() {
-        return (List<DataEspecificacionProducto>) controlador.listarProductosEnOrden(idOrdenesControlador);
+        return  controlador.listarProductosEnOrden(idOrdenesControlador).getItem();
 
     }
 
@@ -98,7 +98,7 @@ public class ProxyOrden {
     }
 
     public List<DataOrdenCompra> listarOrdenes() {
-        return (List<DataOrdenCompra>) controlador.listarOrdenes(idOrdenesControlador);
+        return   controlador.listarOrdenes(idOrdenesControlador).getItem();
 
     }
 

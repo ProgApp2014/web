@@ -8,7 +8,7 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="listarClientesResponse">
-<part name="return" type="tns:arrayList"></part>
+<part name="return" type="tns:dataClienteArray"></part>
 </message>
 <message name="elegirCliente">
 <part name="arg0" type="xsd:string"></part>
