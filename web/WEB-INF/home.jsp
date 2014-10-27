@@ -1,4 +1,4 @@
-<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
+ <%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="controlador.clases.TreeParser"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
