@@ -1,6 +1,6 @@
+<%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="controlador.clases.ProxyProducto"%>
 <%@page import="java.util.Map"%>
-<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,6 +1,6 @@
+<%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="controlador.clases.ProxyProducto"%>
-<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">

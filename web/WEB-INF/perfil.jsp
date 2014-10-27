@@ -1,10 +1,12 @@
-<%@page import="Controlador.DataTypes.DataOrdenCompra"%>
-<%@page import="Controlador.DataTypes.DataEspecificacionProducto"%>
+ 
+<%@page import="controlador.middleware.DataOrdenCompra"%>
+<%@page import="controlador.middleware.DataEspecificacionProducto"%>
+<%@page import="controlador.middleware.DataCliente"%>
+<%@page import="controlador.middleware.DataProveedor"%>
+<%@page import="controlador.middleware.DataUsuario"%>
 <%@page import="java.util.List"%>
 <%@page import="controlador.clases.ProxyUsuario"%>
-<%@page import="Controlador.DataTypes.DataUsuario"%>
-<%@page import="Controlador.DataTypes.DataCliente"%>
-<%@page import="Controlador.DataTypes.DataProveedor"%>
+ 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
