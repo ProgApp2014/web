@@ -11,9 +11,6 @@ import controlador.middleware.DataCliente;
 import controlador.middleware.DataEspecificacionProducto;
 import controlador.middleware.DataOrdenCompra;
 import controlador.middleware.DataProveedor;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**

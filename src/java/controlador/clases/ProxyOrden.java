@@ -7,7 +7,6 @@ package controlador.clases;
 
 import controlador.middleware.ControladorOrdenesWS;
 import controlador.middleware.ControladorOrdenesWSService;
-import controlador.middleware.ControladorProductosWS;
 import controlador.middleware.DataCategoria;
 import controlador.middleware.DataCliente;
 import controlador.middleware.DataEspecificacionProducto;

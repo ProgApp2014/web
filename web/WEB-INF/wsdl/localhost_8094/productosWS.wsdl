@@ -172,7 +172,7 @@
 <part name="arg2" type="xsd:int"></part>
 </message>
 <message name="buscarProductosSeparadosResponse">
-<part name="return" type="tns:hashMap"></part>
+<part name="return" type="tns:dataMapEspProductosArray"></part>
 </message>
 <message name="puedeComentar">
 <part name="arg0" type="xsd:string"></part>
@@ -181,6 +181,13 @@
 </message>
 <message name="puedeComentarResponse">
 <part name="return" type="xsd:boolean"></part>
+</message>
+<message name="listarComentarios">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="listarComentariosResponse">
+<part name="return" type="tns:dataComentarioArray"></part>
 </message>
 <message name="listarCategorias">
 <part name="arg0" type="xsd:int"></part>
@@ -193,13 +200,6 @@
 <part name="arg1" type="xsd:int"></part>
 </message>
 <message name="elegirCategoriaResponse"></message>
-<message name="listarComentarios">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="listarComentariosResponse">
-<part name="return" type="tns:dataComentarioArray"></part>
-</message>
 <message name="agregarComentario">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -344,6 +344,10 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/puedeComentarRequest" message="tns:puedeComentar"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/puedeComentarResponse" message="tns:puedeComentarResponse"></output>
 </operation>
+<operation name="listarComentarios" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosRequest" message="tns:listarComentarios"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosResponse" message="tns:listarComentariosResponse"></output>
+</operation>
 <operation name="listarCategorias">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarCategoriasRequest" message="tns:listarCategorias"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarCategoriasResponse" message="tns:listarCategoriasResponse"></output>
@@ -351,10 +355,6 @@
 <operation name="elegirCategoria" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaRequest" message="tns:elegirCategoria"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaResponse" message="tns:elegirCategoriaResponse"></output>
-</operation>
-<operation name="listarComentarios" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosRequest" message="tns:listarComentarios"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosResponse" message="tns:listarComentariosResponse"></output>
 </operation>
 <operation name="agregarComentario" parameterOrder="arg0 arg1 arg2 arg3 arg4">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarComentarioRequest" message="tns:agregarComentario"></input>
@@ -650,6 +650,15 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
+<operation name="listarComentarios">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
 <operation name="listarCategorias">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -660,15 +669,6 @@
 </output>
 </operation>
 <operation name="elegirCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="listarComentarios">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>

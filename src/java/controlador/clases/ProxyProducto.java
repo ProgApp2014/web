@@ -10,13 +10,12 @@ import controlador.middleware.ControladorProductosWSService;
 import controlador.middleware.DataCategoria;
 import controlador.middleware.DataComentario;
 import controlador.middleware.DataEspecificacionProducto;
+import controlador.middleware.DataMapEspProductos;
 import controlador.middleware.DataProducto;
 import controlador.middleware.DataProveedor;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
@@ -48,7 +47,7 @@ public class ProxyProducto {
     }
 
     public List<DataProveedor> listarProveedores() {
-        return  controlador.listarProveedores(idProductosControlador).getItem();
+        return controlador.listarProveedores(idProductosControlador).getItem();
     }
 
     public void elegirProveedor(String nickname) {
@@ -74,7 +73,7 @@ public class ProxyProducto {
     }
 
     public List<DataCategoria> listarCategorias() {
-        return  controlador.listarCategorias(idProductosControlador).getItem();
+        return controlador.listarCategorias(idProductosControlador).getItem();
     }
 
     public void elegirCategoria(String categoria) {
@@ -168,7 +167,7 @@ public class ProxyProducto {
     }
 
     public List<DataCategoria> listarCategoriasAModificar() {
-        return  controlador.listarCategoriasAModificar(idProductosControlador).getItem();
+        return controlador.listarCategoriasAModificar(idProductosControlador).getItem();
     }
 
     public void borrarCategoriaAEspecificacion(String categoria) {
@@ -191,9 +190,19 @@ public class ProxyProducto {
         return controlador.buscarProductos(keyword, idProductosControlador).getItem();
     }
 
-    public Map<String, List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword, String Orden) {
-        //controlador.buscarProductosSeparados(keyword,Orden, idProductosControlador);
-         return null;
+    public HashMap<String, List<DataEspecificacionProducto>> buscarProductosSeparados(String keyword, String Orden) {
+        HashMap<String, List<DataEspecificacionProducto>> ll = new HashMap();
+        
+        List<DataMapEspProductos> l = controlador.buscarProductosSeparados(keyword, Orden, idProductosControlador).getItem();
+        System.out.println(l);
+        Iterator it = l.iterator();
+        while (it.hasNext()) {
+            DataMapEspProductos dmep = (DataMapEspProductos) it.next();
+            System.out.println(dmep);
+            ll.put(dmep.getCategoria(), dmep.getList());
+        }
+
+        return ll;
     }
 
     public Boolean puedeComentar(String nickname, String nroRef) {
@@ -203,7 +212,7 @@ public class ProxyProducto {
 
     public List<DataComentario> listarComentarios(String nroRef) {
 
-        return   controlador.listarComentarios(nroRef, idProductosControlador).getItem();
+        return controlador.listarComentarios(nroRef, idProductosControlador).getItem();
     }
 
     public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario) {
