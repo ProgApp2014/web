@@ -10,12 +10,14 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 @MultipartConfig(maxFileSize = 16177215)
@@ -41,31 +43,32 @@ public class Usuario extends HttpServlet {
             String linkSitio = request.getParameter("link_sitio");
             String imagen = null;
 
-           /*
-            ImageHandler ih = new ImageHandler();
-            Part imgPart = request.getPart("imagen");
-            String imageName = getFileName(imgPart);
-            if(imageName!=null && !imageName.isEmpty()){
-                imagen = ih.saveInputStream(imgPart.getInputStream(),imageName);
-            }
-            */
+            /*
+             ImageHandler ih = new ImageHandler();
+             Part imgPart = request.getPart("imagen");
+             String imageName = getFileName(imgPart);
+             if(imageName!=null && !imageName.isEmpty()){
+             imagen = ih.saveInputStream(imgPart.getInputStream(),imageName);
+             }
+             */
             String fechaNacimiento = request.getParameter("fecha_nacimiento");
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
-            Calendar fnac = Calendar.getInstance();
-            fnac.setTime(date);
+            GregorianCalendar gregCalendar = new GregorianCalendar();
+            gregCalendar.setTime(date);
+            XMLGregorianCalendar fnac = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregCalendar);
 
             String esProveedor = request.getParameter("proveedor");
             if ("proveedor".equals(esProveedor)) {
                 DataProveedor proveedor = new DataProveedor();
-                 proveedor.setNickname(nickname);
+                proveedor.setNickname(nickname);
                 proveedor.setPassword(password);
                 proveedor.setNombre(nombre);
                 proveedor.setApellido(apellido);
-                proveedor.setEmail(email); 
-               //proveedor.setFechaNacimiento(fnac);
+                proveedor.setEmail(email);
+                proveedor.setFechaNacimiento(fnac);
                 proveedor.setNombreCompania(nombreCompania);
                 proveedor.setLinkSitio(linkSitio);
-                
+
                 proveedor.setImagen(imagen);
                 ProxyUsuario.getInstance().ingresarDatosProveedor(proveedor);
             } else {
@@ -75,7 +78,7 @@ public class Usuario extends HttpServlet {
                 cliente.setNombre(nombre);
                 cliente.setApellido(apellido);
                 cliente.setEmail(email);
-               // cliente.setFechaNacimiento(fnac);
+                cliente.setFechaNacimiento(fnac);
                 cliente.setImagen(imagen);
                 ProxyUsuario.getInstance().ingresarDatosCliente(cliente);
             }
