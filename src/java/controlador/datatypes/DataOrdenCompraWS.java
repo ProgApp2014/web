@@ -11,6 +11,7 @@ public class DataOrdenCompraWS {
     private Date fecha;
     private Float precioTotal;
     private List<DataClienteCompraProductoWS> clienteCompraProducto;
+    private List<DataEstadosOrdenesWS> estados;
     
     public DataOrdenCompraWS() {
 
@@ -22,18 +23,20 @@ public class DataOrdenCompraWS {
         this.precioTotal = 0.0f;
     }
     
-    public DataOrdenCompraWS(Integer nroOrden, Date fecha, Float precioTotal, List<DataClienteCompraProductoWS> clienteCompraProducto) {
+    public DataOrdenCompraWS(Integer nroOrden, Date fecha, Float precioTotal, List<DataClienteCompraProductoWS> clienteCompraProducto, List<DataEstadosOrdenesWS> estados) {
         this.nroOrden = nroOrden;
         this.fecha = fecha;
         this.precioTotal = precioTotal;
         this.clienteCompraProducto = clienteCompraProducto;
+        this.estados = estados;
     }
     
-    public DataOrdenCompraWS(Integer nroOrden, List<DataClienteCompraProductoWS> clienteCompraProducto) {
+    public DataOrdenCompraWS(Integer nroOrden, List<DataClienteCompraProductoWS> clienteCompraProducto, List<DataEstadosOrdenesWS> estados) {
         this.nroOrden = nroOrden;
         this.fecha = new Date();
         this.precioTotal = 0.0f;
         this.clienteCompraProducto = clienteCompraProducto;
+        this.estados = estados;
     }
 
     public Integer getNroOrden() {
@@ -58,6 +61,14 @@ public class DataOrdenCompraWS {
 
     public void setClienteCompraProducto(List<DataClienteCompraProductoWS> clienteCompraProducto) {
         this.clienteCompraProducto = clienteCompraProducto;
+    }
+    
+    public List<DataEstadosOrdenesWS> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(List<DataEstadosOrdenesWS> estados) {
+        this.estados = estados;
     }
     
     public Float getPrecioTotal() {
