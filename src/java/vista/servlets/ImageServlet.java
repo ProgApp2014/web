@@ -39,20 +39,15 @@ public class ImageServlet extends HttpServlet {
 
             String image = (String) request.getPathInfo().subSequence(1, request.getPathInfo().length());
             ImagesProxy ih = new ImagesProxy();
-            System.out.println("image: " + image);
+            
             byte[] b = ih.getImage(image);
-            System.out.println(   b);
+            
             File f = new File(image);
             FileOutputStream ot = new FileOutputStream(f);
-            ot.write(b);
-            
-            String ext = image.substring(image.lastIndexOf(".")+1);
-            
-            response.setContentType(Files.probeContentType(f.toPath()));
-            System.out.println(image);
-            
-            BufferedImage bi = ImageIO.read(f);
-
+            ot.write(b); 
+            String ext = image.substring(image.lastIndexOf(".")+1); 
+            response.setContentType(Files.probeContentType(f.toPath())); 
+            BufferedImage bi = ImageIO.read(f); 
             ImageIO.write(bi, ext, out);
             out.close();
         }
