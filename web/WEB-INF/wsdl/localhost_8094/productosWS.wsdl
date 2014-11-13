@@ -195,11 +195,6 @@
 <message name="listarComentariosResponse">
 <part name="return" type="tns:dataComentarioArray"></part>
 </message>
-<message name="elegirCategoria">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="elegirCategoriaResponse"></message>
 <message name="agregarComentario">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -208,6 +203,11 @@
 <part name="arg4" type="xsd:int"></part>
 </message>
 <message name="agregarComentarioResponse"></message>
+<message name="elegirCategoria">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="elegirCategoriaResponse"></message>
 <message name="verificarEspecificacionProducto">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:int"></part>
@@ -352,13 +352,13 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosRequest" message="tns:listarComentarios"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarComentariosResponse" message="tns:listarComentariosResponse"></output>
 </operation>
-<operation name="elegirCategoria" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaRequest" message="tns:elegirCategoria"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaResponse" message="tns:elegirCategoriaResponse"></output>
-</operation>
 <operation name="agregarComentario" parameterOrder="arg0 arg1 arg2 arg3 arg4">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarComentarioRequest" message="tns:agregarComentario"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarComentarioResponse" message="tns:agregarComentarioResponse"></output>
+</operation>
+<operation name="elegirCategoria" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaRequest" message="tns:elegirCategoria"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirCategoriaResponse" message="tns:elegirCategoriaResponse"></output>
 </operation>
 <operation name="verificarEspecificacionProducto" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/verificarEspecificacionProductoRequest" message="tns:verificarEspecificacionProducto"></input>
@@ -668,7 +668,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="elegirCategoria">
+<operation name="agregarComentario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -677,7 +677,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="agregarComentario">
+<operation name="elegirCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>

@@ -1,3 +1,4 @@
+<%@page import="controlador.middleware.DataEspecificacion"%>
 <%@page import="controlador.middleware.DataCategoria"%>
 <%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="java.util.Iterator"%>
@@ -189,11 +190,11 @@
                                                 <address>
                                                     <strong>Especificaciones</strong>
                                                     <table class="table table-hover table-striped" style="margin-bottom:0;">
-                                                        <% for (String keyEsp : producto.getEspecificacion().keySet()) {%>
+                                                        <% for (DataEspecificacion dep : producto.getEspecificacion()) {%>
                                                         <tbody>
                                                             <tr>
-                                                                <td><%= keyEsp%></td>
-                                                                <td><%= producto.getEspecificacion().get(keyEsp)%></td>
+                                                                <td><%= dep.getKey()%></td>
+                                                                <td><%= dep.getValue()%></td>
                                                             </tr>
                                                         </tbody>
                                                         <% }%>
