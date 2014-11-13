@@ -200,6 +200,7 @@ public class ProxyProducto {
             DataMapEspProductos dmep = (DataMapEspProductos) it.next();
             System.out.println(dmep);
             ll.put(dmep.getCategoria(), dmep.getList());
+            
         }
 
         return ll;
@@ -219,6 +220,9 @@ public class ProxyProducto {
         controlador.agregarComentario(nickname, nroRef, padre, Comentario, idProductosControlador);
     }
 
+    public void agregarReclamo(String nickname, String nroRef, String Reclamo) {
+        controlador.agregarReclamo(nickname, nroRef, Reclamo, idProductosControlador);
+    }
     public Boolean verificarEspecificacionProducto(String nroRef) {
 
         return controlador.verificarEspecificacionProducto(nroRef, idProductosControlador);
