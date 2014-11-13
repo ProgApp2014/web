@@ -1,5 +1,6 @@
 package vista.servlets;
 
+import controlador.clases.ImagesProxy;
 import controlador.clases.ProxyUsuario;
 import controlador.middleware.DataCliente;
 import controlador.middleware.DataProveedor;
@@ -8,7 +9,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.servlet.ServletException;
@@ -43,14 +43,12 @@ public class Usuario extends HttpServlet {
             String linkSitio = request.getParameter("link_sitio");
             String imagen = null;
 
-            /*
-             ImageHandler ih = new ImageHandler();
-             Part imgPart = request.getPart("imagen");
-             String imageName = getFileName(imgPart);
-             if(imageName!=null && !imageName.isEmpty()){
-             imagen = ih.saveInputStream(imgPart.getInputStream(),imageName);
-             }
-             */
+            ImagesProxy ih = new ImagesProxy();
+            Part imgPart = request.getPart("imagen");
+            String imageName = getFileName(imgPart);
+            if (imageName != null && !imageName.isEmpty()) {
+                imagen = ih.saveImage(imgPart.getInputStream(), imageName);
+            }
             String fechaNacimiento = request.getParameter("fecha_nacimiento");
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
             GregorianCalendar gregCalendar = new GregorianCalendar();
@@ -88,7 +86,7 @@ public class Usuario extends HttpServlet {
             response.sendRedirect("home");
         } catch (Exception ex) {
             response.sendError(404);
-            System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage()+" "+ex.getStackTrace());
             request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
         }
 

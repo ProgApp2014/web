@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package vista.servlets;
- 
+
+import controlador.clases.ImagesProxy;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -31,16 +33,19 @@ public class ImageServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (OutputStream out = response.getOutputStream()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-            /*
-            String image = ImageHandler.getStaticFolder() + request.getPathInfo().subSequence(1, request.getPathInfo().length());
-            System.out.println(image);
+
+            String image = (String) request.getPathInfo().subSequence(1, request.getPathInfo().length());
+            ImagesProxy ih = new ImagesProxy();
+            System.out.println("image: " + image);
+            byte[] b = ih.getImage(image);
+            System.out.println(   b);
             File f = new File(image);
+            FileOutputStream ot = new FileOutputStream(f);
+            ot.write(b);
+            
             String ext = image.substring(image.lastIndexOf(".")+1);
             
             response.setContentType(Files.probeContentType(f.toPath()));
@@ -50,7 +55,6 @@ public class ImageServlet extends HttpServlet {
 
             ImageIO.write(bi, ext, out);
             out.close();
-            */
         }
     }
 

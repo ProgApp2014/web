@@ -9,4 +9,6 @@
     <system systemId="http://localhost:8094/productosWS?wsdl" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.wsdl"/>
     <system systemId="http://localhost:8094/productosWS?xsd=1" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8094/productosWS?xsd=2" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.xsd_2.xsd"/>
+    <system systemId="http://localhost:8098/imageWS?wsdl" uri="src/conf/xml-resources/web-service-references/imageWS/wsdl/localhost_8098/imageWS.wsdl"/>
+    <system systemId="http://localhost:8094/imageWS?wsdl" uri="src/conf/xml-resources/web-service-references/imageWS/wsdl/localhost_8094/imageWS.wsdl"/>
 </catalog>

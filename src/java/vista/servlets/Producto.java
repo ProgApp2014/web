@@ -1,15 +1,13 @@
 package vista.servlets;
 
  
+import controlador.clases.ImagesProxy;
 import controlador.clases.ProxyProducto;
 import controlador.middleware.DataCategoria;
-import controlador.middleware.DataComentario;
 import controlador.middleware.DataEspecificacionProducto;
-import controlador.middleware.DataProducto;
 import controlador.middleware.DataProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -49,20 +47,19 @@ public class Producto extends HttpServlet {
             String[] categorias = request.getParameterValues("categorias");
             String[] especificaciones = request.getParameterValues("especificaciones");
             ArrayList<String> imagenes = new ArrayList<>();
-            
-            /*
+             
             Iterator it = request.getParts().iterator();
-            ImageHandler ih = new ImageHandler();
+            ImagesProxy ih = new ImagesProxy();
             while (it.hasNext()) {
                 Part p = (Part) it.next();
                 if (p.getName().equals("imagenes")) {
                     String fileName = getFileName(p);
                     if (fileName != null && !fileName.isEmpty()) {
-                        String imagen = ih.saveInputStream(p.getInputStream(), fileName);
+                        String imagen = ih.saveImage(p.getInputStream(), fileName);
                         imagenes.add(imagen);
                     }
                 }
-            }*/
+            }
 
             Float precioReal = null;
             Integer stockReal = null;

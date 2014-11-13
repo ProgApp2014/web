@@ -74,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/controlador/middleware"/>
         <delete dir="${build.generated.dir}/jax-wsCache/productosWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-usuariosWS, wsimport-client-ordenesWS, wsimport-client-productosWS"/>
+    <target name="wsimport-client-imageWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/imageWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/imageWS" destdir="${build.generated.dir}/jax-wsCache/imageWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/imageWS/wsdl/localhost_8094/imageWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8094/imageWS?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/imageWS/wsdl/localhost_8094/imageWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/imageWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/imageWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-imageWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/controlador/middleware"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/imageWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-usuariosWS, wsimport-client-ordenesWS, wsimport-client-productosWS, wsimport-client-imageWS"/>
 </project>

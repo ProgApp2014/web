@@ -1,4 +1,5 @@
  
+<%@page import="controlador.clases.Utils"%>
 <%@page import="controlador.middleware.DataOrdenCompra"%>
 <%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="controlador.middleware.DataCliente"%>
@@ -113,7 +114,7 @@
                                                         <br>
                                                         <strong>Fecha Nacimiento</strong>
                                                         <br>
-                                                        <span><%= usuario.getFechaNacFormateada()%></span>
+                                                        <span><%= Utils.getFechaNacFormateada(usuario.getFechaNacimiento())%></span>
                                                         <br>
                                                         <% if (esProveedor) {%>
                                                         <strong>Link Compania</strong>
@@ -187,7 +188,7 @@
                                                             %>
                                                             <tr>
                                                                 <td><%= o.getNroOrden()%></td>
-                                                                <td><%= o.getFechaFormateada()%></td>
+                                                                <td><%= Utils.getFechaNacFormateada(o.getFecha())%></td>
                                                                 <td>$<%= o.getPrecioTotal()%></td>
                                                                 <td>
                                                                     <div class="text-right">
