@@ -21,6 +21,7 @@ public class DataOrdenCompraWS {
         this.nroOrden = nroOrden;
         this.fecha = new Date();
         this.precioTotal = 0.0f;
+        this.estados = new ArrayList();
     }
     
     public DataOrdenCompraWS(Integer nroOrden, Date fecha, Float precioTotal, List<DataClienteCompraProductoWS> clienteCompraProducto, List<DataEstadosOrdenesWS> estados) {
