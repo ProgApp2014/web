@@ -90,7 +90,9 @@ public class ProxyOrden {
 
         controlador.generarItemOrden(idOrdenesControlador);
     }
-
+public List<DataEspecificacionProducto> listarProductosCategoria() {
+     return controlador.listarProductosCategoria(idOrdenesControlador).getItem();    
+    }
     public void guardarOrden(DataOrdenCompra dataOrden) {
 
         controlador.guardarOrden(dataOrden, idOrdenesControlador);
