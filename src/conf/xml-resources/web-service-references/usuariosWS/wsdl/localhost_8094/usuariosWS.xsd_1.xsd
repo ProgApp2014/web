@@ -34,6 +34,7 @@
 <xs:complexType name="dataOrdenCompra">
 <xs:sequence>
 <xs:element name="clienteCompraProducto" type="tns:dataClienteCompraProducto" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="estadoActual" type="xs:int" minOccurs="0"></xs:element>
 <xs:element name="estados" type="tns:dataEstadosOrdenes" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="fecha" type="xs:dateTime" minOccurs="0"></xs:element>
 <xs:element name="nroOrden" type="xs:int" minOccurs="0"></xs:element>

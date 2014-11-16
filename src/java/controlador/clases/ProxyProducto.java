@@ -13,6 +13,7 @@ import controlador.middleware.DataEspecificacionProducto;
 import controlador.middleware.DataMapEspProductos;
 import controlador.middleware.DataProducto;
 import controlador.middleware.DataProveedor;
+import controlador.middleware.DataReclamo;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -223,6 +224,17 @@ public class ProxyProducto {
     public void agregarReclamo(String nickname, String nroRef, String Reclamo) {
         controlador.agregarReclamo(nickname, nroRef, Reclamo, idProductosControlador);
     }
+    
+    public List<DataReclamo> listarReclamos(String nickname) {
+        
+        return controlador.listarReclamos(nickname, idProductosControlador).getItem();
+    }
+ 
+    public Boolean puedeReclamar(String nickname, String nroRef) {
+
+        return controlador.puedeReclamar(nickname, nroRef, idProductosControlador);
+    }    
+    
     public Boolean verificarEspecificacionProducto(String nroRef) {
 
         return controlador.verificarEspecificacionProducto(nroRef, idProductosControlador);
