@@ -11,6 +11,7 @@ import controlador.middleware.DataCategoria;
 import controlador.middleware.DataCliente;
 import controlador.middleware.DataEspecificacionProducto;
 import controlador.middleware.DataOrdenCompra;
+import controlador.middleware.DataOrdenCompraArray;
 import java.util.List;
 
 /**
@@ -121,5 +122,26 @@ public List<DataEspecificacionProducto> listarProductosCategoria() {
 
         controlador.removerEspecificacionProducto(ref, idOrdenesControlador);
     }
+    
+    public void agregarEstadoOrdenRecibida(Integer nroOrden){
+        controlador.agregarEstadoOrdenRecibida(nroOrden, idOrdenesControlador);
+    }
+
+    public void agregarEstadoOrdenCancelada(Integer nroOrden){
+        controlador.agregarEstadoOrdenCancelada(nroOrden, idOrdenesControlador);
+    }
+    
+    public void agregarEstadoOrdenConfirmada(Integer nroOrden){
+        controlador.agregarEstadoOrdenConfirmada(nroOrden, idOrdenesControlador);
+    }
+    
+    public void agregarEstadoOrdenPreparada(Integer nroOrden){
+        controlador.agregarEstadoOrdenPreparada(nroOrden, idOrdenesControlador);
+    }
+    
+    public DataOrdenCompraArray listarOrdenesAPreparar(){
+        return controlador.listarOrdenesAPreparar(idOrdenesControlador);
+    }
+    
 
 }

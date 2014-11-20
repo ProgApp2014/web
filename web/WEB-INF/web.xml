@@ -52,6 +52,10 @@
         <servlet-class>vista.servlets.AgregarReclamo</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ConfirmarOrden</servlet-name>
+        <servlet-class>vista.servlets.ConfirmarOrden</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GenerarOrden</servlet-name>
         <servlet-class>vista.servlets.GenerarOrden</servlet-class>
     </servlet>
@@ -128,6 +132,10 @@
         <url-pattern>/agregar-comentario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ConfirmarOrden</servlet-name>
+        <url-pattern>/confirmar-orden</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>GenerarOrden</servlet-name>
         <url-pattern>/generar-orden</url-pattern>
     </servlet-mapping>
@@ -159,7 +167,7 @@
         </init-param>
         <init-param>
             <param-name>cliente-urls</param-name>
-            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito,/agregar-comentario</param-value>
+            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito,/agregar-comentario,/confirmar-orden</param-value>
         </init-param>
         <init-param>
             <param-name>proveedor-urls</param-name>

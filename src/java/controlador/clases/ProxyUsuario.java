@@ -12,6 +12,7 @@ import controlador.middleware.DataEspecificacionProducto;
 import controlador.middleware.DataOrdenCompra;
 import controlador.middleware.DataProveedor;
 import java.util.List;
+import net.java.dev.jaxb.array.StringArray;
 
 /**
  *

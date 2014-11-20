@@ -176,6 +176,8 @@
                                                                 <th>Numero de Orden</th>
                                                                 <th>Fecha</th>
                                                                 <th>Precio Total</th>
+                                                                <th>Estado</th>
+                                                                <th></th>
                                                                 <th></th>
                                                             </tr>
                                                         </thead>
@@ -190,12 +192,22 @@
                                                                 <td><%= o.getNroOrden()%></td>
                                                                 <td><%= Utils.getFechaNacFormateada(o.getFecha())%></td>
                                                                 <td>$<%= o.getPrecioTotal()%></td>
+                                                                <td><%= o.getEstadoActualTexto()%></td>
                                                                 <td>
                                                                     <div class="text-right">
                                                                         <a class="btn btn-primary btn-xs verDetalle" href="#" data-id="<%= o.getNroOrden()%>">
                                                                             <i class="icon-search"></i>
                                                                         </a>
                                                                     </div>
+                                                                </td>
+                                                                <td>
+                                                                    <% if(o.getEstadoActual() == 1){%>
+                                                                    <div class="text-right">
+                                                                        <a class="btn btn-primary btn-xs confirmarOrden" href="#" onclick="confirmarOrden(<%= o.getNroOrden()%>);">
+                                                                            <i class="icon-ok"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                    <%}%>
                                                                 </td>
                                                             </tr>
                                                             <%

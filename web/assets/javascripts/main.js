@@ -102,3 +102,16 @@ function responderComentario(commId){
     }
 }
 
+function confirmarOrden(nroOrden){
+    var formData = {orden: nroOrden}; //Array
+    $.ajax({
+        url: "confirmar-orden",
+        type: "POST",
+        data: formData,
+        success: function (result)
+        {
+            alert("Orden confirmada con exito");
+            window.location.href = "/ProgWeb/perfil";
+        }
+    });
+};
