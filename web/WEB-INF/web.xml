@@ -48,6 +48,10 @@
         <servlet-class>vista.servlets.AgregarComentario</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AgregarReclamo</servlet-name>
+        <servlet-class>vista.servlets.AgregarReclamo</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GenerarOrden</servlet-name>
         <servlet-class>vista.servlets.GenerarOrden</servlet-class>
     </servlet>

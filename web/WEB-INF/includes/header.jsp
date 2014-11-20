@@ -82,6 +82,12 @@
                             <i class="glyphicon glyphicon-list-alt"></i>
                             Publicar producto
                         </a>
+                    </li>                   
+                    <li> 
+                        <a href="ver-reclamos" >
+                            <i class="glyphicon glyphicon-bullhorn"></i>
+                            Ver reclamos                            
+                        </a>
                     </li>
                     <li class="divider"></li><% } %>
                     <li>
