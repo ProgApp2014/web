@@ -36,6 +36,10 @@
         <servlet-class>vista.servlets.UsuarioPerfil</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>VerReclamos</servlet-name>
+        <servlet-class>vista.servlets.VerReclamos</servlet-class>
+    </servlet>    
+    <servlet>
         <servlet-name>Buscador</servlet-name>
         <servlet-class>vista.servlets.Buscador</servlet-class>
     </servlet>
@@ -88,6 +92,10 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>VerReclamos</servlet-name>
+        <url-pattern>/ver-reclamos</url-pattern>
+    </servlet-mapping>  
+    <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/iniciar-sesion</url-pattern>
     </servlet-mapping>
@@ -131,6 +139,10 @@
         <servlet-name>AgregarComentario</servlet-name>
         <url-pattern>/agregar-comentario</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarReclamo</servlet-name>
+        <url-pattern>/agregar-reclamo</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>ConfirmarOrden</servlet-name>
         <url-pattern>/confirmar-orden</url-pattern>

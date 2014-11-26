@@ -201,7 +201,7 @@
                                                     </table>
                                                 </address>
                                             </div>
-                                        </fieldset>
+                                        </fieldset>                                                   
                                         <%
                                             Boolean puedeComentar = false;
                                             if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
@@ -223,7 +223,7 @@
                                                         </div>
                                                         <div class="text-right">
                                                             <a class="btn btn-warning" href="#" id="comentarLnk">Comentar</a>
-                                                        </div>
+                                                        </div>                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -252,6 +252,40 @@
                                             </div>
                                         </fieldset>
                                         <% }%>
+                                        
+                                        <hr class="hr-normal">
+                                        <fieldset>
+                                        <%
+                                            Boolean puedeReclamar = false;
+                                            if (esCliente && ProxyProducto.getInstance().puedeReclamar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                puedeReclamar = true;
+                                            }
+                                            
+                                            if (puedeReclamar) {
+                                        %>
+                                        <hr class="hr-normal">
+                                        <fieldset>
+                                            <div class="col-sm-12 recent-activity">
+                                                <div class="box-header">
+                                                    <div class="title">
+                                                        <i class="glyphicon glyphicon-bullhorn"></i>
+                                                        Reclamar
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="box-content">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="reclamoText" placeholder="Ingresar reclamo..." rows="3"></textarea>
+                                                        </div>
+                                                        <div class="text-right">
+                                                            <a class="btn btn-warning" href="#" id="reclamarLnk">Reclamar</a>
+                                                        </div>                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <% } %>
+                                        
                                         <input type="hidden" name="nroRef" id="nroRef" value="<%= producto.getNroReferencia()%>"/>
                                         <input type="hidden" name="cliente" id="cliente" value="<%= session.getAttribute("nickname")%>"/>
                                     </div>

@@ -80,6 +80,20 @@ $("#comentarLnk").click(function () {
     });
 });
 
+$("#reclamarLnk").click(function () {
+    var formData = {reclamo: $("#reclamoText").val(), nroRef: $("#nroRef").val(), cliente: $("#cliente").val()}; //Array
+
+    $.ajax({
+        url: "agregar-reclamo",
+        type: "POST",
+        data: formData,
+        success: function (result)
+        {
+            window.location.href = "/ProgWeb/detalle-producto?id="+$("#nroRef").val();
+        }
+    });
+});
+
 function responderComentario(commId){
     if(!$("#comentarioText"+commId).is(':visible')){
         $("#comentarioText"+commId).show("slow")
