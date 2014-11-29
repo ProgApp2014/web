@@ -240,4 +240,15 @@ public class ProxyProducto {
 
         return controlador.verificarEspecificacionProducto(nroRef, idProductosControlador);
     }
+    
+    public void agregarPuntaje(String nickname, String nroRef, Integer puntaje){
+        controlador.agregarPuntaje(nickname, nroRef, puntaje, idProductosControlador);
+        
+    }
+    
+    public Float obtenerPuntjePromedio(String nroRef){
+        return controlador.obtenerPuntjePromedio(nroRef, idProductosControlador);
+    }
+    
+    
 }
