@@ -108,6 +108,8 @@
 <part name="arg1" type="xsd:int"></part>
 </message>
 <message name="deshabilitarNotificacionesResponse"></message>
+<message name="genDatosPrueba"></message>
+<message name="genDatosPruebaResponse"></message>
 <message name="getId"></message>
 <message name="getIdResponse">
 <part name="return" type="xsd:int"></part>
@@ -184,6 +186,10 @@
 <operation name="deshabilitarNotificaciones" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/deshabilitarNotificacionesRequest" message="tns:deshabilitarNotificaciones"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/deshabilitarNotificacionesResponse" message="tns:deshabilitarNotificacionesResponse"></output>
+</operation>
+<operation name="genDatosPrueba">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/genDatosPruebaRequest" message="tns:genDatosPrueba"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/genDatosPruebaResponse" message="tns:genDatosPruebaResponse"></output>
 </operation>
 <operation name="getId">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdRequest" message="tns:getId"></input>
@@ -346,6 +352,15 @@
 </output>
 </operation>
 <operation name="deshabilitarNotificaciones">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="genDatosPrueba">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
