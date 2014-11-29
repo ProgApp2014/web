@@ -201,7 +201,46 @@
                                                     </table>
                                                 </address>
                                             </div>
-                                        </fieldset>                                                   
+                                        </fieldset>
+                                        
+                                        <hr class="hr-normal">
+                                        <fieldset>
+                                            <div class="col-sm-12 recent-activity">
+                                                <div class="box-header">
+                                                    <div class="title">
+                                                        <i class="icon-comment"></i>
+                                                        Puntaje
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success" style="width:70%;">5 estrellas</div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-danger" style="width:20%;">4 estrellas</div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-warning" style="width:10%;">3 estrellas</div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-info" style="width:40%;">2 estrellas</div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-primary" style="width:40%;">1 estrella</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <form>
+                                                        <input id="rating-input" type="number" data-container-class='text-right'/>
+                                                        <hr>
+                                                        <div class="form-group text-right">
+                                                        <button type="submit" class="btn btn-primary">Puntuar</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        
                                         <%
                                             Boolean puedeComentar = false;
                                             if (esCliente && ProxyProducto.getInstance().puedeComentar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
@@ -229,6 +268,7 @@
                                             </div>
                                         </fieldset>
                                         <% }%>
+                                        
                                         <%
                                             List<TreeParserComentarios.NodoComentario> comentarios = (List<TreeParserComentarios.NodoComentario>) request.getAttribute("comentarios");
                                             if (comentarios.size() > 0) {
@@ -253,8 +293,6 @@
                                         </fieldset>
                                         <% }%>
                                         
-                                        <hr class="hr-normal">
-                                        <fieldset>
                                         <%
                                             Boolean puedeReclamar = false;
                                             if (esCliente && ProxyProducto.getInstance().puedeReclamar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
@@ -300,6 +338,24 @@
         <jsp:include page="/WEB-INF/includes/footer.jsp" />
 
         <jsp:include page="/WEB-INF/includes/javascript.jsp" />
+        <link href="assets/stylesheets/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="assets/javascripts/star-rating.js" type="text/javascript"></script>
+        <script>
+            jQuery(document).ready(function () {
+                $('#rating-input').rating({
+                      min: 0,
+                      max: 5,
+                      step: 1,
+                      size: 'lg',
+                      showClear : false,
+                      showCaption : false,
+                   });
+
+                $('#rating-input').on('rating.change', function() {
+                    alert($('#rating-input').val());
+                });
+            });
+        </script>
 
     </body>
 </html>
