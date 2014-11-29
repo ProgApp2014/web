@@ -183,7 +183,7 @@
         </init-param>
         <init-param>
             <param-name>proveedor-urls</param-name>
-            <param-value>/home,/registro-producto,/perfil,/detalle-producto,/buscador</param-value>
+            <param-value>/home,/registro-producto,/perfil,/detalle-producto,/buscador,/ver-reclamos</param-value>
         </init-param>
     </filter>
     <filter-mapping>
