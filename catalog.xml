@@ -4,12 +4,12 @@
     <system systemId="file:/home/rodro/workspace/tecnologo/ProgramacionAplicaciones/web/web/web/WEB-INF/wsdl/localhost_8094/productosWS.wsdl" uri="src/conf/xml-resources/web-service-references/productosWS_1/wsdl/productosWS.wsdl"/>
     <system systemId="http://localhost:8098/imageWS?wsdl" uri="src/conf/xml-resources/web-service-references/imageWS/wsdl/localhost_8098/imageWS.wsdl"/>
     <system systemId="http://localhost:8094/usuariosWS?xsd=2" uri="src/conf/xml-resources/web-service-references/usuariosWS/wsdl/localhost_8094/usuariosWS.xsd_2.xsd"/>
-    <system systemId="http://localhost:8094/usuariosWS?wsdl" uri="src/conf/xml-resources/web-service-references/usuariosWS/wsdl/localhost_8094/usuariosWS.wsdl"/>
-    <system systemId="http://localhost:8094/usuariosWS?xsd=1" uri="src/conf/xml-resources/web-service-references/usuariosWS/wsdl/localhost_8094/usuariosWS.xsd_1.xsd"/>
-    <system systemId="http://localhost:8094/ordenesWS?wsdl" uri="src/conf/xml-resources/web-service-references/ordenesWS/wsdl/localhost_8094/ordenesWS.wsdl"/>
-    <system systemId="http://localhost:8094/ordenesWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ordenesWS/wsdl/localhost_8094/ordenesWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8094/imageWS?wsdl" uri="src/conf/xml-resources/web-service-references/imageWS/wsdl/localhost_8094/imageWS.wsdl"/>
     <system systemId="http://localhost:8094/productosWS?wsdl" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.wsdl"/>
     <system systemId="http://localhost:8094/productosWS?xsd=1" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8094/productosWS?xsd=2" uri="src/conf/xml-resources/web-service-references/productosWS/wsdl/localhost_8094/productosWS.xsd_2.xsd"/>
-    <system systemId="http://localhost:8094/imageWS?wsdl" uri="src/conf/xml-resources/web-service-references/imageWS/wsdl/localhost_8094/imageWS.wsdl"/>
+    <system systemId="http://localhost:8094/ordenesWS?wsdl" uri="src/conf/xml-resources/web-service-references/ordenesWS/wsdl/localhost_8094/ordenesWS.wsdl"/>
+    <system systemId="http://localhost:8094/ordenesWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ordenesWS/wsdl/localhost_8094/ordenesWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8094/usuariosWS?wsdl" uri="src/conf/xml-resources/web-service-references/usuariosWS/wsdl/localhost_8094/usuariosWS.wsdl"/>
+    <system systemId="http://localhost:8094/usuariosWS?xsd=1" uri="src/conf/xml-resources/web-service-references/usuariosWS/wsdl/localhost_8094/usuariosWS.xsd_1.xsd"/>
 </catalog>
