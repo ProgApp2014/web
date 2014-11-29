@@ -51,7 +51,6 @@
                                                         </thead>
                                                         <tbody>
                                                             <%
-                                                                ProxyUsuario.getInstance().elegirProveedor(usuario.getNickname());
                                                                 String nickname = usuario.getNickname();
                                                                 List<DataReclamo> lReclamos = ProxyProducto.getInstance().listarReclamos(nickname);
 

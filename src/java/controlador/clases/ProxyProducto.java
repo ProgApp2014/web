@@ -218,7 +218,8 @@ public class ProxyProducto {
     }
 
     public void agregarComentario(String nickname, String nroRef, Integer padre, String Comentario) {
-        controlador.agregarComentario(nickname, nroRef, padre, Comentario, idProductosControlador);
+       Integer pad = padre == null ? -1 : padre; 
+       controlador.agregarComentario(nickname, nroRef, pad, Comentario, idProductosControlador);
     }
 
     public void agregarReclamo(String nickname, String nroRef, String Reclamo) {

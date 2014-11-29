@@ -27,6 +27,9 @@ public class VerReclamos extends HttpServlet{
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String userId = session.getAttribute("nickname").toString();
+        ProxyUsuario.getInstance().elegirProveedor(userId);
+        DataUsuario dataUsuario = ProxyUsuario.getInstance().mostrarDatosProveedor();
+        request.setAttribute("usuario", dataUsuario);
         request.getRequestDispatcher("/WEB-INF/ver-reclamos.jsp").forward(request, response);
     }
 
