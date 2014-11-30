@@ -254,5 +254,11 @@ public class ProxyProducto {
         return controlador.puedePuntuar(nickname, nroRef, idProductosControlador);
     } 
     
+    public Float obtenerPromedioPorEstrella(String nroRef, Integer estrella){
+        return controlador.obtenerPromedioPorEstrella(nroRef, estrella, idProductosControlador);
+    } 
     
+    public Integer obtenerPuntosPorEstrella(String nroRef, Integer estrella){
+        return controlador.obtenerPuntosPorEstrella(nroRef, estrella, idProductosControlador);
+    } 
 }
