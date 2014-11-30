@@ -250,5 +250,9 @@ public class ProxyProducto {
         return controlador.obtenerPuntjePromedio(nroRef, idProductosControlador);
     }
     
+    public Boolean puedePuntuar(String nickname, String nroRef){
+        return controlador.puedePuntuar(nickname, nroRef, idProductosControlador);
+    }
+    
     
 }
