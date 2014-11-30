@@ -4,17 +4,18 @@
 <xsd:import namespace="http://Middleware.Controlador/" schemaLocation="http://localhost:8094/usuariosWS?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="listarClientes">
-<part name="arg0" type="xsd:int"></part>
+<message name="getId"></message>
+<message name="getIdResponse">
+<part name="return" type="xsd:int"></part>
 </message>
-<message name="listarClientesResponse">
-<part name="return" type="tns:dataClienteArray"></part>
-</message>
-<message name="elegirCliente">
+<message name="login">
 <part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:int"></part>
 </message>
-<message name="elegirClienteResponse"></message>
+<message name="loginResponse">
+<part name="return" type="xsd:boolean"></part>
+</message>
 <message name="ingresarDatosCliente">
 <part name="arg0" type="tns:dataCliente"></part>
 <part name="arg1" type="xsd:int"></part>
@@ -35,6 +36,17 @@
 <part name="arg0" type="xsd:int"></part>
 </message>
 <message name="guardarUsuarioResponse"></message>
+<message name="listarClientes">
+<part name="arg0" type="xsd:int"></part>
+</message>
+<message name="listarClientesResponse">
+<part name="return" type="tns:dataClienteArray"></part>
+</message>
+<message name="elegirCliente">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="elegirClienteResponse"></message>
 <message name="mostrarDatosCliente">
 <part name="arg0" type="xsd:int"></part>
 </message>
@@ -70,14 +82,6 @@
 <message name="getErrorsResponse">
 <part name="return" type="xsd:string"></part>
 </message>
-<message name="login">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:int"></part>
-</message>
-<message name="loginResponse">
-<part name="return" type="xsd:boolean"></part>
-</message>
 <message name="esProveedor">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:int"></part>
@@ -110,18 +114,14 @@
 <message name="deshabilitarNotificacionesResponse"></message>
 <message name="genDatosPrueba"></message>
 <message name="genDatosPruebaResponse"></message>
-<message name="getId"></message>
-<message name="getIdResponse">
-<part name="return" type="xsd:int"></part>
-</message>
 <portType name="ControladorUsuariosWS">
-<operation name="listarClientes">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesRequest" message="tns:listarClientes"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesResponse" message="tns:listarClientesResponse"></output>
+<operation name="getId">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdRequest" message="tns:getId"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdResponse" message="tns:getIdResponse"></output>
 </operation>
-<operation name="elegirCliente" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteRequest" message="tns:elegirCliente"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteResponse" message="tns:elegirClienteResponse"></output>
+<operation name="login" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginRequest" message="tns:login"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginResponse" message="tns:loginResponse"></output>
 </operation>
 <operation name="ingresarDatosCliente" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/ingresarDatosClienteRequest" message="tns:ingresarDatosCliente"></input>
@@ -138,6 +138,14 @@
 <operation name="guardarUsuario">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioRequest" message="tns:guardarUsuario"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioResponse" message="tns:guardarUsuarioResponse"></output>
+</operation>
+<operation name="listarClientes">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesRequest" message="tns:listarClientes"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesResponse" message="tns:listarClientesResponse"></output>
+</operation>
+<operation name="elegirCliente" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteRequest" message="tns:elegirCliente"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteResponse" message="tns:elegirClienteResponse"></output>
 </operation>
 <operation name="mostrarDatosCliente">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/mostrarDatosClienteRequest" message="tns:mostrarDatosCliente"></input>
@@ -163,10 +171,6 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getErrorsRequest" message="tns:getErrors"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getErrorsResponse" message="tns:getErrorsResponse"></output>
 </operation>
-<operation name="login" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginRequest" message="tns:login"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginResponse" message="tns:loginResponse"></output>
-</operation>
 <operation name="esProveedor" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/esProveedorRequest" message="tns:esProveedor"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/esProveedorResponse" message="tns:esProveedorResponse"></output>
@@ -191,14 +195,10 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/genDatosPruebaRequest" message="tns:genDatosPrueba"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/genDatosPruebaResponse" message="tns:genDatosPruebaResponse"></output>
 </operation>
-<operation name="getId">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdRequest" message="tns:getId"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdResponse" message="tns:getIdResponse"></output>
-</operation>
 </portType>
 <binding name="ControladorUsuariosWSPortBinding" type="tns:ControladorUsuariosWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="listarClientes">
+<operation name="getId">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -207,7 +207,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="elegirCliente">
+<operation name="login">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -244,6 +244,24 @@
 </output>
 </operation>
 <operation name="guardarUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="listarClientes">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="elegirCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -306,15 +324,6 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="login">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
 <operation name="esProveedor">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -361,15 +370,6 @@
 </output>
 </operation>
 <operation name="genDatosPrueba">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="getId">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>

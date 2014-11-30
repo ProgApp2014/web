@@ -113,7 +113,7 @@
                                 <div class="box">
                                     <div class="box-content box-double-padding">
                                         <fieldset>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-3">
                                                 <div class="col-sm-5">
                                                     <div style="width: 140px; height: 140px;">
                                                         <div class="carousel slide" id="myCarousel">
@@ -172,7 +172,7 @@
                                                     }
                                                 %>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-2">
                                                 <address>
                                                     <strong>Descripcion</strong>
                                                     <br>
@@ -186,7 +186,7 @@
                                                     <% } %>
                                                 </address>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-3">
                                                 <address>
                                                     <strong>Especificaciones</strong>
                                                     <table class="table table-hover table-striped" style="margin-bottom:0;">
@@ -201,40 +201,34 @@
                                                     </table>
                                                 </address>
                                             </div>
-                                        </fieldset>
-                                        
-                                        <hr class="hr-normal">
-                                        <fieldset>
-                                            <div class="col-sm-12 recent-activity">
-                                                <div class="box-header">
-                                                    <div class="title">
-                                                        <i class="icon-comment"></i>
-                                                        Puntaje
-                                                    </div>
-                                                </div>
+                                            <div class="col-sm-4">
                                                 <div class="col-sm-6">
                                                     <div class="progress">
                                                         <div class="progress-bar progress-bar-success" style="width:70%;">5 estrellas</div>
                                                     </div>
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-danger" style="width:20%;">4 estrellas</div>
+                                                        <div class="progress-bar progress-bar-primary" style="width:20%;">4 estrellas</div>
                                                     </div>
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-warning" style="width:10%;">3 estrellas</div>
+                                                        <div class="progress-bar progress-bar-info" style="width:10%;">3 estrellas</div>
                                                     </div>
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-info" style="width:40%;">2 estrellas</div>
+                                                        <div class="progress-bar progress-bar-warning" style="width:40%;">2 estrellas</div>
                                                     </div>
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary" style="width:40%;">1 estrella</div>
+                                                        <div class="progress-bar progress-bar-danger" style="width:40%;">1 estrella</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
+                                                    <div class="text-center">
+                                                        <strong>Puntaje Promedio</strong>
+                                                        <h1>4.5</h1>
+                                                    </div>
+                                                    <hr style="margin-bottom: 0px;">
                                                     <form>
-                                                        <input id="rating-input" type="number" data-container-class='text-right'/>
-                                                        <hr>
-                                                        <div class="form-group text-right">
-                                                        <button type="submit" class="btn btn-primary">Puntuar</button>
+                                                        <input id="rating-input" type="number" data-container-class='text-center'/>
+                                                        <div class="form-group text-right" style="margin-top: 5px;">
+                                                            <a class="btn btn-primary" id="btnPuntuar">Puntuar</a>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -346,7 +340,7 @@
                       min: 0,
                       max: 5,
                       step: 1,
-                      size: 'lg',
+                      size: 'xs',
                       showClear : false,
                       showCaption : false,
                    });

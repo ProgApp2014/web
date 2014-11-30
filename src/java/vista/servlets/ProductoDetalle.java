@@ -29,5 +29,29 @@ public class ProductoDetalle extends HttpServlet {
         }
         
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+
+            String nickname = request.getParameter("nickname");
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String email = request.getParameter("email");
+            String nombreCompania = request.getParameter("nombre_compania");
+            String linkSitio = request.getParameter("link_sitio");
+            String imagen = null;
+
+            
+
+            response.sendRedirect("home");
+        } catch (Exception ex) {
+            response.sendError(404);
+            System.out.println(ex.getMessage()+" "+ex.getStackTrace());
+            request.getRequestDispatcher("/WEB-INF/404.jsp").include(request, response);
+        }
+
+    }
 
 }
