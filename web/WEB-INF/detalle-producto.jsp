@@ -228,7 +228,7 @@
                                                     <form>
                                                         <input id="rating-input" type="number" data-container-class='text-center'/>
                                                         <div class="form-group text-right" style="margin-top: 5px;">
-                                                            <a class="btn btn-primary" id="btnPuntuar">Puntuar</a>
+                                                            <a class="btn btn-primary" id="puntuarLnk">Puntuar</a>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -337,17 +337,31 @@
         <script>
             jQuery(document).ready(function () {
                 $('#rating-input').rating({
-                      min: 0,
-                      max: 5,
-                      step: 1,
-                      size: 'xs',
-                      showClear : false,
-                      showCaption : false,
-                   });
-
-                $('#rating-input').on('rating.change', function() {
-                    alert($('#rating-input').val());
+                    min: 0,
+                    max: 5,
+                    step: 1,
+                    size: 'xs',
+                    showClear : false,
+                    showCaption : false,
                 });
+            });
+            
+            $("#puntuarLnk").click(function () {
+                if($('#rating-input').val() == 0){
+                    alert("Debe seleccionar un puntaje");
+                }else{
+                    var formData = {puntaje: $('#rating-input').val(), nroRef: $("#nroRef").val(), cliente: $("#cliente").val()}; //Array
+
+                    $.ajax({
+                        url: "detalle-producto",
+                        type: "POST",
+                        data: formData,
+                        success: function (result)
+                        {
+                            window.location.href = "/ProgWeb/detalle-producto?id="+$("#nroRef").val();
+                        }
+                    });
+                }
             });
         </script>
 

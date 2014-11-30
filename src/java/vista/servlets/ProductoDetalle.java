@@ -35,17 +35,11 @@ public class ProductoDetalle extends HttpServlet {
             throws ServletException, IOException {
         try {
 
-            String nickname = request.getParameter("nickname");
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String email = request.getParameter("email");
-            String nombreCompania = request.getParameter("nombre_compania");
-            String linkSitio = request.getParameter("link_sitio");
-            String imagen = null;
+            String cliente = request.getParameter("cliente");
+            String nroRef = request.getParameter("nroRef");
+            Integer puntaje = Integer.parseInt(request.getParameter("apellido"));
 
-            
-
-            response.sendRedirect("home");
+            ProxyProducto.getInstance().agregarPuntaje(cliente, nroRef, puntaje);
         } catch (Exception ex) {
             response.sendError(404);
             System.out.println(ex.getMessage()+" "+ex.getStackTrace());
