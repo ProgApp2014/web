@@ -252,7 +252,7 @@ public class ProxyProducto {
     
     public Boolean puedePuntuar(String nickname, String nroRef){
         return controlador.puedePuntuar(nickname, nroRef, idProductosControlador);
-    }
+    } 
     
     
 }

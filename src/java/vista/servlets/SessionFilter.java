@@ -34,13 +34,9 @@ public class SessionFilter implements Filter {
         String url = request.getServletPath();
         
         ArrayList<String> allUrls = new ArrayList<String>();
-        allUrls.add("/home");
-        allUrls.add("/registro-usuario");
-        allUrls.add("/registro-producto");
-        allUrls.add("/perfil");
-        allUrls.add("/detalle-producto");
-        allUrls.add("/buscador");
-        allUrls.add("/carrito");
+        allUrls.addAll(urlsLstVisitante);
+        allUrls.addAll(urlsLstProveedor);
+        allUrls.addAll(urlsLstCliente);
         if(allUrls.contains(url)){
             if(session.getAttribute("usuario_logueado") == null && !urlsLstVisitante.contains(url)){
                 RequestDispatcher dispatcher = request.getRequestDispatcher("home");
@@ -58,7 +54,7 @@ public class SessionFilter implements Filter {
         } 
         chain.doFilter(req, res);
     }
- 
+    
     public void init(FilterConfig config) throws ServletException {
         String urlsCliente = config.getInitParameter("cliente-urls");
         StringTokenizer tokenCliente = new StringTokenizer(urlsCliente, ",");
