@@ -8,6 +8,28 @@
 <message name="getIdResponse">
 <part name="return" type="xsd:int"></part>
 </message>
+<message name="listarProveedores">
+<part name="arg0" type="xsd:int"></part>
+</message>
+<message name="listarProveedoresResponse">
+<part name="return" type="tns:dataProveedorArray"></part>
+</message>
+<message name="listarClientes">
+<part name="arg0" type="xsd:int"></part>
+</message>
+<message name="listarClientesResponse">
+<part name="return" type="tns:dataClienteArray"></part>
+</message>
+<message name="elegirCliente">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="elegirClienteResponse"></message>
+<message name="elegirProveedor">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:int"></part>
+</message>
+<message name="elegirProveedorResponse"></message>
 <message name="login">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -16,10 +38,6 @@
 <message name="loginResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="guardarUsuario">
-<part name="arg0" type="xsd:int"></part>
-</message>
-<message name="guardarUsuarioResponse"></message>
 <message name="ingresarDatosCliente">
 <part name="arg0" type="tns:dataCliente"></part>
 <part name="arg1" type="xsd:int"></part>
@@ -36,17 +54,10 @@
 <message name="validarDatosUsuarioResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="listarClientes">
+<message name="guardarUsuario">
 <part name="arg0" type="xsd:int"></part>
 </message>
-<message name="listarClientesResponse">
-<part name="return" type="tns:dataClienteArray"></part>
-</message>
-<message name="elegirCliente">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="elegirClienteResponse"></message>
+<message name="guardarUsuarioResponse"></message>
 <message name="mostrarDatosCliente">
 <part name="arg0" type="xsd:int"></part>
 </message>
@@ -59,17 +70,6 @@
 <message name="listarOrdenesClienteResponse">
 <part name="return" type="tns:dataOrdenCompraArray"></part>
 </message>
-<message name="listarProveedores">
-<part name="arg0" type="xsd:int"></part>
-</message>
-<message name="listarProveedoresResponse">
-<part name="return" type="tns:dataProveedorArray"></part>
-</message>
-<message name="elegirProveedor">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="elegirProveedorResponse"></message>
 <message name="mostrarDatosProveedor">
 <part name="arg0" type="xsd:int"></part>
 </message>
@@ -119,13 +119,25 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdRequest" message="tns:getId"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/getIdResponse" message="tns:getIdResponse"></output>
 </operation>
+<operation name="listarProveedores">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarProveedoresRequest" message="tns:listarProveedores"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarProveedoresResponse" message="tns:listarProveedoresResponse"></output>
+</operation>
+<operation name="listarClientes">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesRequest" message="tns:listarClientes"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesResponse" message="tns:listarClientesResponse"></output>
+</operation>
+<operation name="elegirCliente" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteRequest" message="tns:elegirCliente"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteResponse" message="tns:elegirClienteResponse"></output>
+</operation>
+<operation name="elegirProveedor" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirProveedorRequest" message="tns:elegirProveedor"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirProveedorResponse" message="tns:elegirProveedorResponse"></output>
+</operation>
 <operation name="login" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginRequest" message="tns:login"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/loginResponse" message="tns:loginResponse"></output>
-</operation>
-<operation name="guardarUsuario">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioRequest" message="tns:guardarUsuario"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioResponse" message="tns:guardarUsuarioResponse"></output>
 </operation>
 <operation name="ingresarDatosCliente" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/ingresarDatosClienteRequest" message="tns:ingresarDatosCliente"></input>
@@ -139,13 +151,9 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/validarDatosUsuarioRequest" message="tns:validarDatosUsuario"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/validarDatosUsuarioResponse" message="tns:validarDatosUsuarioResponse"></output>
 </operation>
-<operation name="listarClientes">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesRequest" message="tns:listarClientes"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarClientesResponse" message="tns:listarClientesResponse"></output>
-</operation>
-<operation name="elegirCliente" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteRequest" message="tns:elegirCliente"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirClienteResponse" message="tns:elegirClienteResponse"></output>
+<operation name="guardarUsuario">
+<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioRequest" message="tns:guardarUsuario"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/guardarUsuarioResponse" message="tns:guardarUsuarioResponse"></output>
 </operation>
 <operation name="mostrarDatosCliente">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/mostrarDatosClienteRequest" message="tns:mostrarDatosCliente"></input>
@@ -154,14 +162,6 @@
 <operation name="listarOrdenesCliente">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarOrdenesClienteRequest" message="tns:listarOrdenesCliente"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarOrdenesClienteResponse" message="tns:listarOrdenesClienteResponse"></output>
-</operation>
-<operation name="listarProveedores">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarProveedoresRequest" message="tns:listarProveedores"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/listarProveedoresResponse" message="tns:listarProveedoresResponse"></output>
-</operation>
-<operation name="elegirProveedor" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirProveedorRequest" message="tns:elegirProveedor"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/elegirProveedorResponse" message="tns:elegirProveedorResponse"></output>
 </operation>
 <operation name="mostrarDatosProveedor">
 <input wsam:Action="http://Middleware.Controlador/ControladorUsuariosWS/mostrarDatosProveedorRequest" message="tns:mostrarDatosProveedor"></input>
@@ -207,7 +207,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="login">
+<operation name="listarProveedores">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -216,7 +216,34 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="guardarUsuario">
+<operation name="listarClientes">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="elegirCliente">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="elegirProveedor">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="login">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -252,16 +279,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="listarClientes">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="elegirCliente">
+<operation name="guardarUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -280,24 +298,6 @@
 </output>
 </operation>
 <operation name="listarOrdenesCliente">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="listarProveedores">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="elegirProveedor">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
