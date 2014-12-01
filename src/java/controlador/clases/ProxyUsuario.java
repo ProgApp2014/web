@@ -115,4 +115,12 @@ public class ProxyUsuario {
     public List<DataEspecificacionProducto> listarProductosProveedor() {
         return  controlador.listarProductosProveedor( idUsuariosControlador).getItem();
     }
+    
+    public void habilitarNotificaciones(String nickname) {
+          controlador.habilitarNotificaciones( nickname,idUsuariosControlador);
+    }
+    
+    public void deshabilitarNotificaciones(String nickname) {
+          controlador.deshabilitarNotificaciones( nickname,idUsuariosControlador);
+    }
 }

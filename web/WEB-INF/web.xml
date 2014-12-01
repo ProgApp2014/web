@@ -87,6 +87,10 @@
         <servlet-name>ValidarProducto</servlet-name>
         <servlet-class>vista.servlets.ValidarProducto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActDesNotificaciones</servlet-name>
+        <servlet-class>vista.servlets.ActDesNotificaciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -163,6 +167,10 @@
         <servlet-name>ValidarProducto</servlet-name>
         <url-pattern>/validar-producto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActDesNotificaciones</servlet-name>
+        <url-pattern>/act-des-notificaciones</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -179,7 +187,7 @@
         </init-param>
         <init-param>
             <param-name>cliente-urls</param-name>
-            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito,/agregar-comentario,/confirmar-orden</param-value>
+            <param-value>/home,/carrito,/perfil,/detalle-producto,/buscador,/agregar-carrito,/agregar-comentario,/confirmar-orden,/act-des-notificaciones</param-value>
         </init-param>
         <init-param>
             <param-name>proveedor-urls</param-name>

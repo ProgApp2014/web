@@ -35,8 +35,17 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="col-sm-12">        
-                                <h1>En construccion! :D</h1>
-                                            <h3>Listado de reclamos</h3>
+                                        <h1 class="pull-left">
+                                            <i class="icon-bullhorn"></i>
+                                            <span>Listado de reclamos</span>
+                                        </h1> 
+                                                            <%
+                                                                String nickname = usuario.getNickname();
+                                                                List<DataReclamo> lReclamos = ProxyProducto.getInstance().listarReclamos(nickname);
+
+                                                                if (lReclamos.size() > 0) {
+                                                                    for (DataReclamo rec : lReclamos) {
+                                                            %>                                
                                             <fieldset>
                                                 <div class="col-sm-12">
                                                     <table class="table table-hover table-striped" style="margin-bottom:0;">
@@ -50,20 +59,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <%
-                                                                String nickname = usuario.getNickname();
-                                                                List<DataReclamo> lReclamos = ProxyProducto.getInstance().listarReclamos(nickname);
 
-                                                                if (lReclamos.size() > 0) {
-                                                                    for (DataReclamo rec : lReclamos) {
-                                                            %>
                                                             <tr>
                                                                 <td><%= rec.getCliente().getNickname() %></td>
                                                                 <td><%= rec.getEspecificacionProducto().getNombre() %></td>                                                                
                                                                 <td><%= rec.getEspecificacionProducto().getNroReferencia() %> </td>
                                                                 <td><%= rec.getFecha() %></td>
                                                             </tr>
-                                                            <table class="table table-hover table-striped" style="margin-bottom:0;">
+                                                           <table class="table table-hover table-striped" style="margin-bottom:0;">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Reclamo</th>
@@ -79,7 +82,10 @@
                                                                 } 
                                                                 else { 
                                                             %>
-                                                                <p> No tienes reclamos ingresados sobre tus productos </p>                                                                
+                                                            <br/>
+                                                            <div class="alert alert-danger" role="alert">
+                                                                Actualmente no hay reclamos sobre tus productos.
+                                                            </div>                                                               
                                                                    <%} %>
                                                         </tbody>
                                                     </table>

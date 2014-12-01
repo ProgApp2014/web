@@ -129,3 +129,16 @@ function confirmarOrden(nroOrden){
         }
     });
 };
+
+$("#chkNotificaciones").click(function () {
+    var formData = {estado: $(this).is(":checked"), cliente: $("#cliente").val()}; //Array
+    $.ajax({
+        url: "act-des-notificaciones",
+        type: "POST",
+        data: formData,
+        success: function (result)
+        {
+            console.info("Todo ok");
+        }
+    });
+});

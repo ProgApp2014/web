@@ -100,6 +100,18 @@
                                                         <span><%= ((DataProveedor) usuario).getNombreCompania()%></span>
                                                         <% }%>
                                                         <br>
+                                                        <% if (!esProveedor) { %>
+                                                        <strong>Notificaciones</strong>
+                                                        <br>
+                                                        <span>Recibir notificaciones </span>
+                                                        <input type="checkbox" id="chkNotificaciones"/>
+                                                        <% if(((DataCliente)usuario).isRecibeNotificacion()){ %>
+                                                            <input type="hidden" id="cliente" checked value="<%= usuario.getNickname() %>"/>
+                                                        <%}else{%>
+                                                            <input type="hidden" id="cliente" value="<%= usuario.getNickname() %>"/>
+                                                        <%}%>
+                                                        <br>
+                                                        <% } %>
                                                     </address>
                                                 </div>
                                                 <div class="col-sm-6">
