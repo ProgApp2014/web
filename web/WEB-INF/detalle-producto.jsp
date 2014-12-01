@@ -206,31 +206,31 @@
                                                     <div class="row col-sm-3 clearfix">5 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-bar-success" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 5) %>%;"></div>
+                                                            <div class="progress-bar progress-bar-success" style="width:<%= ProxyProducto.getInstance().obtenerPromedioPorEstrella(producto.getNroReferencia(), 5) %>%;"></div>
                                                         </div>
                                                     </div>
                                                     <div class="row col-sm-3 clearfix">4 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-bar-primary" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 4) %>%;"></div>
+                                                            <div class="progress-bar progress-bar-primary" style="width:<%= ProxyProducto.getInstance().obtenerPromedioPorEstrella(producto.getNroReferencia(), 4) %>%;"></div>
                                                         </div>
                                                     </div>
                                                     <div class="row col-sm-3 clearfix">3 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-bar-info" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 3) %>%;"></div>
+                                                            <div class="progress-bar progress-bar-info" style="width:<%= ProxyProducto.getInstance().obtenerPromedioPorEstrella(producto.getNroReferencia(), 3) %>%;"></div>
                                                         </div>
                                                     </div>
                                                     <div class="row col-sm-3 clearfix">2 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-bar-warning" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 2) %>%;"></div>
+                                                            <div class="progress-bar progress-bar-warning" style="width:<%= ProxyProducto.getInstance().obtenerPromedioPorEstrella(producto.getNroReferencia(), 2) %>%;"></div>
                                                         </div>
                                                     </div>
                                                     <div class="row col-sm-3 clearfix">1 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
-                                                            <div class="progress-bar progress-bar-danger" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 1) %>%;"></div>
+                                                            <div class="progress-bar progress-bar-danger" style="width:<%= ProxyProducto.getInstance().obtenerPromedioPorEstrella(producto.getNroReferencia(), 1) %>%;"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -242,7 +242,7 @@
                                                         <small><%= producto.getPuntajes().size() %></small>
                                                     </div>
                                                     <%
-                                                        if (ProxyProducto.getInstance().puedePuntuar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                        if (esCliente && ProxyProducto.getInstance().puedePuntuar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
                                                     %>
                                                     <hr style="margin-bottom: 0px; margin-top: 10px;">
                                                     <form>
