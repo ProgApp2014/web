@@ -37,7 +37,7 @@ public class ProductoDetalle extends HttpServlet {
 
             String cliente = request.getParameter("cliente");
             String nroRef = request.getParameter("nroRef");
-            Integer puntaje = Integer.parseInt(request.getParameter("apellido"));
+            Integer puntaje = Integer.parseInt(request.getParameter("puntaje"));
 
             ProxyProducto.getInstance().agregarPuntaje(cliente, nroRef, puntaje);
         } catch (Exception ex) {

@@ -203,34 +203,55 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="col-sm-6">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" style="width:70%;">5 estrellas</div>
+                                                    <div class="row col-sm-3 clearfix">5 </div>
+                                                    <div class="row col-sm-12 clearfix">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 5) %>%;"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary" style="width:20%;">4 estrellas</div>
+                                                    <div class="row col-sm-3 clearfix">4 </div>
+                                                    <div class="row col-sm-12 clearfix">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-primary" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 4) %>%;"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-info" style="width:10%;">3 estrellas</div>
+                                                    <div class="row col-sm-3 clearfix">3 </div>
+                                                    <div class="row col-sm-12 clearfix">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 3) %>%;"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-warning" style="width:40%;">2 estrellas</div>
+                                                    <div class="row col-sm-3 clearfix">2 </div>
+                                                    <div class="row col-sm-12 clearfix">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 2) %>%;"></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-danger" style="width:40%;">1 estrella</div>
+                                                    <div class="row col-sm-3 clearfix">1 </div>
+                                                    <div class="row col-sm-12 clearfix">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-danger" style="width:<%= ProxyProducto.getInstance().obtenerPuntosPorEstrella(producto.getNroReferencia(), 1) %>%;"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="text-center">
                                                         <strong>Puntaje Promedio</strong>
-                                                        <h1>4.5</h1>
+                                                        <h3 style="margin-top: 10px;"><%= ProxyProducto.getInstance().obtenerPuntjePromedio(producto.getNroReferencia()) %></h3>
+                                                        <input id="rating-promedio" type="number" data-container-class='text-center' value="<%= ProxyProducto.getInstance().obtenerPuntjePromedio(producto.getNroReferencia()) %>"/>
+                                                        <small><%= producto.getPuntajes().size() %></small>
                                                     </div>
-                                                    <hr style="margin-bottom: 0px;">
+                                                    <%
+                                                        if (ProxyProducto.getInstance().puedePuntuar(session.getAttribute("nickname").toString(), producto.getNroReferencia())) {
+                                                    %>
+                                                    <hr style="margin-bottom: 0px; margin-top: 10px;">
                                                     <form>
                                                         <input id="rating-input" type="number" data-container-class='text-center'/>
                                                         <div class="form-group text-right" style="margin-top: 5px;">
                                                             <a class="btn btn-primary" id="puntuarLnk">Puntuar</a>
                                                         </div>
                                                     </form>
+                                                     <% }%>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -343,6 +364,15 @@
                     size: 'xs',
                     showClear : false,
                     showCaption : false,
+                });
+                $('#rating-promedio').rating({
+                    min: 0,
+                    max: 5,
+                    step: 1,
+                    size: 'xs',
+                    showClear : false,
+                    showCaption : false,
+                    readonly : true,
                 });
             });
             
