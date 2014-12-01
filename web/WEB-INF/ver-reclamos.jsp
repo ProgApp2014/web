@@ -69,8 +69,7 @@
                                                   <div class="icon-user"></div>
                                                 </div>
                                                 <div class="body">
-                                                  <div class="name"><a class="text-contrast" href="#"><%= rec.getCliente().getNickname() %></a></div>
-                                                  <div class="name">Producto: <%= rec.getEspecificacionProducto().getNombre() %> - <%= rec.getEspecificacionProducto().getNroReferencia() %></div>
+                                                    <div class="name"><a class="badge badge-info" href="detalle-producto?id=<%= rec.getEspecificacionProducto().getNroReferencia() %>">#<%= rec.getEspecificacionProducto().getNroReferencia() %> <%= rec.getEspecificacionProducto().getNombre() %></a> <a class="text-contrast" href="#"><%= rec.getCliente().getNickname() %></a></div>
                                                   <div class="text"><%= rec.getReclamo() %></div>
                                                 </div>
                                                 <div class="text-right">
