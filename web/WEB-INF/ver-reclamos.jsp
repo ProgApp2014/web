@@ -1,3 +1,4 @@
+<%@page import="controlador.clases.Utils"%>
 <%@page import="controlador.middleware.DataEspecificacionProducto"%>
 <%@page import="controlador.clases.ProxyUsuario"%>
 <%@page import="controlador.middleware.DataReclamo"%>
@@ -74,7 +75,7 @@
                                                 </div>
                                                 <div class="text-right">
                                                   <small class="date text-muted">
-                                                    <span class="timeago fade has-tooltip in" data-placement="top" title="<%= rec.getFecha() %>"><%= rec.getFecha() %></span>
+                                                    <span class="timeago fade has-tooltip in" data-placement="top" title="<%= Utils.getFechaNacFormateada(rec.getFecha()) %>"><%= Utils.getFechaNacFormateada(rec.getFecha()) %></span>
                                                     <i class="icon-time"></i>
                                                   </small>
                                                 </div>
