@@ -11,13 +11,11 @@
 <message name="getIdResponse">
 <part name="return" type="xsd:int"></part>
 </message>
-<message name="agregarPuntaje">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:int"></part>
-<part name="arg3" type="xsd:int"></part>
+<message name="ingresarDatosProductos">
+<part name="arg0" type="tns:dataEspecificacionProducto"></part>
+<part name="arg1" type="xsd:int"></part>
 </message>
-<message name="agregarPuntajeResponse"></message>
+<message name="ingresarDatosProductosResponse"></message>
 <message name="listarProveedores">
 <part name="arg0" type="xsd:int"></part>
 </message>
@@ -29,11 +27,6 @@
 <part name="arg1" type="xsd:int"></part>
 </message>
 <message name="elegirProveedorResponse"></message>
-<message name="ingresarDatosProductos">
-<part name="arg0" type="tns:dataEspecificacionProducto"></part>
-<part name="arg1" type="xsd:int"></part>
-</message>
-<message name="ingresarDatosProductosResponse"></message>
 <message name="elegirTipoProducto">
 <part name="arg0" type="xsd:int"></part>
 </message>
@@ -279,14 +272,21 @@
 <message name="obtenerPuntosPorEstrellaResponse">
 <part name="return" type="xsd:int"></part>
 </message>
+<message name="agregarPuntaje">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:int"></part>
+<part name="arg3" type="xsd:int"></part>
+</message>
+<message name="agregarPuntajeResponse"></message>
 <portType name="ControladorProductosWS">
 <operation name="getId">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/getIdRequest" message="tns:getId"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/getIdResponse" message="tns:getIdResponse"></output>
 </operation>
-<operation name="agregarPuntaje" parameterOrder="arg0 arg1 arg2 arg3">
-<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarPuntajeRequest" message="tns:agregarPuntaje"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarPuntajeResponse" message="tns:agregarPuntajeResponse"></output>
+<operation name="ingresarDatosProductos" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/ingresarDatosProductosRequest" message="tns:ingresarDatosProductos"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/ingresarDatosProductosResponse" message="tns:ingresarDatosProductosResponse"></output>
 </operation>
 <operation name="listarProveedores">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/listarProveedoresRequest" message="tns:listarProveedores"></input>
@@ -295,10 +295,6 @@
 <operation name="elegirProveedor" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirProveedorRequest" message="tns:elegirProveedor"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirProveedorResponse" message="tns:elegirProveedorResponse"></output>
-</operation>
-<operation name="ingresarDatosProductos" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/ingresarDatosProductosRequest" message="tns:ingresarDatosProductos"></input>
-<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/ingresarDatosProductosResponse" message="tns:ingresarDatosProductosResponse"></output>
 </operation>
 <operation name="elegirTipoProducto">
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/elegirTipoProductoRequest" message="tns:elegirTipoProducto"></input>
@@ -460,6 +456,10 @@
 <input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/obtenerPuntosPorEstrellaRequest" message="tns:obtenerPuntosPorEstrella"></input>
 <output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/obtenerPuntosPorEstrellaResponse" message="tns:obtenerPuntosPorEstrellaResponse"></output>
 </operation>
+<operation name="agregarPuntaje" parameterOrder="arg0 arg1 arg2 arg3">
+<input wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarPuntajeRequest" message="tns:agregarPuntaje"></input>
+<output wsam:Action="http://Middleware.Controlador/ControladorProductosWS/agregarPuntajeResponse" message="tns:agregarPuntajeResponse"></output>
+</operation>
 </portType>
 <binding name="ControladorProductosWSPortBinding" type="tns:ControladorProductosWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
@@ -472,7 +472,7 @@
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
 </output>
 </operation>
-<operation name="agregarPuntaje">
+<operation name="ingresarDatosProductos">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -491,15 +491,6 @@
 </output>
 </operation>
 <operation name="elegirProveedor">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
-</output>
-</operation>
-<operation name="ingresarDatosProductos">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
@@ -860,6 +851,15 @@
 </output>
 </operation>
 <operation name="obtenerPuntosPorEstrella">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>
+</output>
+</operation>
+<operation name="agregarPuntaje">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Middleware.Controlador/"></soap:body>

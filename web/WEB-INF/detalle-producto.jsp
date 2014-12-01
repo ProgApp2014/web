@@ -113,7 +113,7 @@
                                 <div class="box">
                                     <div class="box-content box-double-padding">
                                         <fieldset>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
                                                 <div class="col-sm-5">
                                                     <div style="width: 140px; height: 140px;">
                                                         <div class="carousel slide" id="myCarousel">
@@ -162,7 +162,7 @@
                                                             </div>
                                                             <button class="btn btn-primary btn-block btn-lg" type="button" id="btnAgregar">
                                                                 <i class="icon-plus"></i>
-                                                                Agregar al carrito
+                                                                Agregar
                                                             </button>
                                                         </div>
                                                     </div>
@@ -186,7 +186,7 @@
                                                     <% } %>
                                                 </address>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                                 <address>
                                                     <strong>Especificaciones</strong>
                                                     <table class="table table-hover table-striped" style="margin-bottom:0;">
@@ -201,8 +201,8 @@
                                                     </table>
                                                 </address>
                                             </div>
-                                            <div class="col-sm-4">
-                                                <div class="col-sm-6">
+                                            <div class="col-sm-3">
+                                                <div class="col-sm-7">
                                                     <div class="row col-sm-3 clearfix">5 </div>
                                                     <div class="row col-sm-12 clearfix">
                                                         <div class="progress">
@@ -234,7 +234,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-5">
                                                     <div class="text-center">
                                                         <strong>Puntaje Promedio</strong>
                                                         <h3 style="margin-top: 10px;"><%= ProxyProducto.getInstance().obtenerPuntjePromedio(producto.getNroReferencia()) %></h3>
